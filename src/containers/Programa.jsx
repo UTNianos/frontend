@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from 'actions';
+import * as actions from '../actions/index';
 import Loader from 'react-loader';
 
 const mapStateToProps = function (state) {
