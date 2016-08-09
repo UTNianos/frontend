@@ -28,8 +28,7 @@ export function requestCarreras() {
 
 
 function httpGetAsync(theUrl, callback)
-{
-  
+{ 
   var xmlHttp = new XMLHttpRequest();
   
   xmlHttp.onreadystatechange = function() {
@@ -38,6 +37,5 @@ function httpGetAsync(theUrl, callback)
   }
   
   xmlHttp.open("GET", theUrl, true); // true for asynchronous
-  xmlHttp.send(null);
-  
+  xmlHttp.send(null);  
 }

@@ -8,20 +8,20 @@ const mapStateToProps = function (state) {
 };
 
 class Programa extends React.Component {
+  
   render() {
-    const {
-      fetchCarreras
-    } = this.props;
-
+	  
+    const { fetchCarreras } = this.props;
+    
     return (
-      <div>
-        <button onClick={fetchCarreras}></button>
-        <h1>Hola Mundo</h1>
+      <div>       		
+        <h1>Bienvenido a la nueva plataforma de UTNianos</h1>
+		<h2> /Kick gonza</h2>
+		<button onClick={fetchCarreras}>Obtener carreras</button>
       </div>
     );
+	
   }
-}
-
+};
 
 export default connect(mapStateToProps, actions)(Programa);
-
