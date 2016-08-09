@@ -4,7 +4,6 @@
 export const REQUEST_CARRERAS = 'REQUEST_CARRERAS';
 export const RECEIVE_CARRERAS = 'RECEIVE_CARRERAS';
 
-
 export function fetchCarreras() {
   return (dispatch, getState) => {
     dispatch(requestCarreras());
@@ -30,11 +29,15 @@ export function requestCarreras() {
 
 function httpGetAsync(theUrl, callback)
 {
+  
   var xmlHttp = new XMLHttpRequest();
+  
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
       callback(JSON.parse(xmlHttp.responseText));
   }
+  
   xmlHttp.open("GET", theUrl, true); // true for asynchronous
   xmlHttp.send(null);
+  
 }

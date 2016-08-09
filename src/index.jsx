@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from 'containers/Programa';
-import storeCreator from './storeCreator';
+import storeCreator from './store/configureStore';
 import { Router, Route, browserHistory } from 'react-router';
 
 const store = storeCreator();

@@ -1,24 +1,8 @@
-/**
- * Created by javier on 6/19/16.
- */
-import {
+import 
+{
   RECEIVE_CARRERAS,
   REQUEST_CARRERAS
-} from './actions';
-
-const initialProgramaState = {
-  plan: {},
-  materias: {},
-  correlativas: {}
-};
-
-export function programa(state = initialProgramaState, action) {
-
-  // For now, don’t handle any actions
-  // and just return the state given to us.
-  return state
-}
-
+} from '../actions';
 
 const initialAcademicaState = {
   ready: true,
@@ -37,3 +21,5 @@ export function academica(state = initialAcademicaState, action) {
       return state;
   }
 }
+
+export default academica;
