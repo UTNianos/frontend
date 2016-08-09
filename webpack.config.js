@@ -54,7 +54,7 @@ var config = {
     proxy: [{
       path: new RegExp('/api/(.*)'),
       rewrite: rewriteUrl('/$1'),
-      target: 'http://localhost:8000/'
+      target: 'http://homestead.app/'
     }]
   }
 };
