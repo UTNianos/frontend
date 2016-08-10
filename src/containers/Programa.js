@@ -16,8 +16,7 @@ class Programa extends React.Component {
     return (
       <div>       		
         <h1>Bienvenido a la nueva plataforma de UTNianos</h1>
-		<h2> /Kick gonza</h2>
-		<button onClick={fetchCarreras}>Obtener carreras</button>
+		<button onClick={fetchCarreras}>/kick gonza</button>
       </div>
     );
 	
