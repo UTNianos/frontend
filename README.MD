@@ -11,7 +11,7 @@ webpack --progress
 ### Iniciar un servidor en la carpeta donde esta el JS.
 
 Cualquier servidor de archivos estáticos funciona, por ejemplo 
-http.server de python o npm.
+http.server de python o npm start de node.
  
 ```sh
 cd build
@@ -25,4 +25,4 @@ http://localhost:8000/
 cd build
 npm start
 http://localhost:3000/
-```
+```´

@@ -36,3 +36,8 @@ li a:hover:not(.active) {
   margin-top: 72px;
   text-align: center;
 }
+
+.footer
+{
+  margin-top:25%;
+}
