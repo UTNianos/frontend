@@ -1,16 +1,40 @@
 /**
  * Created by javier on 6/19/16.
  */
+import fetch from 'isomorphic-fetch';
+
 export const REQUEST_CARRERAS = 'REQUEST_CARRERAS';
 export const RECEIVE_CARRERAS = 'RECEIVE_CARRERAS';
 
-export function fetchCarreras() {
-  return (dispatch, getState) => {
-    dispatch(requestCarreras());
-    httpGetAsync('api/carreras/',(data) => {
-      dispatch(receiveCarreras(data));
-    });
-  };
+const API_ROOT = "http://www.api.com/api/"
+
+export function fetchCarreras()
+{
+  return fetchData("carreras", requestCarreras, receiveCarreras);
+}
+
+export function fetchData(endpoint, request, receive) {
+  
+  return function (dispatch) {
+	
+    dispatch(request());
+    
+	const fullURL = API_ROOT + endpoint;
+	
+	return fetch(fullURL)
+    .then(response => response.json().then(json => ({ json, response })))
+	.then(({ json, response }) => 
+	{
+      if (!response.ok) 
+	  {	
+        return Promise.reject(json);
+      }
+      
+	  return dispatch(receive(json));	   
+    })
+	  
+  }
+  
 }
 
 export function receiveCarreras(data) {
@@ -24,18 +48,4 @@ export function requestCarreras() {
   return {
     type: REQUEST_CARRERAS
   }
-}
-
-
-function httpGetAsync(theUrl, callback)
-{ 
-  var xmlHttp = new XMLHttpRequest();
-  
-  xmlHttp.onreadystatechange = function() {
-    if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-      callback(JSON.parse(xmlHttp.responseText));
-  }
-  
-  xmlHttp.open("GET", theUrl, true); // true for asynchronous
-  xmlHttp.send(null);  
 }

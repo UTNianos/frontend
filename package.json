@@ -17,6 +17,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.13.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "15.0.1",
     "react-css-modules": "^3.7.6",
