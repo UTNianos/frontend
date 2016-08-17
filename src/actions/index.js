@@ -16,23 +16,23 @@ export function fetchCarreras()
 export function fetchData(endpoint, request, receive) {
   
   return function (dispatch) {
-	
+    
     dispatch(request());
     
-	const fullURL = API_ROOT + endpoint;
-	
-	return fetch(fullURL)
+    const fullURL = API_ROOT + endpoint;
+    
+    return fetch(fullURL)
     .then(response => response.json().then(json => ({ json, response })))
-	.then(({ json, response }) => 
-	{
+    .then(({ json, response }) => 
+    {
       if (!response.ok) 
-	  {	
+      {
         return Promise.reject(json);
       }
       
-	  return dispatch(receive(json));	   
+      return dispatch(receive(json));   
     })
-	  
+    
   }
   
 }

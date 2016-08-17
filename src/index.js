@@ -4,18 +4,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from 'components/App';
-
-// Home
-import Home from 'containers/Main';
-
-// 404
-import NotFound from 'components/Errors/NotFound';
-
-//Seguidor
-import Seguidor from 'components/Seguidor';
-
 import storeCreator from './store/configureStore';
+
+// Componentes de la aplicación.
+import App from 'components/App';
+import Home from 'containers/Main';
+import NotFound from 'components/Errors/NotFound';
+import Seguidor from 'components/Seguidor';
 
 const store = storeCreator();
 
