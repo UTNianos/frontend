@@ -8,7 +8,7 @@ export const RECEIVE_CARRERAS = 'RECEIVE_CARRERAS';
 
 const API_ROOT = "http://www.api.com/api/"
 
-export function fetchCarreras()
+export default function fetchCarreras()
 {
   return fetchData("carreras", requestCarreras, receiveCarreras);
 }
