@@ -12,6 +12,8 @@ import Home from 'containers/Main';
 import NotFound from 'components/Errors/NotFound';
 import Seguidor from 'components/Seguidor';
 
+import fetchCarreras from './actions/index';
+
 const store = storeCreator();
 
 class Root extends React.Component {
@@ -32,5 +34,8 @@ class Root extends React.Component {
     );
   }
 }
+
+// Despachar fetching inicial de datos.
+store.dispatch(fetchCarreras())
 
 ReactDOM.render(<Root />, document.getElementById('app'));
