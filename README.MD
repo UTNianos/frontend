@@ -1,6 +1,6 @@
 # Frontend UTNianos
 
-Codigo del Frontend de la nueva plataforma de UTNianos.
+Codigo del Frontend de la nueva plataforma de UTNianos. 
 
 ## Instalar prerequisitos
 
@@ -40,5 +40,5 @@ http://localhost:3000/
 
 ## Instalar Redux DevTools extension (opcional).
 
-Ir a https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
-Añadir a las extensiones (chrome)
+Añadir a las extensiones en [Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+ó [Mozilla](https://addons.mozilla.org/es/firefox/addon/remotedev/) .
