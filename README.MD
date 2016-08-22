@@ -1,8 +1,19 @@
 # Frontend UTNianos
 
+Codigo del Frontend de la nueva plataforma de UTNianos.
+
+## Instalar prerequisitos
+
+### Instalar node y npm
+
+```sh
+<manejador de paquetes> + <comando para instalar> nodejs npm
+```
+
 ## Arrancar el repositorio
 
 ### Instalar las dependencias y compilar el repositorio.
+
 ```sh
 npm install
 webpack --progress
@@ -26,3 +37,8 @@ cd build
 npm start
 http://localhost:3000/
 ```
+
+## Instalar Redux DevTools extension (opcional).
+
+Ir a https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+Añadir a las extensiones (chrome)
