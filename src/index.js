@@ -36,6 +36,6 @@ class Root extends React.Component {
 }
 
 // Despachar fetching inicial de datos.
-store.dispatch(fetchCarreras())
+store.dispatch(fetchCarreras());
 
 ReactDOM.render(<Root />, document.getElementById('app'));
