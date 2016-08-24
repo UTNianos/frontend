@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var cssnano = require('cssnano');
 
 var rewriteUrl = function (replacePath) {
   return function (req, opt) {  // gets called with request and proxy object
@@ -42,6 +43,7 @@ var config = {
         loaders: [
           'style',
           'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'postcss',
           'sass'
         ]
       },
@@ -56,7 +58,20 @@ var config = {
       rewrite: rewriteUrl('/$1'),
       target: 'http://homestead.app/'
     }]
-  }
+  },
+  postcss: [
+    cssnano({
+      autoprefixer: {
+        add: true,
+        remove: true,
+        browsers: ['last 2 versions']
+      },
+      safe: true,
+      discardComments: {
+        removeAll: true
+      }
+    })
+  ]
 };
 
 module.exports = config;
