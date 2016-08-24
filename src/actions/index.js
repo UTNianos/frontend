@@ -6,7 +6,7 @@ import fetch from 'isomorphic-fetch';
 export const REQUEST_CARRERAS = 'REQUEST_CARRERAS';
 export const RECEIVE_CARRERAS = 'RECEIVE_CARRERAS';
 
-const API_ROOT = "http://www.api.com/api/"
+const API_ROOT = "/api/";
 
 export default function fetchCarreras()
 {
