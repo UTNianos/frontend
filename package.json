@@ -1,7 +1,7 @@
 {
   "name": "utnianos-frontend",
   "version": "0.0.1",
-  "description": "## Correr el repositorio",
+  "description": "Plataforma de UTNianos",
   "main": "index.js",
   "devDependencies": {
     "babel-core": "^6.7.6",
