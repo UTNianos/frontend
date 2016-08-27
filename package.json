@@ -22,10 +22,15 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "babel-core": "^6.14.0",
     "babel-polyfill": "^6.13.0",
+    "css-loader": "^0.23.1",
+    "css-modules-require-hook": "^4.0.2",
     "cssnano": "^3.7.4",
     "file-loader": "^0.9.0",
     "isomorphic-fetch": "^2.2.1",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.10.1",
     "react": "15.0.1",
     "react-css-modules": "^3.7.10",
     "react-dom": "15.0.1",
@@ -33,7 +38,8 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
     "redux": "^3.4.0",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "sass-loader": "^4.0.0"
   },
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --progress --host 0.0.0.0 --port 3000 --inline --hot",
@@ -43,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UTNianos/frontend.git"
+    "url": "https://github.com/UTNianos/frontend.git"
   },
   "author": "",
   "license": "ISC",
