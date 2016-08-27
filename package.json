@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.13.0",
+    "cssnano": "^3.7.4",
+    "file-loader": "^0.9.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "15.0.1",
     "react-css-modules": "^3.7.10",
