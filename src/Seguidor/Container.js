@@ -12,9 +12,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const Seguidor = connect(
+const SeguidorContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Seguidor)
 
-export default Seguidor;
+export default SeguidorContainer;
