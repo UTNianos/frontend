@@ -1,17 +1,16 @@
-import 
-{
+import {
   RECEIVE_CARRERAS,
   REQUEST_CARRERAS
-} from '../actions';
+} from '../Seguidor/actions';
 
-const initialAcademicaState = {
+const initialState = {
   ready: true,
   fetching: false,
   carreras: {},
   planes: {}
 };
 
-export function academica(state = initialAcademicaState, action) {
+export function academica(state = initialState, action) {
   switch (action.type) {
     case REQUEST_CARRERAS:
       return {...state, ready:false, fetching:true};

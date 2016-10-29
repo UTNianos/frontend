@@ -27,7 +27,7 @@ var config = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: './index.html'
+      template: './templates/index.html'
     }),
     new webpack.DefinePlugin({__IS_BROWSER__ : true })
   ],
