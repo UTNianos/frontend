@@ -12,6 +12,7 @@ var rewriteUrl = function (replacePath) {
 };
 
 var config = {
+  devtool: 'cheap-module-source-map',
   entry: {
     app: './src/index'
   },
