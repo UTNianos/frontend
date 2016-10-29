@@ -9,7 +9,7 @@ import storeCreator from './store/configureStore';
 import App from './App/App';
 import Home from './App/Home'; // Home
 import NotFound from './Errors/NotFound'; // 404
-import Seguidor from './Seguidor/Seguidor';
+import Seguidor from './Seguidor/Container';
 
 const store = storeCreator();
 
