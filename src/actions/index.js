@@ -1,6 +1,3 @@
-/**
- * Created by javier on 6/19/16.
- */
 import fetch from 'isomorphic-fetch';
 
 export const REQUEST_CARRERAS = 'REQUEST_CARRERAS';

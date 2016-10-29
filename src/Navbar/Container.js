@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Navbar from '../components/navbar';
+import Navbar from './Navbar';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -9,15 +9,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
-      dispatch(requestUserStatus(""))
-    }
   }
 }
 
-const NavbarUTNianos = connect(
+const NavbarContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Navbar)
 
-export default NavbarUTNianos;
+export default NavbarContainer;

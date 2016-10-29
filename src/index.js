@@ -6,13 +6,10 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import storeCreator from './store/configureStore';
 
-// Componentes de la aplicación.
-import App from 'components/App';
-import Home from 'containers/Main';
-import NotFound from 'components/Errors/NotFound';
-import Seguidor from 'components/Seguidor';
-
-import fetchCarreras from './actions/index';
+import App from './App/App';
+import Home from './App/Home'; // Home
+import NotFound from './Errors/NotFound'; // 404
+import Seguidor from './Seguidor/Seguidor';
 
 const store = storeCreator();
 
@@ -34,8 +31,5 @@ class Root extends React.Component {
     );
   }
 }
-
-// Despachar fetching inicial de datos.
-store.dispatch(fetchCarreras());
 
 ReactDOM.render(<Root />, document.getElementById('app'));
