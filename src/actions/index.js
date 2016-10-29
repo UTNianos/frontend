@@ -5,47 +5,26 @@ import fetch from 'isomorphic-fetch';
 
 export const REQUEST_CARRERAS = 'REQUEST_CARRERAS';
 export const RECEIVE_CARRERAS = 'RECEIVE_CARRERAS';
-
-const API_ROOT = "/api/";
+export const RECEIVE_CARRERAS_FAILURE = 'RECEIVE_CARRERAS_FAILURE';
 
 export default function fetchCarreras()
 {
-  return fetchData("carreras", requestCarreras, receiveCarreras);
-}
 
-export function fetchData(endpoint, request, receive) {
-  
-  return function (dispatch) {
-    
-    dispatch(request());
-    
-    const fullURL = API_ROOT + endpoint;
-    
-    return fetch(fullURL)
-    .then(response => response.json().then(json => ({ json, response })))
-    .then(({ json, response }) => 
-    {
-      if (!response.ok) 
-      {
-        return Promise.reject(json);
-      }
-      
-      return dispatch(receive(json));   
-    })
-    
-  }
-  
-}
+  const _endpoint = "carreras";
 
-export function receiveCarreras(data) {
   return {
-    type: RECEIVE_CARRERAS,
-    data
-  }
-}
 
-export function requestCarreras() {
-  return {
-    type: REQUEST_CARRERAS
+	// Types of actions to emit before and after
+  types: [REQUEST_CARRERAS, RECEIVE_CARRERAS, RECEIVE_CARRERAS_FAILURE],
+
+	// Check the cache (optional):
+  shouldCallAPI: (state) => true,
+
+	endpoint: _endpoint,
+
+	callHeaders:  { mode: 'cors', cache: 'default' },
+
+	// Arguments to inject in begin/end actions
+    payload: null
   }
 }

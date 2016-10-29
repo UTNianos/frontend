@@ -19,18 +19,18 @@ const store = storeCreator();
 class Root extends React.Component {
   render() {
     return (
-      <div>
-        <Provider store={store}>
-          <Router history={browserHistory} >
-            <Route path="/" component={App}>
-			   <IndexRoute component={Home} />
-			    <Route path="/seguidor" component={Seguidor} />
-			    <Route path="/*" component={NotFound} />	
-			</Route>
-			<Route path="*" component={NotFound} />
-          </Router>
-        </Provider>
-      </div>	  
+    <div>
+      <Provider store={store}>
+        <Router history={browserHistory} >
+          <Route path="/" component={App}>
+			      <IndexRoute component={Home} />
+			      <Route path="/seguidor" component={Seguidor} />
+			      <Route path="/*" component={NotFound} />
+			    </Route>
+			    <Route path="*" component={NotFound} />
+        </Router>
+      </Provider>
+    </div>
     );
   }
 }
