@@ -1,0 +1,26 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+   "rules": {
+     "react/prop-types": 0,
+     "comma-dangle": [2, "never"],
+     "import/no-unresolved": 0,
+     "react/prefer-stateless-function": 0,
+     "radix": 0,
+     "no-case-declarations": 0
+   },
+   "env": {
+     "es6": true,
+     "browser": true
+   },
+   "ecmaFeatures": {
+     "experimentalObjectRestSpread": true
+   },
+   "globals": {
+     "__IS_BROWSER__": true,
+     "it": true,
+     "describe": true,
+     "afterEach": true,
+     "beforeEach": true
+   }
+}
