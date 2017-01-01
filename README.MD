@@ -9,13 +9,18 @@ Codigo del Frontend de la nueva plataforma de UTNianos.
 ```sh
 <manejador de paquetes> + <comando para instalar> nodejs npm
 ```
+### Instalar yarn
+
+```sh
+npm install -g yarn
+```
 
 ## Arrancar el repositorio
 
 ### Instalar las dependencias y compilar el repositorio.
 
 ```sh
-npm install
+yarn
 webpack --progress
 ```
 
