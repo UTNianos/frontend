@@ -46,10 +46,11 @@ var config = {
 	  mangle: {
 		except: ['$', 'webpackJsonp'],
 		screw_ie8 : true,
-		keep_fnames: true
+		keep_fnames: false
 	  }
 	}),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+	new webpack.optimize.OccurrenceOrderPlugin()
   ],
   module: {
     loaders: [
