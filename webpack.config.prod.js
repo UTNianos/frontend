@@ -30,7 +30,26 @@ var config = {
       inject: true,
       template: './templates/index.html'
     }),
-    new webpack.DefinePlugin({__IS_BROWSER__ : true })
+    new webpack.DefinePlugin({__IS_BROWSER__ : true }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+	  beautify: false,
+	  comments: false,
+	  compress: {
+		warnings: false,
+		drop_console: true
+	  },
+	  mangle: {
+		except: ['$', 'webpackJsonp'],
+		screw_ie8 : true,
+		keep_fnames: true
+	  }
+	}),
+    new webpack.optimize.DedupePlugin()
   ],
   module: {
     loaders: [
