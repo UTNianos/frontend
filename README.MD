@@ -21,7 +21,17 @@ npm install -g yarn
 
 ```sh
 yarn
+```
+
+Para generar el build de desarrollo.
+
+```sh
 webpack --progress
+```
+Para generar el build de producción.
+
+```sh
+webpack --config webpack.config.prod.js
 ```
 
 ### Iniciar un servidor en la carpeta donde esta el JS.
