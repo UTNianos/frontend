@@ -12,7 +12,7 @@ var rewriteUrl = function (replacePath) {
 };
 
 var config = {
-  devtool: 'eval',
+  devtool: 'cheap-module-source-map',
   entry: {
     app: './src/index'
   },
@@ -30,7 +30,27 @@ var config = {
       inject: true,
       template: './templates/index.html'
     }),
-    new webpack.DefinePlugin({__IS_BROWSER__ : true })
+    new webpack.DefinePlugin({__IS_BROWSER__ : true }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+	  beautify: false,
+	  comments: false,
+	  compress: {
+		warnings: false,
+		drop_console: true
+	  },
+	  mangle: {
+		except: ['$', 'webpackJsonp'],
+		screw_ie8 : true,
+		keep_fnames: false
+	  }
+	}),
+    new webpack.optimize.DedupePlugin(),
+	new webpack.optimize.OccurrenceOrderPlugin()
   ],
   module: {
     loaders: [
