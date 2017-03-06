@@ -41,8 +41,8 @@
     "react-router": "^2.4.1",
 	"redux": "^3.5.2",
 	"redux-thunk": "^2.1.0",
-	"reselect": "^2.5.4"
-    "sass-loader": "^4.0.0"	
+	"reselect": "^2.5.4",
+    "sass-loader": "^4.0.0",
 	"material-ui": "^0.17.0",
 	"react-tap-event-plugin": "^2.0.1"	
   },
@@ -60,7 +60,7 @@
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"
   },
-  "author": "",
+  "author": "UTNianos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/UTNianos/frontend/issues"
