@@ -1,16 +1,20 @@
 import React from 'react';
-import Footer from './Footer';
-import Navbar from '../Navbar/Container';
 import cssModules from 'react-css-modules';
-import styles from './Footer.scss';
+import Navbar from '../Toolbar/NavbarContainer';
+import Footer from './Footer';
 import Styles from './Base.scss';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const App = ({children}) => (
-  <div styleName="App">
-	  <Navbar />
-	  {children}
-	  <Footer />
+  <MuiThemeProvider>
+	<div styleName="App">
+      <Navbar />
+      <div styleName="MainApp" >
+        {children}
+      </div>
+      <Footer />
 	</div>
+  </ MuiThemeProvider>
 );
 
-export default cssModules(App, styles, { allowMultiple: true });
+export default cssModules(App, Styles, { allowMultiple: true });

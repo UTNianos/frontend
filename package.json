@@ -39,9 +39,12 @@
     "react-loader": "^2.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
-    "redux": "^3.4.0",
-    "redux-thunk": "^2.0.1",
-    "sass-loader": "^4.0.0"
+	"redux": "^3.5.2",
+	"redux-thunk": "^2.1.0",
+	"reselect": "^2.5.4"
+    "sass-loader": "^4.0.0"	
+	"material-ui": "^0.17.0",
+	"react-tap-event-plugin": "^2.0.1"	
   },
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --progress --host 0.0.0.0 --port 3000 --inline --hot",

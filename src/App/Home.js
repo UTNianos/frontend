@@ -1,8 +1,9 @@
 import React from 'react';
+import Seguidor from '../Seguidor/Container';
 
 const Home = () => (
-  <div>
-    <h1>Bienvenido a la nueva plataforma de UTNianos</h1>
+  <div className="main-body">
+    <Seguidor />
   </div>
 );
 
