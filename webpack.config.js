@@ -18,7 +18,7 @@ var config = {
   },
   output: {
     filename: '[name].[hash].js',
-    path: path.resolve('static'),
+    path: path.resolve('build'),
     publicPath: '/'
   },
   resolve: {
