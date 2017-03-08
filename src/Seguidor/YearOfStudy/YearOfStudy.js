@@ -1,6 +1,4 @@
 import React from 'react';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 import Subject from '../Subject/Subject';
 import Styles from './YearOfStudy.scss';
 import cssModules from 'react-css-modules';

@@ -1,6 +1,4 @@
 ﻿import React from 'react';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import MenuItem from 'material-ui/MenuItem';
 import Styles from './Subject.scss';
 import cssModules from 'react-css-modules';
 
@@ -29,6 +27,13 @@ function getValueStatus(value)
    return status;
 }
 
+const subjectValues = [
+{"number": 1, "name": "Pendiente"},
+{"number": 2, "name": "Cursando"},
+{"number": 3, "name": "Firmada"},
+{"number": 4, "name": "Aprobada"}
+];
+
 class Subject extends React.Component {
 
   constructor(props) {
@@ -51,23 +56,36 @@ class Subject extends React.Component {
    
    const cursadaClass = this.props.cursada ? " Enabled" : " Disabled";
    const cssClass = "Subject " + getValueStatus(this.state.value) + cursadaClass;
-      
+   
+   if(!this.props.cursada)
+   {
+	 return (
+     <div styleName={cssClass}>
+     
+     <div>{this.props.name}</div>
+	
+     <select disabled>
+	    <option value={0}>Pendiente</option>	
+	 </select>	 		
+	
+   </div>
+   );
+	   
+   }
+   
    return (
    <div styleName={cssClass}>
      
-	 <div>{this.props.name}</div>
-		
-	 <DropDownMenu 
-		value={this.state.value} 
-		disabled={!this.props.cursada}
-	    onChange={this.handleChange}
-	 >
-		<MenuItem value={1} primaryText="Pendiente" />
-		<MenuItem value={2} primaryText="Cursando" />
-		<MenuItem value={3} primaryText="Firmada" />
-		<MenuItem value={4} primaryText="Aprobada" />
-	 </DropDownMenu>
-	 
+    <div>{this.props.name}</div>
+	
+	<select onChange={this.handleChange}>
+	{subjectValues.map((sValue, i) =>
+	  <option value={sValue.id} selected={sValue.id == this.state.value? "selected": ""}>
+		{sValue.name}
+	  </option>	
+	)}
+	</select>	 		
+	
    </div>
    );
    
