@@ -8,6 +8,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './App/App'; // Main application.
 import Home from './App/Home'; // Home
 import NotFound from './Errors/NotFound'; // 404
+import Seguidor from './Seguidor/Container';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -26,7 +27,8 @@ class Root extends React.Component {
      <Provider store={store}>
        <Router history={browserHistory} >
          <Route path="/" component={App}>
-           <IndexRoute component={Home} />                      
+           <IndexRoute component={Home} />        
+		   <Route path="/seguidor" component={Seguidor} />		   
            <Route path="*" component={NotFound} />
          </Route>
        </Router>

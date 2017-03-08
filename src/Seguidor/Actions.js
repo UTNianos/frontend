@@ -16,7 +16,7 @@ export const UPDATE_ESTADO_FAILURE = 'UPDATE_ESTADO_FAILURE';
 
 export function loadEstado(){
   
-  const _endpoint = 'static/data/estados.json';
+  const _endpoint = 'data/estados.json';
   
   return {
       types: [REQUEST_ESTADO, RECEIVE_ESTADO, REQUEST_ESTADO_FAILURE],
@@ -29,7 +29,7 @@ export function loadEstado(){
 
 export function loadMaterias() {
 
-  const _endpoint = 'static/data/materias.json';
+  const _endpoint = 'data/materias.json';
 
   return {
     types: [REQUEST_MATERIAS, RECEIVE_MATERIAS, RECEIVE_MATERIAS_FAILURE],
@@ -42,7 +42,7 @@ export function loadMaterias() {
 
 export function loadCorrelativas(){
   
-  const _endpoint = 'static/data/correlativas.json';
+  const _endpoint = 'data/correlativas.json';
 
   return {
     types: [REQUEST_CORRELATIVAS, RECEIVE_CORRELATIVAS, RECEIVE_CORRELATIVAS_FAILURE],
