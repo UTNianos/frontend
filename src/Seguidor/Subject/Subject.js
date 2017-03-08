@@ -48,7 +48,8 @@ class Subject extends React.Component {
 	  this.updateStatusFn(materiaStatus);
   }
   
-  handleChange = (event, index, value) => {	  
+  handleChange = (event) => {	  
+      const value = event.target.value;  
 	  this.setState({value}, this.updateMateria);
   };
 
@@ -69,8 +70,7 @@ class Subject extends React.Component {
 	 </select>	 		
 	
    </div>
-   );
-	   
+   );	   
    }
    
    return (
@@ -78,11 +78,9 @@ class Subject extends React.Component {
      
     <div>{this.props.name}</div>
 	
-	<select onChange={this.handleChange}>
+	<select value={this.state.value} onChange={this.handleChange}>
 	{subjectValues.map((sValue, i) =>
-	  <option value={sValue.id} selected={sValue.id == this.state.value? "selected": ""}>
-		{sValue.name}
-	  </option>	
+	  <option value={sValue.number} key={i}>{sValue.name}</option>	
 	)}
 	</select>	 		
 	

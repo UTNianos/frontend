@@ -50,7 +50,6 @@ export function seguidor(state = initialState, action) {
   
   case UPDATE_ESTADO_OK:
     const _estados = getNuevoEstadoArray(action.data, state.estados);
-	console.log("UPDATE ESTADO OK");
     return {...state, estados: _estados};
   
   default:
