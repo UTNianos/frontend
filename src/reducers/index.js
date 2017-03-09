@@ -1,13 +1,6 @@
-/**
- * Created by rulo on 9/08/16.
- */
 import { combineReducers } from 'redux';
-import academica from './academicaReducer';
 import programa from './programaReducer';
 
-const rootReducer = combineReducers({
-  academica,
-  programa
-});
+const rootReducer = combineReducers({programa});
 
 export default rootReducer;
