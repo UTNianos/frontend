@@ -51,7 +51,8 @@
     "lint": "eslint",
     "lint-all": "eslint src/ test/",
     "lint-all-ci": "eslint -f checkstyle src/ test/ > eslint.xml",
-    "check-deps": "npm-check --skip-unused; exit 0;"
+    "check-deps": "npm-check --skip-unused; exit 0;",
+	"clean": "exit 0;"
   },
   "repository": {
     "type": "git",
