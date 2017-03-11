@@ -52,12 +52,16 @@
     "start": "webpack-dev-server --history-api-fallback --progress --host 0.0.0.0 --port 3000 --inline --hot --content-base build/",
     "build": "webpack --progress --colors -d",
     "build-prod": "webpack --progress --display-modules -p --display-reasons",
-    "test": "jest",
+    "test": "jest && codecov",
     "lint": "eslint",
     "lint-all": "eslint src/ test/",
     "lint-all-ci": "eslint -f checkstyle src/ test/ > eslint.xml",
     "check-deps": "npm-check --skip-unused; exit 0;",
     "clean": "exit 0;"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   },
   "repository": {
     "type": "git",
