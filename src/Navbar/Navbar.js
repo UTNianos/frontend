@@ -1,10 +1,15 @@
 import React, { PropTypes } from 'react'
+import {Link} from 'react-router';
 
 const Navbar = () => {
 
   return (
 	<ul>
-	  <li><a className="active" href="#">UTNianos</a></li>
+	  <li>
+	  <Link to="/">		
+		UTNianos
+	   </Link>
+	  </li>
 	</ul>
   )
 }
