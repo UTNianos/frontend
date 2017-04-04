@@ -16,6 +16,7 @@ const getCorrelativas = state => state.seguidor.correlativas
 const ESTADO_FIRMA = 3;
 const ESTADO_APROBACION = 4;
 
+
 /* 
  * @name: validarReq
  * @desc: Valida un conjunto de requerimientos contra un conjunto de estados. 
@@ -45,18 +46,25 @@ function validarReq(requerimientos, estados, estado)
 	return _valido;
 }
 
-// TODO: Por ahora solo evalúa si puede cursar la materia _NO_ si puede dar final.
-// materia: materia cuyo estado se desea conocer.
-// correlativas: correlativas de esa materia.
-// aprobadas: materias aprobadas hasta el momento.
-function getEstadoMateria(_correlativas, estados){	
-      
-   if(_correlativas.length == 0)
-	  return { cursada: true, final: true};
+
+/* 
+ * @name: getEstadoMateria
+ * @desc: Obtiene el estado de una materia (si se puede cursar o dar final).
+ * @param materia: materia cuyo estado se desea conocer.
+ * @param correlativas: correlativas de esa materia.
+ * @param aprobadas: materias aprobadas hasta el momento.
+*/
+function getEstadoMateria(_correlativas, estados) 
+{	
    
+   if(_correlativas.length == 0)
+       return { cursada: true, final: true};
+   
+   // Requisitos para cursar.
    const c_cursadas = _correlativas["rCC"];
    const c_finales  = _correlativas["rFC"];
 
+   // Requisitos para dar final.
    const f_cursadas = _correlativas["rCF"];   
    const f_finales  = _correlativas["rFF"];     
    
@@ -69,6 +77,7 @@ function getEstadoMateria(_correlativas, estados){
    return { cursada: puedeCursar, final: puededarFinal };   
 }
 
+// Obtiene las materias con estado.
 const getMateriasEstado = createSelector(
   [ getMaterias, getEstados, getCorrelativas ],
   (materias, estados, correlativas) => {
@@ -78,7 +87,7 @@ const getMateriasEstado = createSelector(
 		let estadoMateria = 1; // Por defecto, la materia esta pendiente.
 		
 		if(_materiaEstado.length > 0)
-			estadoMateria = _materiaEstado[0].status
+          estadoMateria = _materiaEstado[0].status
 		
 		let _correlativas = correlativas.filter(c => c.m == materia.id);
 				
@@ -89,11 +98,12 @@ const getMateriasEstado = createSelector(
 	     
 		materia.status = (estado.cursada == false ? 1 : estadoMateria);
 		materia.cursada = estado.cursada;
-		materia.final = estado.final;		
+		materia.final = estado.final;
+		
 	  }
-	  	  
+	    	  
 	  return materias;	 
-   }    
+   }
 );
 
 export default getMateriasEstado;
