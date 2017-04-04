@@ -54,11 +54,6 @@ var config = {
     ]
   },
   devServer: {
-    proxy: [{
-      path: new RegExp('/api/(.*)'),
-      rewrite: rewriteUrl('/$1'),
-      target: 'http://homestead.app/'
-    }]
   },
   postcss: [
     cssnano({
