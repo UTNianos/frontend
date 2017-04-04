@@ -10,13 +10,7 @@ import Home from './App/Home'; // Home
 import NotFound from './Errors/NotFound'; // 404
 import Seguidor from './Seguidor/Container';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
 const store = storeCreator();
-
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
 
 class Root extends React.Component {
 
