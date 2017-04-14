@@ -17,11 +17,11 @@
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
-    "html-webpack-plugin": "^2.16.1",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
     "babel-core": "^6.14.0",
@@ -39,12 +39,13 @@
     "react-loader": "^2.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
-    "redux": "^3.4.0",
-    "redux-thunk": "^2.0.1",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4",
     "sass-loader": "^4.0.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback --progress --host 0.0.0.0 --port 3000 --inline --hot",
+    "start": "webpack-dev-server --history-api-fallback --progress --host 0.0.0.0 --port 3000 --inline --hot --content-base build/",
     "build": "webpack --progress --colors -d",
     "build-prod": "webpack --progress --display-modules -p --display-reasons",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -57,7 +58,7 @@
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"
   },
-  "author": "",
+  "author": "UTNianos",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/UTNianos/frontend/issues"
