@@ -2,8 +2,7 @@
 
 Codigo del Frontend de la nueva plataforma de UTNianos. 
 
-[![Build Status](https://travis-ci.org/UTNianos/frontend.svg?branch=continuous-integration)] 
-(https://travis-ci.org/UTNianos/frontend)
+[![Build Status](https://travis-ci.org/UTNianos/frontend.svg?branch=continuous-integration)](https://travis-ci.org/UTNianos/frontend)
 
 [![codecov](https://codecov.io/gh/UTNianos/frontend/branch/continuous-integration/graph/badge.svg)](https://codecov.io/gh/UTNianos/frontend)
 
