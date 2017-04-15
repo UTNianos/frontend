@@ -1,12 +1,12 @@
 import React from 'react';
 import Seguidor from '../Seguidor/Container';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 const Home = () => (
   <div className="main-body">
     <Link to="/seguidor">
-		<p>Seguidor de carrera</p>
-	</Link>
+      <p>Seguidor de carrera</p>
+    </Link>
   </div>
 );
 
