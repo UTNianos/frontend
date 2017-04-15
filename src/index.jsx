@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import storeCreator from './store/configureStore';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // Route components.
 import App from './App/App'; // Main application.

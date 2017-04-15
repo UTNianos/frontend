@@ -1,19 +1,14 @@
-export default function sendContent(_endpoint, _types, content) {
+export default function sendContent(endpoint, types, content) {
   const headers = { method: 'post', mode: 'cors', cache: 'default', body: content };
 
   return {
-
-	// Types of actions to emit before and after
-    types: _types,
-
-	// Check the cache (optional):
-    shouldCallAPI: state => true,
-
-    endpoint: _endpoint,
-
+    // Types of actions to emit before and after
+    types,
+    // Check the cache (optional):
+    shouldCallAPI: () => true,
+    endpoint,
     callHeaders: headers,
-
-	// Arguments to inject in begin/end actions
+    // Arguments to inject in begin/end actions
     payload: null
   };
 }
@@ -21,6 +16,6 @@ export default function sendContent(_endpoint, _types, content) {
 // Authentication is required to perform this action.
 export function authenticationRequired() {
   return {
-    type: AUTHENTICATION_REQUIRED
+    // type: AUTHENTICATION_REQUIRED
   };
 }

@@ -15,36 +15,36 @@ export const UPDATE_ESTADO_OK = 'UPDATE_ESTADO_OK';
 export const UPDATE_ESTADO_FAILURE = 'UPDATE_ESTADO_FAILURE';
 
 export function loadEstado() {
-  const _endpoint = 'data/estados.json';
+  const endpoint = 'data/estados.json';
 
   return {
     types: [REQUEST_ESTADO, RECEIVE_ESTADO, REQUEST_ESTADO_FAILURE],
-    shouldCallAPI: state => true,
-	  endpoint: _endpoint,
-	  callHeaders: { mode: 'cors', cache: 'default' },
+    shouldCallAPI: () => true,
+    endpoint,
+    callHeaders: { mode: 'cors', cache: 'default' },
     payload: null
   };
 }
 
 export function loadMaterias() {
-  const _endpoint = 'data/materias.json';
+  const endpoint = 'data/materias.json';
 
   return {
     types: [REQUEST_MATERIAS, RECEIVE_MATERIAS, RECEIVE_MATERIAS_FAILURE],
-    shouldCallAPI: state => true,
-    endpoint: _endpoint,
+    shouldCallAPI: () => true,
+    endpoint,
     callHeaders: { mode: 'cors', cache: 'default' },
     payload: null
   };
 }
 
 export function loadCorrelativas() {
-  const _endpoint = 'data/correlativas.json';
+  const endpoint = 'data/correlativas.json';
 
   return {
     types: [REQUEST_CORRELATIVAS, RECEIVE_CORRELATIVAS, RECEIVE_CORRELATIVAS_FAILURE],
-    shouldCallAPI: state => true,
-    endpoint: _endpoint,
+    shouldCallAPI: () => true,
+    endpoint,
     callHeaders: { mode: 'cors', cache: 'default' },
     payload: null
   };
@@ -54,13 +54,13 @@ export function loadCorrelativas() {
 export function updateEstadoMateria(estadoMateria) {
   return { data: estadoMateria, type: UPDATE_ESTADO_OK };
 
- /* const _endpoint = '<utnianosURL>/materias/update';
-
-  return {
-    types: [UPDATE_ESTADO, UPDATE_ESTADO_OK, UPDATE_ESTADO_FAILURE],
-    shouldCallAPI: (state) => true,
-	endpoint: _endpoint,
-	callHeaders: { mode: 'cors', cache: 'default' },
-    payload: null
-  }*/
+  // const endpoint = '<utnianosURL>/materias/update';
+  //
+  // return {
+  //   types: [UPDATE_ESTADO, UPDATE_ESTADO_OK, UPDATE_ESTADO_FAILURE],
+  //   shouldCallAPI: () => true,
+  //   endpoint,
+  //   callHeaders: { mode: 'cors', cache: 'default' },
+  //   payload: null
+  // };
 }
