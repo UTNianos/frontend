@@ -4,8 +4,8 @@ exports[`renders correctly 1`] = `
 <ul>
   <li>
     <a
-      className="active"
-      href="#"
+      onClick={[Function]}
+      style={Object {}}
     >
       UTNianos
     </a>
