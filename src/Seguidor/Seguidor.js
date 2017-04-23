@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import FetchingIndicator from '../Fetching/FetchingIndicator';
 import Styles from './Seguidor.scss';
 import cssModules from 'react-css-modules';

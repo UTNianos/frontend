@@ -1,6 +1,6 @@
 import React from 'react';
 import Seguidor from '../Seguidor/Container';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="main-body">
