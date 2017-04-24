@@ -15,10 +15,8 @@ import Seguidor from './Seguidor/Container';
 const store = storeCreator();
 const browserHistory = createBrowserHistory();
 
-class Root extends React.Component {
-
-  render() {
-    return (
+const Root = () => {	
+	return(
 	<div>
 	 <Provider store={store}>
 	   <Router history={browserHistory}>
@@ -30,8 +28,7 @@ class Root extends React.Component {
 	   </Router>
      </Provider>
     </div>
-    );
-  }
+	);
 }
 
 ReactDOM.render(<Root />, document.getElementById('root'));
