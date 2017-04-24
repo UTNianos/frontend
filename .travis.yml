@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+node_js:
+  - "6"
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install -g yarn
+  - npm install -g codecov
+  - yarn install
+
+script:
+  - npm rebuild node-sass
+  - npm run build
+  - npm run build-prod
+  - npm test
+ 
+after_success:
+  - npm run lint-all

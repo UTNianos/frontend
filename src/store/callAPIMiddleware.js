@@ -1,53 +1,51 @@
-import 'isomorphic-fetch'
+import 'isomorphic-fetch';
 
-const API_ROOT = window.location.protocol + "//" + window.location.host;
+const API_ROOT = `${window.location.protocol}//${window.location.host}`;
 
 function callAPIMiddleware({ dispatch, getState }) {
-
-  return next => action => {
-
+  return next => (action) => {
     const {
       types,
-	    endpoint,
-	    callHeaders,
+      endpoint,
+      callHeaders,
       shouldCallAPI = () => true,
       payload = {}
-    } = action
+    } = action;
 
-    if (!types)
-	  {
-      return next(action)
+    if (!types) {
+      return next(action);
     }
 
     if (
       !Array.isArray(types) ||
-      types.length !== 3 ||
-      !types.every(type => typeof type === 'string')
-    )
-	  {
-      throw new Error('Expected an array of three string types.')
+      types.length !== 3 || !types.every(type => typeof type === 'string')
+    ) {
+      throw new Error('Expected an array of three string types.');
     }
 
     if (!shouldCallAPI(getState())) {
-      return
+      return;
     }
 
-    const [ requestType, successType, failureType ] = types
+    const [requestType, successType, failureType] = types;
 
-	  dispatch({type: requestType })
+    dispatch({ type: requestType });
 
-    let FULL_URL = "";
+    let FULL_URL = '';
 
-    if(endpoint.endsWith(".json"))
-      FULL_URL = API_ROOT + "/" + endpoint;
-    else
-      FULL_URL = API_ROOT + "/api/" + endpoint;
-    
+    if (endpoint.endsWith('.json')) {
+      FULL_URL = `${API_ROOT}/${endpoint}`;
+    } else {
+      FULL_URL = `${API_ROOT}/api/${endpoint}`;
+    }
+
     return fetch(FULL_URL, callHeaders).then(
-	  response => response.json().then(function(json){dispatch({ data: json, type: successType })}),
-      error => dispatch({type: failureType })
-	)
-  }
+      response => response.json().then((json) => {
+        dispatch({ data: json, type: successType });
+      }),
+      error => dispatch({ type: failureType })
+    );
+  };
 }
 
 export default callAPIMiddleware;

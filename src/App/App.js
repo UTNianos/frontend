@@ -4,11 +4,11 @@ import Navbar from '../Navbar/Container';
 import Footer from './Footer';
 import Styles from './Base.scss';
 
-const App = ({children}) => (
- <div styleName="App">
+const App = ({ children }) => (
+  <div styleName="App">
     <Navbar />
     <div styleName="MainApp" >
-        {children}
+      {children}
     </div>
     <Footer />
   </div>
