@@ -25,8 +25,9 @@ class Seguidor extends Component {
     if (error) { return <p>Hubo un error recuperando las materias</p>; }
 
     return (
-      <div>
-        <h1 styleName="SeguidorHeading">Materias</h1>
+    <div>
+        
+      <h1 styleName="SeguidorHeading">Materias</h1>
 
         <div styleName="YearsVisualizer">
           {studyYears.map((year, i) =>
@@ -36,10 +37,10 @@ class Seguidor extends Component {
               year={year}
               updateEstado={this.props.updateEstado}
             />
-	)}
+		   )}
         </div>
-
-      </div>
+		
+    </div>
     );
   }
 }

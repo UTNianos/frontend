@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute} from 'react-router';
-import createBrowserHistory from 'history/createBrowserHistory'
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 import storeCreator from './store/configureStore';
 
 // Route components.
 import App from './App/App'; // Main application.
 import Home from './App/Home'; // Home
-import NotFound from './Errors/NotFound'; // 404
+//import NotFound from './Errors/NotFound'; // 404
 import Seguidor from './Seguidor/Container';
 
 // Create store and browser history.

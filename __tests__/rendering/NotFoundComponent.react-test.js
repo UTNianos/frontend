@@ -1,12 +1,11 @@
 'use strict';
 
 import React from 'react';
-import Fetching from '../src/Fetching/FetchingIndicator';
+import NotFound from '../../src/Errors/NotFound';
 import renderer from 'react-test-renderer';
  
 it('renders correctly', () => {
-  const tree = renderer.create(<Fetching />).toJSON();
+  const tree = renderer.create(<NotFound />).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
 
