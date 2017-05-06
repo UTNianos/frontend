@@ -20,7 +20,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "html-webpack-plugin": "^2.28.0",
-    "jest": "^19.0.2",
+    "jest": "^20.0.0",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
@@ -64,7 +64,7 @@
   },
   "jest": {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
+    "collectCoverage": true,    
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
       "ts",
@@ -72,7 +72,7 @@
       "js",
       "json"
     ]
-  },
+  },  
   "repository": {
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"
