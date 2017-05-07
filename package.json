@@ -64,7 +64,7 @@
   },
   "jest": {
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true,    
+    "collectCoverage": true,
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
       "ts",
@@ -72,7 +72,7 @@
       "js",
       "json"
     ]
-  },  
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"

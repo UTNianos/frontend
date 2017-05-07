@@ -1,17 +1,17 @@
 export function getNuevoEstadoArray(materia, estados) {
-  const indexMateria = estados.findIndex(estado => estado.id == materia.id);
+  const indexMateria = estados.findIndex(estado => estado.id === materia.id);
 
-  let _estados = [];
+  let estadosNuevos = [];
 
-   // La materia no esta en el array.
-  if (indexMateria == -1) {
-	  _estados = estados.concat(materia);
+  // La materia no esta en el array.
+  if (indexMateria === -1) {
+    estadosNuevos = estados.concat(materia);
   } else {
-	 _estados = estados.slice();
-	 _estados[indexMateria].status = materia.status;
+    estadosNuevos = estados.slice();
+    estadosNuevos[indexMateria].status = materia.status;
   }
 
-  return _estados;
+  return estadosNuevos;
 }
 
 function flattenSubjects(studyYears) {
@@ -20,10 +20,10 @@ function flattenSubjects(studyYears) {
   for (const subjectYear of studyYears) {
     const year = subjectYear.a;
 
-    for (const _subject of subjectYear.v)	{
+    for (const subjectElement of subjectYear.v) {
       const subject = {
-        id: _subject.v,
-        name: _subject.t,
+        id: subjectElement.v,
+        name: subjectElement.t,
         status: 1,
         year,
         cursada: false,

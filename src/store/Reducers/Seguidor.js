@@ -9,9 +9,7 @@ import
   REQUEST_ESTADO,
   RECEIVE_ESTADO,
   REQUEST_ESTADO_FAILURE,
-  UPDATE_ESTADO,
-  UPDATE_ESTADO_OK,
-  UPDATE_ESTADO_FAILURE
+  UPDATE_ESTADO_OK
 } from '../../Seguidor/Actions';
 
 import flattenSubjects, { getNuevoEstadoArray } from './MapSubjects';
@@ -49,8 +47,8 @@ export function seguidor(state = initialState, action) {
       return { ...state, isFetching: false, error: true };
 
     case UPDATE_ESTADO_OK:
-      const _estados = getNuevoEstadoArray(action.data, state.estados);
-      return { ...state, estados: _estados };
+      const estadosNuevos = getNuevoEstadoArray(action.data, state.estados);
+      return { ...state, estados: estadosNuevos };
 
     default:
       return state;

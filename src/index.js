@@ -8,7 +8,6 @@ import storeCreator from './store/configureStore';
 // Route components.
 import App from './App/App'; // Main application.
 import Home from './App/Home'; // Home
-//import NotFound from './Errors/NotFound'; // 404
 import Seguidor from './Seguidor/Container';
 
 // Create store and browser history.
@@ -18,8 +17,8 @@ const browserHistory = createBrowserHistory();
 const Root = () => {	
 	return(
 	<div>
-	 <Provider store={store}>
-	   <Router history={browserHistory}>
+	  <Provider store={store}>
+       <Router history={browserHistory}>
          <div>
            <Route path="/" component={App}/>
 		   <Route exact path="/" component={Home}/>
