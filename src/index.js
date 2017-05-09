@@ -14,20 +14,18 @@ import Seguidor from './Seguidor/Container';
 const store = storeCreator();
 const browserHistory = createBrowserHistory();
 
-const Root = () => {	
-	return(
-	<div>
-	  <Provider store={store}>
-       <Router history={browserHistory}>
-         <div>
-           <Route path="/" component={App}/>
-		   <Route exact path="/" component={Home}/>
-		   <Route exact path="/seguidor" component={Seguidor}/>
-		 </div>
-	   </Router>
-     </Provider>
-    </div>
-	);
-}
+const Root = () => (
+  <div>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <div>
+          <Route path="/" component={App} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/seguidor" component={Seguidor} />
+        </div>
+      </Router>
+    </Provider>
+  </div>
+	)
 
 ReactDOM.render(<Root />, document.getElementById('root'));
