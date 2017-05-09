@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Navbar from './Navbar';
 
-const mapStateToProps = (state, ownProps) => ({ userLoggedIn: false });
-const mapDispatchToProps = (dispatch, ownProps) => ({});
+const mapStateToProps = () => ({ userLoggedIn: false });
+const mapDispatchToProps = () => ({});
 
 const NavbarContainer = connect(
   mapStateToProps,
