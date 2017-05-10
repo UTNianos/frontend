@@ -22,7 +22,7 @@ const initialState = {
   error: false
 };
 
-export function seguidor(state = initialState, action) {
+function seguidor(state = initialState, action) {
   switch (action.type) {
 
     case REQUEST_MATERIAS:
