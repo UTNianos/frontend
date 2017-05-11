@@ -40,7 +40,7 @@ function validarReq(requerimientos, estados, estado) {
       break;
     }
   }
-  
+
   return valido;
 }
 
@@ -70,7 +70,7 @@ function getEstadoMateria(correlativas, estados) {
 
   const puededarFinal = validarReq(Fcursadas, estados, ESTADO_FIRMA) &&
     validarReq(Ffinales, estados, ESTADO_APROBACION);
-  
+
   return { cursada: puedeCursar, final: puededarFinal }
 }
 
@@ -84,11 +84,12 @@ const getMateriasEstado = createSelector(
 
       if (materiaEstados.length > 0) { estadoMateria = materiaEstados[0].status }
 
-      let Fcorrelativas = correlativas.filter(c => c.m === parseInt(materia.id));
+      const materiaId = parseInt(materia.id, 10);
+      let Fcorrelativas = correlativas.filter(c => c.m === materiaId);
 
       if (Fcorrelativas.length > 0) { Fcorrelativas = Fcorrelativas[0].d }
 
-      const estado = getEstadoMateria(Fcorrelativas, estados);	  
+      const estado = getEstadoMateria(Fcorrelativas, estados);
       materia.status = (estado.cursada === true ? estadoMateria : 1)
       materia.cursada = estado.cursada;
       materia.final = estado.final;
