@@ -24,13 +24,16 @@ const ESTADO_APROBACION = 4
  * @param estado: el estado que se quiere que tengan los requerimientos (aprobada/firmada).
  */
 function validarReq(requerimientos, estados, estado) {
-  let valido = true
 
   // No hay requisitos, la condición es verdadera.
-  if (!requerimientos || requerimientos.length === 0) { return true }
+  if (!requerimientos || requerimientos.length === 0) {
+    return true;
+  }
+
+  let valido = true;
 
   for (const req of requerimientos) {
-    const result = estados.filter(e => e.id === req && e.status >= estado)
+    const result = estados.filter(e => e.id === req && e.status >= estado);
 
     if (result.length === 0) {
       valido = false;
@@ -38,7 +41,7 @@ function validarReq(requerimientos, estados, estado) {
     }
   }
 
-  return valido
+  return valido;
 }
 
 /*
@@ -46,10 +49,13 @@ function validarReq(requerimientos, estados, estado) {
  * @desc: Obtiene el estado de una materia (si se puede cursar o dar final).
  * @param materia: materia cuyo estado se desea conocer.
  * @param correlativas: correlativas de esa materia.
- * @param aprobadas: materias aprobadas hasta el momento.
+ * @param estados: estado de las materias hasta el momento.
  */
 function getEstadoMateria(correlativas, estados) {
-  if (correlativas.length === 0) { return { cursada: true, final: true } }
+
+  if (correlativas.length === 0) {
+    return { cursada: true, final: true };
+  }
 
   // Requisitos para cursar.
   const cCursadas = correlativas.rCC
@@ -60,10 +66,10 @@ function getEstadoMateria(correlativas, estados) {
   const Ffinales = correlativas.rFF
 
   const puedeCursar = validarReq(cCursadas, estados, ESTADO_FIRMA) &&
-    validarReq(cFinales, estados, ESTADO_APROBACION)
+    validarReq(cFinales, estados, ESTADO_APROBACION);
 
   const puededarFinal = validarReq(Fcursadas, estados, ESTADO_FIRMA) &&
-    validarReq(Ffinales, estados, ESTADO_APROBACION)
+    validarReq(Ffinales, estados, ESTADO_APROBACION);
 
   return { cursada: puedeCursar, final: puededarFinal }
 }
@@ -73,24 +79,24 @@ const getMateriasEstado = createSelector(
   [getMaterias, getEstados, getCorrelativas],
   (materias, estados, correlativas) => {
     for (const materia of materias) {
-      const materiaEstados = estados.filter(c => c.id === materia.id)
+      const materiaEstados = estados.filter(c => c.id === materia.id);
       let estadoMateria = 1 // Por defecto, la materia esta pendiente.
 
       if (materiaEstados.length > 0) { estadoMateria = materiaEstados[0].status }
 
-      let Fcorrelativas = correlativas.filter(c => c.m === materia.id)
+      let Fcorrelativas = correlativas.filter(c => c.m === materia.id);
 
       if (Fcorrelativas.length > 0) { Fcorrelativas = Fcorrelativas[0].d }
 
-      const estado = getEstadoMateria(Fcorrelativas, estados)
+      const estado = getEstadoMateria(Fcorrelativas, estados);
 
       materia.status = (estado.cursada === false ? 1 : estadoMateria)
-      materia.cursada = estado.cursada
-      materia.final = estado.final
+      materia.cursada = estado.cursada;
+      materia.final = estado.final;
     }
 
-    return materias
+    return materias;
   }
 )
 
-export default getMateriasEstado
+export default getMateriasEstado;

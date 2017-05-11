@@ -4,9 +4,12 @@
    "rules": {
      "no-extra-semi": 0,
 	 "react/jsx-filename-extension": 0,
+	 "jsx-a11y/img-has-alt": 0,
+	 "img-has-alt": 0,
 	 "no-case-declarations": 0,
 	 "comma-dangle": 0,
-	 "semi": 0
+	 "padded-blocks": 0,
+	 "semi": 0	 
    },
    "env": {
      "es6": true,
