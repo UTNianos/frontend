@@ -1,8 +1,8 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
-const getMaterias = state => state.seguidor.materias
-const getEstados = state => state.seguidor.estados
-const getCorrelativas = state => state.seguidor.correlativas
+const getMaterias = state => state.seguidor.materias;
+const getEstados = state => state.seguidor.estados;
+const getCorrelativas = state => state.seguidor.correlativas;
 
 /*
  *   Estados:
@@ -30,7 +30,7 @@ function validarReq(requerimientos, estados, estado) {
     return true;
   }
 
-  let valido = true;
+  let valido = false;
 
   for (const req of requerimientos) {
     const result = estados.filter(e => e.id === req && e.status >= estado);
@@ -40,7 +40,7 @@ function validarReq(requerimientos, estados, estado) {
       break;
     }
   }
-
+  
   return valido;
 }
 
@@ -70,7 +70,7 @@ function getEstadoMateria(correlativas, estados) {
 
   const puededarFinal = validarReq(Fcursadas, estados, ESTADO_FIRMA) &&
     validarReq(Ffinales, estados, ESTADO_APROBACION);
-
+  
   return { cursada: puedeCursar, final: puededarFinal }
 }
 
@@ -84,13 +84,12 @@ const getMateriasEstado = createSelector(
 
       if (materiaEstados.length > 0) { estadoMateria = materiaEstados[0].status }
 
-      let Fcorrelativas = correlativas.filter(c => c.m === materia.id);
+      let Fcorrelativas = correlativas.filter(c => c.m === parseInt(materia.id));
 
       if (Fcorrelativas.length > 0) { Fcorrelativas = Fcorrelativas[0].d }
 
-      const estado = getEstadoMateria(Fcorrelativas, estados);
-
-      materia.status = (estado.cursada === false ? 1 : estadoMateria)
+      const estado = getEstadoMateria(Fcorrelativas, estados);	  
+      materia.status = (estado.cursada === true ? estadoMateria : 1)
       materia.cursada = estado.cursada;
       materia.final = estado.final;
     }
