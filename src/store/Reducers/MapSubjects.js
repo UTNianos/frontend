@@ -14,27 +14,25 @@ export function getNuevoEstadoArray(materia, estados) {
   return estadosNuevos;
 }
 
+function mapMateria(subjectElement, year) {
+  return {
+    id: subjectElement.v,
+    name: subjectElement.t,
+    status: 1,
+    year,
+    cursada: false,
+    final: false
+  };
+}
+
 function flattenSubjects(studyYears) {
-  const subjects = [];
 
-  for (const subjectYear of studyYears) {
-    const year = subjectYear.a;
+  const flattened = studyYears.reduce((prevYear, currYear) =>
+    prevYear.concat(currYear.v.reduce((prev, curr) =>
+      prev.concat(mapMateria(curr, currYear.a)), [])
+    ), []);
 
-    for (const subjectElement of subjectYear.v) {
-      const subject = {
-        id: subjectElement.v,
-        name: subjectElement.t,
-        status: 1,
-        year,
-        cursada: false,
-        final: false
-      };
-
-      subjects.push(subject);
-    }
-  }
-
-  return subjects;
+  return flattened;
 }
 
 export default flattenSubjects;
