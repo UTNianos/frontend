@@ -33,7 +33,8 @@ function validarReq(requerimientos, estados, estado) {
   let valido = false;
 
   for (const req of requerimientos) {
-    const result = estados.filter(e => e.id === req && e.status >= estado);
+    const result = estados.filter(e => parseInt(e.id,10) === req && 
+	                              e.status >= estado);
 
     if (result.length === 0) {
       valido = false;
@@ -46,8 +47,7 @@ function validarReq(requerimientos, estados, estado) {
 
 /*
  * @name: getEstadoMateria
- * @desc: Obtiene el estado de una materia (si se puede cursar o dar final).
- * @param materia: materia cuyo estado se desea conocer.
+ * @desc: obtiene el estado de una materia (si se puede cursar y/o dar final).
  * @param correlativas: correlativas de esa materia.
  * @param estados: estado de las materias hasta el momento.
  */
@@ -79,18 +79,37 @@ const getMateriasEstado = createSelector(
   [getMaterias, getEstados, getCorrelativas],
   (materias, estados, correlativas) => {
     for (const materia of materias) {
+	
       const materiaEstados = estados.filter(c => c.id === materia.id);
       let estadoMateria = 1 // Por defecto, la materia esta pendiente.
 
-      if (materiaEstados.length > 0) { estadoMateria = materiaEstados[0].status }
-
+      if (materiaEstados.length > 0) 
+      { 
+        estadoMateria = materiaEstados[0].status;
+      }
+	  
       const materiaId = parseInt(materia.id, 10);
       let Fcorrelativas = correlativas.filter(c => c.m === materiaId);
 
-      if (Fcorrelativas.length > 0) { Fcorrelativas = Fcorrelativas[0].d }
-
+      if (Fcorrelativas.length > 0) 
+	  { 
+        Fcorrelativas = Fcorrelativas[0].d 
+      }
+  
       const estado = getEstadoMateria(Fcorrelativas, estados);
-      materia.status = (estado.cursada === true ? estadoMateria : 1)
+	  
+	  if(materiaId === 14)
+	  {
+	    console.log("----------------->");
+	    console.log(materiaId);
+	    console.log(Fcorrelativas);
+	    console.log(estadoMateria);
+	    console.log("----------------->");
+	    console.log(estado.cursada);
+	    console.log(estado.cursada === false);  
+	  }
+	  
+      materia.status = (estado.cursada === false ? 1 : estadoMateria);
       materia.cursada = estado.cursada;
       materia.final = estado.final;
     }
