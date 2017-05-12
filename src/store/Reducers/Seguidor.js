@@ -33,15 +33,15 @@ function seguidor(state = initialState, action) {
     case RECEIVE_MATERIAS_FAILURE:
       return { ...state, isFetching: false, error: true };
 
-    /* PEDIR CORRELATIVAS */	  
+    /* PEDIR CORRELATIVAS */
     case REQUEST_CORRELATIVAS:
       return { ...state, isFetching: true };
     case RECEIVE_CORRELATIVAS:
       return { ...state, isFetching: false, correlativas: action.data };
     case RECEIVE_CORRELATIVAS_FAILURE:
       return { ...state, isFetching: false, error: true };
-    
-	/* PEDIR ESTADO DE MATERIAS */
+
+    /* PEDIR ESTADO DE MATERIAS */
     case REQUEST_ESTADO:
       return { ...state, isFetching: true };
     case RECEIVE_ESTADO:
@@ -49,12 +49,9 @@ function seguidor(state = initialState, action) {
     case REQUEST_ESTADO_FAILURE:
       return { ...state, isFetching: false, error: true };
 
-	/* ACTUALIZAR ESTADO */
+    /* ACTUALIZAR ESTADO */
     case UPDATE_ESTADO_OK:
       const estadosNuevos = getNuevoEstadoArray(action.data, state.estados);
-	  console.log(state.estados);
-	  console.log(estadosNuevos);
-	  console.log("============================>");
       return { ...state, estados: estadosNuevos };
 
     default:

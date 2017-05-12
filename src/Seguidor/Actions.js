@@ -51,6 +51,7 @@ export function loadCorrelativas() {
 }
 
 export function updateEstadoMateria(estadoMateria) {
-  estadoMateria.status = parseInt(estadoMateria.status, 10);
-  return { data: estadoMateria, type: UPDATE_ESTADO_OK };
+  const newStatus = parseInt(estadoMateria.status, 10);
+  const newEstado = { id: estadoMateria.id, status: newStatus };
+  return { data: newEstado, type: UPDATE_ESTADO_OK };
 }

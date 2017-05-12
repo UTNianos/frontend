@@ -37,9 +37,9 @@ class Seguidor extends Component {
               year={year}
               updateEstado={this.props.updateEstado}
             />
-		   )}
+           )}
         </div>
-		
+        
     </div>
     );
   }
