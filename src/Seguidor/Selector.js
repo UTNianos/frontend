@@ -17,7 +17,7 @@ const ESTADO_FIRMA = 3;
 const ESTADO_APROBACION = 4;
 
 function reqSatisfy(estados, req, estado) {
-  const result = estados.filter(e => e.id == req && e.status >= estado);
+  const result = estados.filter(e => e.id === parseInt(req, 10) && e.status >= estado);
   return result.length !== 0;
 }
 
@@ -48,7 +48,7 @@ function validarReq(requerimientos, estados, estado) {
 */
 function getEstadoMateria(correlativas, estados) {
 
-  if (correlativas.length == 0) {
+  if (correlativas.length === 0) {
     return { cursada: true, final: true };
   }
 
@@ -69,35 +69,44 @@ function getEstadoMateria(correlativas, estados) {
   return { cursada: puedeCursar, final: puededarFinal };
 }
 
+function calcularEstado(materia, estados, correlativas) {
+
+  const newMateria = {
+    id: parseInt(materia.id, 10),
+    name: materia.name,
+    status: materia.status,
+    year: materia.year,
+    cursada: false,
+    final: false
+  };
+
+  const materiaEstado = estados.filter(c => c.id === newMateria.id);
+  let estadoMateria = 1; // Por defecto, la materia esta pendiente.
+
+  if (materiaEstado.length > 0) {
+    estadoMateria = materiaEstado[0].status;
+  }
+
+  let correlativasMateria = correlativas.filter(c => c.m === newMateria.id);
+
+  if (correlativasMateria.length > 0) {
+    correlativasMateria = correlativasMateria[0].d;
+  }
+
+  const estado = getEstadoMateria(correlativasMateria, estados);
+
+  newMateria.status = (estado.cursada === false ? 1 : estadoMateria);
+  newMateria.cursada = estado.cursada;
+  newMateria.final = estado.final;
+
+  return newMateria;
+}
+
 // Obtiene las materias con estado.
 const getMateriasEstado = createSelector(
   [getMaterias, getEstados, getCorrelativas],
-  (materias, estados, correlativas) => {
-    for (const materia of materias) {
-
-      materia.id = parseInt(materia.id, 10);
-      const materiaEstado = estados.filter(c => c.id === materia.id);
-      let estadoMateria = 1; // Por defecto, la materia esta pendiente.
-
-      if (materiaEstado.length > 0) {
-        estadoMateria = materiaEstado[0].status;
-      }
-
-      let correlativasMateria = correlativas.filter(c => c.m === materia.id);
-
-      if (correlativasMateria.length > 0) {
-        correlativasMateria = correlativasMateria[0].d;
-      }
-
-      const estado = getEstadoMateria(correlativasMateria, estados);
-
-      materia.status = (estado.cursada === false ? 1 : estadoMateria);
-      materia.cursada = estado.cursada;
-      materia.final = estado.final;
-    }
-
-    return materias;
-  }
+  (materias, estados, correlativas) =>
+    materias.map(mat => calcularEstado(mat, estados, correlativas))
 );
 
 export default getMateriasEstado;
