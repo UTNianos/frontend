@@ -50,17 +50,7 @@ export function loadCorrelativas() {
   };
 }
 
-// TODO: postear estado al servidor? O usar otra función?
 export function updateEstadoMateria(estadoMateria) {
+  estadoMateria.status = parseInt(estadoMateria.status, 10);
   return { data: estadoMateria, type: UPDATE_ESTADO_OK };
-
-  // const endpoint = '<utnianosURL>/materias/update';
-  //
-  // return {
-  //   types: [UPDATE_ESTADO, UPDATE_ESTADO_OK, UPDATE_ESTADO_FAILURE],
-  //   shouldCallAPI: () => true,
-  //   endpoint,
-  //   callHeaders: { mode: 'cors', cache: 'default' },
-  //   payload: null
-  // };
 }
