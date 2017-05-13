@@ -1,53 +1,44 @@
-import 'isomorphic-fetch'
+import 'isomorphic-fetch';
 
-const API_ROOT = window.location.protocol + "//" + window.location.host;
+function callApiMiddleware({ dispatch }) {
 
-function callAPIMiddleware({ dispatch, getState }) {
+  return next => (action) => {
 
-  return next => action => {
+    const { types, endpoint, headers } = action;
 
-    const {
-      types,
-	    endpoint,
-	    callHeaders,
-      shouldCallAPI = () => true,
-      payload = {}
-    } = action
-
-    if (!types)
-	  {
-      return next(action)
+    if (!types) {
+      return next(action);
     }
 
-    if (
-      !Array.isArray(types) ||
-      types.length !== 3 ||
-      !types.every(type => typeof type === 'string')
-    )
-	  {
-      throw new Error('Expected an array of three string types.')
+    if (types.length === 7) {
+      return next(action);
     }
 
-    if (!shouldCallAPI(getState())) {
-      return
+    if (!Array.isArray(types) || types.length !== 3 || !types.every(type => typeof type === 'string')) {
+      throw new Error('Expected an array of three string types.');
     }
 
-    const [ requestType, successType, failureType ] = types
+    let eventAction = {};
+    const [requestType, successType, failureType] = types
+    dispatch({ type: requestType });
 
-	  dispatch({type: requestType })
+    return fetch(endpoint, headers).then(
+      (response) => {
+        response.json().then((json) => {
 
-    let FULL_URL = "";
+          if (response.ok) {
+            eventAction = { data: json, type: successType };
+          } else {
+            eventAction = { data: json, type: failureType };
+          }
 
-    if(endpoint.endsWith(".json"))
-      FULL_URL = API_ROOT + "/" + endpoint;
-    else
-      FULL_URL = API_ROOT + "/api/" + endpoint;
-    
-    return fetch(FULL_URL, callHeaders).then(
-	  response => response.json().then(function(json){dispatch({ data: json, type: successType })}),
-      error => dispatch({type: failureType })
-	)
+          dispatch(eventAction);
+        });
+      },
+      error => dispatch({ type: failureType, data: error })
+    );
   }
+
 }
 
-export default callAPIMiddleware;
+export default callApiMiddleware;

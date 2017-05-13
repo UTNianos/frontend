@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <h3>
+    404 pagina no encontrada.
+  </h3>
+  <p>
+    La pagina que estas buscando 
+    <strong>
+      no existe
+    </strong>
+    .
+  </p>
+  <p>
+    Deal with it.
+  </p>
+</div>
+`;
