@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import callApiMiddleware from './callApiMiddleware';
+import callApiMiddleware from './callAPIMiddleware';
 import rootReducer from './Reducers';
 
 export default function storeCreator() {
