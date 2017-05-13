@@ -12,11 +12,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
-    dispatch(loadEstado()).then(() => {
-      dispatch(loadCorrelativas());
-    }).then(() => {
-      dispatch(loadMaterias());
-    });
+    dispatch(loadEstado());
+    dispatch(loadCorrelativas());
+    dispatch(loadMaterias());
   },
   updateEstado: (materiaEstado) => {
     dispatch(updateEstadoMateria(materiaEstado));

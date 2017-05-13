@@ -1,51 +1,64 @@
 import 'isomorphic-fetch';
 
-const API_ROOT = `${window.location.protocol}//${window.location.host}`;
+function performFetch(types, endpoint, headers, dispatch) {
+
+   let action = {};
+   const [ requestType, successType, failureType ] = types
+   dispatch({type: requestType });
+
+   return fetch(endpoint, headers).then(
+	      response => {
+		     response.json().then(function(json) {
+			    if(response.ok)
+			       action = { data: json.data, type: successType };
+		        else
+			       action = {data: json.message, type: failureType};
+
+		        dispatch(action);
+             });
+	      },
+          error => dispatch({type: failureType })
+   );
+}
 
 function callAPIMiddleware({ dispatch, getState }) {
-  return next => (action) => {
-    const {
-      types,
-      endpoint,
-      callHeaders,
-      shouldCallAPI = () => true,
-      payload = {}
-    } = action;
 
-    if (!types) {
-      return next(action);
-    }
+  return next => action => {
 
-    if (
-      !Array.isArray(types) ||
-      types.length !== 3 || !types.every(type => typeof type === 'string')
-    ) {
-      throw new Error('Expected an array of three string types.');
-    }
+    const { types, endpoint, headers } = action;
 
-    if (!shouldCallAPI(getState())) {
-      return;
-    }
+    if (!types)
+        return next(action);
 
-    const [requestType, successType, failureType] = types;
+    if(types.length === 7)
+        return next(action);
 
-    dispatch({ type: requestType });
+    if(!Array.isArray(types) || types.length !== 3 || !types.every(type => typeof type === 'string'))
+        throw new Error('Expected an array of three string types.');
 
-    let FULL_URL = '';
+    let eventAction = {};
+    const [ requestType, successType, failureType ] = types
+    dispatch({type: requestType });
 
-    if (endpoint.endsWith('.json')) {
-      FULL_URL = `${API_ROOT}/${endpoint}`;
-    } else {
-      FULL_URL = `${API_ROOT}/api/${endpoint}`;
-    }
+    return fetch(endpoint, headers).then(
+        response => {
+     		   response.json().then(function(json) {
 
-    return fetch(FULL_URL, callHeaders).then(
-      response => response.json().then((json) => {
-        dispatch({ data: json, type: successType });
-      }),
-      error => dispatch({ type: failureType })
+            if(response.ok) {
+              eventAction = { data: json, type: successType };
+            }
+     		    else {
+     			    eventAction = {data: json, type: failureType};
+            }
+
+     		    dispatch(eventAction);
+
+          });
+     	 },
+       error => dispatch({type: failureType })
     );
-  };
+  }
+
 }
 
 export default callAPIMiddleware;
