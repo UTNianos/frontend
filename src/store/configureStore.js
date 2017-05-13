@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import callAPIMiddleware from './callAPIMiddleware';
+import callApiMiddleware from './callApiMiddleware';
 import rootReducer from './Reducers';
 
 export default function storeCreator() {
   const middleWareTools = compose(
-      applyMiddleware(thunkMiddleware, callAPIMiddleware),
+      applyMiddleware(thunkMiddleware, callApiMiddleware),
       window.devToolsExtension ? window.devToolsExtension() : f => f
   );
 
