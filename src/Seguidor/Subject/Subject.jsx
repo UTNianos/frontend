@@ -65,7 +65,7 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 	  return (
 	  <div styleName="Subject">
 		  <Card title={<SubjectBadge name={name} status={badgeStatus} /> } 
-		        StyleName="Subject">	
+		        styleName="Subject">	
 		    <Dropdown.Button overlay={menu}>
 		     {statusName}
 		    </Dropdown.Button>
