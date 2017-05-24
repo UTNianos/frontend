@@ -5,8 +5,18 @@
   font-weight: 400;
 }
 
-.Container
-{
-  margin: 8px;
-  width: 300px;
+@media (min-width: 900px){
+ .Container
+ {
+   margin: 8px;
+   max-width: 300px;
+   width: 254px;
+ }
+}
+
+@media (max-width: 900px){
+ .Container
+ {
+   margin: 8px;
+ }
 }

@@ -4,8 +4,12 @@
   font-weight: 100;
   margin-bottom: 38px;
 }
+	
 
-.YearsVisualizer
-{
-  display: flex;
+@media (min-width: 900px) 
+{	
+    .YearsVisualizer 
+	{
+	  display: flex;
+	}
 }
