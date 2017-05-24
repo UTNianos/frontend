@@ -64,12 +64,11 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
     if(cursada) {
 	  return (
 	  <div styleName="Subject">
-		  <Card title={<SubjectBadge name={name} status={badgeStatus} /> } 
-		        styleName="Subject">	
-		    <Dropdown.Button overlay={menu}>
-		     {statusName}
-		    </Dropdown.Button>
-		  </ Card>
+		<Card title={<SubjectBadge name={name} status={badgeStatus} /> } styleName="Subject">	
+		  <Dropdown.Button overlay={menu}>
+		   {statusName}
+		  </Dropdown.Button>
+		</ Card>
 	  </div>
       );
     }
