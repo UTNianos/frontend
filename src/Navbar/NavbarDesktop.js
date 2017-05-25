@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
-import LoginMenu from './LoginMenu/LoginMenu';
 import './Navbar.css';
 //import AccountMenu from './AccountMenu/AccountMenu';
 import logo from './logo_utnianos.png'; // Tell Webpack this JS file uses this image
