@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Subject.scss';
 import cssModules from 'react-css-modules';
-import { Card, Menu, Dropdown } from 'antd'; 
+import { Card, Menu, Dropdown } from 'antd';
 import SubjectBadge from './SubjectBadge';
 
 const subjectValues = [
@@ -13,7 +13,7 @@ const subjectValues = [
 
 function getValueStatus(value) {
    let status = "";
-   
+
    switch (value)
    {
       case 1:
@@ -40,18 +40,18 @@ function updateMateria(e, id, updateFn){
    const actualKey = parseInt(e.key)+1;
    const currentStatus = subjectValues.filter(s => s.number == actualKey)[0];
    const value = currentStatus.number;
-  
+
    const materiaStatus = {"id": id, "status": value};
    updateFn(materiaStatus);
 }
-	  
+
 const Subject = ({id, name, status, cursada, final, updateEstado}) => {
-   
-   const badgeStatus = getValueStatus(status);
-   const currentStatus = subjectValues.filter(s => s.number == status);  
-   const statusName = currentStatus[0].name;
-      
-   const menu = (
+
+  const badgeStatus = getValueStatus(status);
+  const currentStatus = subjectValues.filter(s => s.number == status);
+  const statusName = currentStatus[0].name;
+
+  const menu = (
 	<Menu onClick={(e) => updateMateria(e, id, updateEstado)}>
 	  {subjectValues.map((sValue, i) =>
 	   <Menu.Item key={i} >
@@ -59,31 +59,34 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 	   </Menu.Item>
 	   )}
 	</Menu>
-    );
-      
-    if(cursada) {
+  );
+
+  if(cursada) {
 	  return (
 	  <div styleName="Subject">
-		<Card title={<SubjectBadge name={name} status={badgeStatus} /> } styleName="Subject">	
-		  <Dropdown.Button overlay={menu}>
+		<Card styleName="SubjectCard">
+		  <strong styleName="SubjectName">{name}</strong>
+		  <Dropdown.Button overlay={menu} style={{'display': 'inline', 'marginLeft': '4px'}}>
 		   {statusName}
 		  </Dropdown.Button>
 		</ Card>
 	  </div>
-      );
-    }
-   
-    if(!cursada) {
+    );
+  }
+
+  if(!cursada) {
 	 return (
 	 <div styleName="Subject">
-		<Card title={<SubjectBadge name={name} status="error" />}>					   		
-		<Dropdown.Button  disabled style={{ marginLeft: 8 }} overlay={menu}>
+		<Card styleName="SubjectCard">
+		 <strong styleName="SubjectName">{name}</strong>
+		 <Dropdown.Button  disabled style={{'display': 'inline', 'marginLeft': '4px'}} overlay={menu}>
 			Pendiente
-		</Dropdown.Button>		
-		</Card>     
+		 </Dropdown.Button>
+		</Card>
 	 </div>
-	 );	   
-    }     
+	 );
+  }
+
 }
 
 export default cssModules(Subject, Styles, { allowMultiple: true });

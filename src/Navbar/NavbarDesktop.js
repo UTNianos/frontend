@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink as Link } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
 import './Navbar.css';
-//import AccountMenu from './AccountMenu/AccountMenu';
+import LoginMenu from './LoginMenu/LoginMenu';
 import logo from './logo_utnianos.png'; // Tell Webpack this JS file uses this image
 
 const imgStyle = {
@@ -29,7 +29,9 @@ const NavbarDesktop = () => {
       <Col span={4}></Col>
 	    <Col span={4}></Col>
       <Col span={4}></Col>
-	    <Col span={4}></Col>
+	    <Col span={4}>
+        <LoginMenu />
+      </Col>
 	  </Row>
   </Menu>
   )

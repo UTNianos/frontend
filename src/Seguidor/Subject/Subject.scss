@@ -1,7 +1,24 @@
+div .Subject
+{
+  width: 323px;
+}
+
 .Subject
 {
   margin-bottom: 10px;
-  max-width: 100%;
+  /*max-width: 100%;*/
   /*padding-left: 17px;
   padding-bottom: 2px;*/
+}
+
+.SubjectCard div
+{
+  padding: 10px;
+}
+
+.SubjectName
+{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
