@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import FetchingIndicator from '../Fetching/FetchingIndicator';
 import SeguidorHeading from './SeguidorHeading';
-import SubjectYears from './SubjectYears';
+import YearTabs from './YearTabs';
 
 class Seguidor extends Component {
 
@@ -32,7 +32,7 @@ class Seguidor extends Component {
     </div>
 
     <div>
-      <SubjectYears materias={materias} updateFn={this.props.updateEstado} />
+      <YearTabs materias={materias} updateFn={this.props.updateEstado} />
     </div>
 
   </div>
