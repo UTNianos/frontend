@@ -5,16 +5,10 @@ import cssModules from 'react-css-modules';
 
 const YearOfStudy = ({subjects, year, updateEstado}) => {
 
-  console.log("_____________________SENSE 8");
-  console.log(subjects);
-  console.log(year);
-  console.log(updateEstado);
-  console.log("_____________________SENSE 8");
-
   return(
   <div styleName="Container">
     <p styleName="Heading">Año {year}</p>
-    <hr />
+    <hr styleName="Separator" />
     {subjects.map((subject, i) =>
     <div key={subject.id}>
       <Subject

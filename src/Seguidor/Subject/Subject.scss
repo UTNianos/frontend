@@ -1,6 +1,6 @@
 div .Subject
 {
-  width: 323px;
+  width: 100%;
 }
 
 .Subject
@@ -18,7 +18,7 @@ div .Subject
 
 .SubjectName
 {
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
 }
