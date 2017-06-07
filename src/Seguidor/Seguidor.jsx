@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import FetchingIndicator from '../Fetching/FetchingIndicator';
 import SeguidorHeading from './SeguidorHeading';
 import YearTabs from './YearTabs';
+import YearTabsMobile from './YearTabsMobile';
+import MediaQuery from 'react-responsive';
 
 class Seguidor extends Component {
 
@@ -32,7 +34,20 @@ class Seguidor extends Component {
     </div>
 
     <div>
-      <YearTabs materias={materias} updateFn={this.props.updateEstado} />
+	  <MediaQuery minDeviceWidth={1224} >			
+		  <YearTabs 
+			materias={materias} 
+			updateFn={this.props.updateEstado} 
+		  />
+	  </MediaQuery>
+	  <MediaQuery maxDeviceWidth={1224}>
+		  <YearTabsMobile
+			materias={materias} 
+			updateFn={this.props.updateEstado} 
+		  />	  
+      </MediaQuery>
+	
+      
     </div>
 
   </div>
