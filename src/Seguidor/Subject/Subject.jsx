@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from './Subject.scss';
 import cssModules from 'react-css-modules';
-import { Card, Menu, Dropdown } from 'antd';
+import { Popover, Card, Menu, Dropdown } from 'antd';
 import SubjectBadge from './SubjectBadge';
 
 const subjectValues = [
@@ -45,6 +45,13 @@ function updateMateria(e, id, updateFn){
    updateFn(materiaStatus);
 }
 
+
+const PopoverContent = (
+  <div>
+    <p>No se cumplen las coorrelativas para que curses esta materia.</p>    
+  </div>
+);
+
 const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
   const badgeStatus = getValueStatus(status);
@@ -77,12 +84,18 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
   if(!cursada) {
 	 return (
 	 <div styleName="Subject">
-		<Card styleName="SubjectCard">
-		 <strong styleName="SubjectName">{name}</strong>
-		 <Dropdown.Button  disabled style={{'display': 'inline', 'marginLeft': '4px'}} overlay={menu}>
-			Pendiente
-		 </Dropdown.Button>
-		</Card>
+	    <Popover content={PopoverContent} title={name} trigger="hover">
+		  <Card styleName="SubjectCard">
+		    <strong styleName="SubjectName">{name}</strong>
+		    <Dropdown.Button  
+			       disabled 
+				   style={{'display': 'inline', 'marginLeft': '4px'}} 
+				   overlay={menu}
+			>
+ 			Pendiente
+		    </Dropdown.Button>
+		  </Card>
+		</ Popover>
 	 </div>
 	 );
   }
