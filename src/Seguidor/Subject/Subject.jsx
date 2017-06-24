@@ -83,7 +83,7 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
   if(!cursada) {
 	 return (
-	 <div styleName="Subject">
+	 <div styleName="Subject Disabled">
 	    <Popover content={PopoverContent} title={name} trigger="hover">
 		  <Card styleName="SubjectCard">
 		    <strong styleName="SubjectName">{name}</strong>

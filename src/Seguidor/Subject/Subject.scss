@@ -8,7 +8,18 @@ div .Subject
   margin-bottom: 10px;
   /*max-width: 100%;*/
   /*padding-left: 17px;
-  padding-bottom: 2px;*/
+  padding-bottom: 2px;*/  
+}
+
+.Subject.Disabled
+{
+  cursor: no-drop;
+  color: darkgray;
+}
+
+.Disabled .SubjectCard
+{
+  background: gainsboro;
 }
 
 .SubjectCard div
