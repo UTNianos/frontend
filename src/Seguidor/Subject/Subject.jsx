@@ -11,30 +11,6 @@ const subjectValues = [
 	{"number": 4, "name": "Aprobada"}
 ];
 
-function getValueStatus(value) {
-   let status = "";
-
-   switch (value)
-   {
-      case 1:
-        status = "default";
-        break;
-      case 2:
-        status = "warning";
-        break;
-      case 3:
-        status = "processing";
-        break;
-      case 4:
-        status = "success";
-        break;
-      default:
-        status = "";
-   }
-
-   return status;
-}
-
 function updateMateria(e, id, updateFn){
 
    const actualKey = parseInt(e.key)+1;
@@ -54,10 +30,10 @@ const PopoverContent = (
 
 const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
-  const badgeStatus = getValueStatus(status);
   const currentStatus = subjectValues.filter(s => s.number == status);
   const statusName = currentStatus[0].name;
-
+  const subjectClass = "Subject " + statusName;
+  
   const menu = (
 	<Menu onClick={(e) => updateMateria(e, id, updateEstado)}>
 	  {subjectValues.map((sValue, i) =>
@@ -70,7 +46,7 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
   if(cursada) {
 	  return (
-	  <div styleName="Subject">
+	  <div styleName={subjectClass}>
 		<Card styleName="SubjectCard">
 		  <strong styleName="SubjectName">{name}</strong>
 		  <Dropdown.Button overlay={menu} style={{'display': 'inline', 'marginLeft': '4px'}}>

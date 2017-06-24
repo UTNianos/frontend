@@ -6,10 +6,28 @@ div .Subject
 .Subject
 {
   margin-bottom: 10px;
-  /*max-width: 100%;*/
-  /*padding-left: 17px;
-  padding-bottom: 2px;*/  
 }
+
+.Pendiente 
+{
+  visibility: visible;
+}
+
+.Cursando 
+{
+  visibility: visible;
+}
+
+.Firmada 
+{
+  visibility: visible;
+}
+
+.Aprobada 
+{
+  visibility: visible;
+}
+
 
 .Subject.Disabled
 {
@@ -29,7 +47,6 @@ div .Subject
 
 .SubjectName
 {
-  /*white-space: nowrap;*/
   overflow: hidden;
   text-overflow: ellipsis;
 }
