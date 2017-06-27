@@ -23,7 +23,7 @@ function getYearsArray(yearsPerTab, subjects) {
 
       currentYear = {
         year: yearIndex,
-        subjects: subjects.filter(m => m.year == yearIndex)
+        subjects: subjects.filter(m => parseInt(m.year, 10) === yearIndex)
       };
 
       yearsArray.push(currentYear);

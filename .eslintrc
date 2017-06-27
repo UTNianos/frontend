@@ -12,7 +12,8 @@
 	 "no-case-declarations": 0,
 	 "comma-dangle": 0,
 	 "padded-blocks": 0,
-	 "semi": 0	 
+	 "semi": 0,
+	 "no-loop-func": 0
    },
    "env": {
      "es6": true,
