@@ -4,9 +4,7 @@ import SubjectYears from './SubjectYears';
 
 const TabPane = Tabs.TabPane;
 
-const yearsPerTab = 1;
-
-function callback(key) {}
+function callback() { }
 
 function getYearsArray(yearsPerTab, subjects) {
 
@@ -30,8 +28,8 @@ function getYearsArray(yearsPerTab, subjects) {
 
       yearsArray.push(currentYear);
 
-      index++;
-      yearIndex++
+      index += 1;
+      yearIndex += 1
     }
 
     tabsArray.push(yearsArray);
@@ -45,6 +43,7 @@ function getYearsArray(yearsPerTab, subjects) {
 
 const YearTabs = ({ materias, updateFn }) => {
 
+  const yearsPerTab = 1;
   const studyYears = getYearsArray(yearsPerTab, materias);
 
   return (

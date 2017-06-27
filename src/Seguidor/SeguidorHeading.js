@@ -1,6 +1,6 @@
 import React from 'react';
-import Styles from './Seguidor.scss';
 import cssModules from 'react-css-modules';
+import Styles from './Seguidor.scss';
 
 const SeguidorHeading = () => (
   <div>
