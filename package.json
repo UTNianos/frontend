@@ -21,6 +21,7 @@
     "eslint-plugin-react": "^7.1.0",
     "html-webpack-plugin": "^2.29.0",
     "jest": "^20.0.4",
+    "jest-css-modules": "^1.1.0",
     "react-addons-test-utils": "15.x.x",
     "react-test-renderer": "^15.6.1",
     "style-loader": "^0.18.2",
@@ -79,7 +80,10 @@
       "tsx",
       "js",
       "json"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   },
   "repository": {
     "type": "git",
