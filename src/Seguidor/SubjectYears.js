@@ -3,20 +3,18 @@ import Styles from './Seguidor.scss';
 import cssModules from 'react-css-modules';
 import YearOfStudy from './YearOfStudy/YearOfStudy';
 
-const SubjectYears = ({years, updateFn}) => {
-
-  return(
+const SubjectYears = ({ years, updateFn }) => (
   <div styleName="YearsVisualizer">
-  {years.map((year, i) =>
-    <YearOfStudy
+    {years.map((year, i) =>
+    (<YearOfStudy
       key={i}
       year={year.year}
       subjects={year.subjects}
       updateEstado={updateFn}
-    />
+    />)
   )}
   </div>
- );
+ )
 
   /*
   return(
@@ -35,6 +33,5 @@ const SubjectYears = ({years, updateFn}) => {
     </div>
   );*/
 
-}
 
 export default cssModules(SubjectYears, Styles, { allowMultiple: true });

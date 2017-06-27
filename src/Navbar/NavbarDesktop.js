@@ -13,28 +13,25 @@ const imgStyle = {
 };
 
 
-const NavbarDesktop = () => {
-
-  return (
-   <Menu mode="horizontal">
+const NavbarDesktop = () => (
+  <Menu mode="horizontal">
     <Row type="flex" justify="space-between">
-	    <Col span={4} style={{paddingLeft:'80px'}}>
-       <span>
+      <Col span={4} style={{ paddingLeft: '80px' }}>
+        <span>
           <Link to="/" activeClassName="HomeLinkActive">
             <img src={logo} alt="UTNianos" style={imgStyle} />
           </Link>
-       </span>
+        </span>
       </Col>
-      <Col span={4}></Col>
-      <Col span={4}></Col>
-	    <Col span={4}></Col>
-      <Col span={4}></Col>
-	    <Col span={4}>
+      <Col span={4} />
+      <Col span={4} />
+      <Col span={4} />
+      <Col span={4} />
+      <Col span={4}>
         <LoginMenu />
       </Col>
-	  </Row>
+    </Row>
   </Menu>
-  )
-};
+  );
 
 export default NavbarDesktop;

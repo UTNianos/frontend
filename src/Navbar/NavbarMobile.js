@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, Row, Col, Icon, Button } from 'antd';
 import logo from './logo_utnianos.png';
 
@@ -10,28 +10,25 @@ const imgStyle = {
   height: '25px'
 };
 
-const NavbarMobile = () => {
-
-  return (
-   <Menu mode="horizontal">
+const NavbarMobile = () => (
+  <Menu mode="horizontal">
     <Row type="flex" justify="space-between">
-	  <Col span={4}></Col>
+      <Col span={4} />
       <Col span={4}>
-	  	<Link to="/">
-		  <img src={logo} alt="ReactiveBB" style={imgStyle} />
-		</Link>
-	  </Col>
-      <Col span={4}></Col>
-      <Col span={4}></Col>
-	  <Col span={4}></Col>
-	  <Col span={4}>
-		<Button>
-			<Icon type="bars" />
-		</Button>
-	  </Col>
-	 </Row>
-    </Menu>
+        <Link to="/">
+          <img src={logo} alt="ReactiveBB" style={imgStyle} />
+        </Link>
+      </Col>
+      <Col span={4} />
+      <Col span={4} />
+      <Col span={4} />
+      <Col span={4}>
+        <Button>
+          <Icon type="bars" />
+        </Button>
+      </Col>
+    </Row>
+  </Menu>
   )
-}
 
 export default NavbarMobile;

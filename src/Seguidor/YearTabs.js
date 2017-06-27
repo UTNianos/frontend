@@ -13,29 +13,29 @@ function getYearsArray(yearsPerTab, subjects) {
   let index = 0;
   let yearIndex = 1;
   let yearsArray = [];
-  let tabsArray = [];
+  const tabsArray = [];
   let currentYear = 0;
 
   const maxYearMaterias = 5;
 
-  while(yearIndex <= maxYearMaterias) {
+  while (yearIndex <= maxYearMaterias) {
 
-     index = 1;
-     while(index <= yearsPerTab && yearIndex <= maxYearMaterias) {
+    index = 1;
+    while (index <= yearsPerTab && yearIndex <= maxYearMaterias) {
 
-        currentYear = {
-            year: yearIndex,
-            subjects: subjects.filter(m => m.year == yearIndex)
-        };
+      currentYear = {
+        year: yearIndex,
+        subjects: subjects.filter(m => m.year == yearIndex)
+      };
 
-        yearsArray.push(currentYear);
+      yearsArray.push(currentYear);
 
-        index++;
-        yearIndex++
-     }
+      index++;
+      yearIndex++
+    }
 
-     tabsArray.push(yearsArray);
-     yearsArray = [];
+    tabsArray.push(yearsArray);
+    yearsArray = [];
 
   }
 
@@ -43,18 +43,18 @@ function getYearsArray(yearsPerTab, subjects) {
 
 }
 
-const YearTabs = ({materias, updateFn}) => {
+const YearTabs = ({ materias, updateFn }) => {
 
   const studyYears = getYearsArray(yearsPerTab, materias);
 
-  return(
-  <Tabs onChange={callback} type="card">
-    {studyYears.map((tabYears, i) =>
-      <TabPane tab={(i+1).toString()} key={(i+1).toString()}>
+  return (
+    <Tabs onChange={callback} type="card">
+      {studyYears.map((tabYears, i) =>
+      (<TabPane tab={(i + 1).toString()} key={(i + 1).toString()}>
         <SubjectYears years={tabYears} updateFn={updateFn} />
-      </TabPane>
+      </TabPane>)
     )}
-  </Tabs>
+    </Tabs>
   );
 
 }
