@@ -9,31 +9,53 @@ class Carousel extends Component {
 
  constructor(props) {
     super(props);
-	this.state = {currentTab: 1};
+	const { materias } = props;	
+	this.state = {
+	   currentTab: 1,
+	   totalTabs: 0,
+	   studyYears: []
+	};
  }
  
+ componentWillReceiveProps(nextProps) {
+	console.log(nextProps);	 	
+	
+	const {materias, yearsPerTab} = nextProps;	
+	const studyYears = getYearsArray(yearsPerTab, materias);
+	
+	this.setState({ 
+	  totalTabs: studyYears.length,
+	  studyYears: studyYears
+	});
+	
+	console.log("_________________");
+ }
+  
  nextTab() {
-   this.setState({
-	currentTab: this.state.currentTab+1
-   });
+   if(this.state.currentTab < this.state.totalTabs) {
+	 this.setState({
+	    currentTab: this.state.currentTab+1
+     });
+   }
  }
 
  prevTab() {
-   this.setState({
-	currentTab: this.state.currentTab-1
-   });
+   if(this.state.currentTab > 1){
+	 this.setState({
+	   currentTab: this.state.currentTab-1
+	 });
+   }
  }
  
  render() {
 	
-    const yearsPerTab = 3;
-    const { materias, updateFn } = this.props;
-    const studyYears = getYearsArray(yearsPerTab, materias);
+	if(this.state.studyYears.length <= 0)
+		return <p>...</p>
+	
 	const index = this.state.currentTab-1;
-	const years = studyYears[index];
-	
-	console.log(this.prevTab);
-	
+	const years = this.state.studyYears[index];
+	const {updateFn} = this.props;
+		
     return (
     <div>
 	  <CarouselArrows 
@@ -43,7 +65,7 @@ class Carousel extends Component {
 	  <CSSTransitionGroup
 		transitionName="TransitionGroup"
 		transitionAppear={false}		
-		transitionEnterTimeout={500}
+		transitionEnterTimeout={300}
         transitionLeaveTimeout={300}
 		transitionEnter={true}
 		transitionLeave={true}

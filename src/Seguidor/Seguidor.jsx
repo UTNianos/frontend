@@ -37,6 +37,7 @@ class Seguidor extends Component {
 	  <MediaQuery minDeviceWidth={1224} >			
 		<Carousel 
 			materias={materias} 
+			yearsPerTab={3}
 			updateFn={this.props.updateEstado} 
 		/>
 	  </MediaQuery>
