@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import FetchingIndicator from '../Fetching/FetchingIndicator';
 import SeguidorHeading from './SeguidorHeading';
-import YearTabs from './YearTabs';
+import Carousel from './Carousel/Carousel';
 import YearTabsMobile from './YearTabsMobile';
 import MediaQuery from 'react-responsive';
 
@@ -28,31 +28,30 @@ class Seguidor extends Component {
 
   return(
   <div>
-
+	
     <div>
       <SeguidorHeading />
     </div>
 
     <div>
 	  <MediaQuery minDeviceWidth={1224} >			
-		  <YearTabs 
+		<Carousel 
 			materias={materias} 
 			updateFn={this.props.updateEstado} 
-		  />
+		/>
 	  </MediaQuery>
 	  <MediaQuery maxDeviceWidth={1224}>
 		  <YearTabsMobile
 			materias={materias} 
 			updateFn={this.props.updateEstado} 
 		  />	  
-      </MediaQuery>
-	
-      
+      </MediaQuery>	      
     </div>
-
   </div>
-  )
+  );
+  
  }
+ 
 }
 
 export default Seguidor;

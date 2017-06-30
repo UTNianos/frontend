@@ -49,7 +49,7 @@ var config = {
     })
  ],
  module: {
-  loaders: [
+  loaders: [   
     {
       test: /\.es6$/, exclude: /node_modules/, loader: 'babel-loader',
       query: {presets: ['es2015', 'stage-2', 'react']}
@@ -83,7 +83,19 @@ var config = {
 	},
 	{ test: /\.css$/, loader: 'style-loader!css-loader' },
 	{ test: /\.(png|svg)$/, loader: 'url-loader?limit=100000' },
-	{ test: /\.jpg$/, loader: 'file-loader' }
+	{ test: /\.jpg$/, loader: 'file-loader' },
+	{
+        exclude: [
+          /\.html$/,         
+          /\.(js|jsx)(\?.*)?$/,
+          /\.css$/,
+          /\.scss$/,		  
+          /\.json$/,
+		  /\.(png|svg)$/,
+          /\.svg$/
+        ],
+        loader: 'url-loader'
+    }
   ]
  },
  devServer: {

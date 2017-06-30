@@ -1,10 +1,3 @@
-import React from 'react';
-import { Tabs } from 'antd';
-import SubjectYears from './SubjectYears';
-
-const TabPane = Tabs.TabPane;
-
-function callback() { }
 
 function getYearsArray(yearsPerTab, subjects) {
 
@@ -41,21 +34,4 @@ function getYearsArray(yearsPerTab, subjects) {
 
 }
 
-const YearTabs = ({ materias, updateFn }) => {
-
-  const yearsPerTab = 3;
-  const studyYears = getYearsArray(yearsPerTab, materias);
-
-  return (
-    <Tabs onChange={callback} type="card">
-      {studyYears.map((tabYears, i) =>
-      (<TabPane tab={(i + 1).toString()} key={(i + 1).toString()}>
-        <SubjectYears years={tabYears} updateFn={updateFn} />
-      </TabPane>)
-    )}
-    </Tabs>
-  );
-
-}
-
-export default YearTabs;
+export default getYearsArray;
