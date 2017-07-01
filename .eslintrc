@@ -13,7 +13,7 @@
 	 "comma-dangle": 0,
 	 "padded-blocks": 0,
 	 "semi": 0,
-	 "no-loop-func": 0
+	 "react/jsx-no-bind": 0
    },
    "env": {
      "es6": true,
