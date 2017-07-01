@@ -12,6 +12,6 @@ const CarouselArrows = ({ prevFn, nextFn }) => (
       <Icon name="arrow-right"size="3x" onClick={nextFn} />
     </span>
   </span>
-    )
+);
 
 export default cssModules(CarouselArrows, Styles, { allowMultiple: true });
