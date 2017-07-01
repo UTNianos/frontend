@@ -1,17 +1,3 @@
-.ArrowLeft
-{
-  position: absolute;
-  top: 251px;
-  right: 94%;
-}
-
-.ArrowRight
-{ 
-  position: absolute;
-  top: 251px;
-  margin-left: 95%;
-}
-
 .TransitionGroup-enter
 {	
   transform: translate(100%);

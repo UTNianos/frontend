@@ -18,7 +18,6 @@ class Carousel extends Component {
  }
  
  componentWillReceiveProps(nextProps) {
-	console.log(nextProps);	 	
 	
 	const {materias, yearsPerTab} = nextProps;	
 	const studyYears = getYearsArray(yearsPerTab, materias);
@@ -27,8 +26,6 @@ class Carousel extends Component {
 	  totalTabs: studyYears.length,
 	  studyYears: studyYears
 	});
-	
-	console.log("_________________");
  }
   
  nextTab() {
@@ -50,7 +47,7 @@ class Carousel extends Component {
  render() {
 	
 	if(this.state.studyYears.length <= 0)
-		return <p>...</p>
+		return null;
 	
 	const index = this.state.currentTab-1;
 	const years = this.state.studyYears[index];
@@ -65,8 +62,8 @@ class Carousel extends Component {
 	  <CSSTransitionGroup
 		transitionName="TransitionGroup"
 		transitionAppear={false}		
-		transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
+		transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}
 		transitionEnter={true}
 		transitionLeave={true}
 	   >

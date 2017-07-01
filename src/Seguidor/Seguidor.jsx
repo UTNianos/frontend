@@ -42,10 +42,11 @@ class Seguidor extends Component {
 		/>
 	  </MediaQuery>
 	  <MediaQuery maxDeviceWidth={1224}>
-		  <YearTabsMobile
-			materias={materias} 
-			updateFn={this.props.updateEstado} 
-		  />	  
+		<Carousel 
+		  materias={materias} 
+		  yearsPerTab={1}
+		  updateFn={this.props.updateEstado} 
+		/>		  
       </MediaQuery>	      
     </div>
   </div>
