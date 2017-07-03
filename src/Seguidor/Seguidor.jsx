@@ -1,59 +1,50 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import FetchingIndicator from '../Fetching/FetchingIndicator';
-import SeguidorHeading from './SeguidorHeading';
-import Carousel from './Carousel/Carousel';
-import YearTabsMobile from './YearTabsMobile';
-import MediaQuery from 'react-responsive';
+import React, { Component } from 'react'
+import MediaQuery from 'react-responsive'
+import FetchingIndicator from '../Fetching/FetchingIndicator'
+import SeguidorHeading from './SeguidorHeading'
+import Carousel from './Carousel/Carousel'
 
 class Seguidor extends Component {
+  componentDidMount() {
+    this.props.onLoad()
+  }
 
- constructor(props) {
-    super(props)
- }
+  render() {
 
- componentDidMount() {
-   this.props.onLoad();
- }
+    const { isFetching, error, materias } = this.props
 
- render() {
+    if (isFetching) { return <FetchingIndicator /> }
 
-  const { isFetching, error, materias, estados} = this.props;
+    if (error) { return <p>Hubo un error recuperando las materias</p> }
 
-  if(isFetching)
-    return <FetchingIndicator />;
+    return (
+      <div>
 
-  if(error)
-    return <p>Hubo un error recuperando las materias</p>;
+        <div>
+          <SeguidorHeading />
+        </div>
 
-  return(
-  <div>
-	
-    <div>
-      <SeguidorHeading />
-    </div>
+        <div>
+          <MediaQuery minDeviceWidth={1224}>
+            <Carousel
+              materias={materias}
+              yearsPerTab={3}
+              updateFn={this.props.updateEstado}
+            />
+          </MediaQuery>
+          <MediaQuery maxDeviceWidth={1224}>
+            <Carousel
+              materias={materias}
+              yearsPerTab={1}
+              updateFn={this.props.updateEstado}
+            />
+          </MediaQuery>
+        </div>
+      </div>
+    )
 
-    <div>
-	  <MediaQuery minDeviceWidth={1224} >			
-		<Carousel 
-			materias={materias} 
-			yearsPerTab={3}
-			updateFn={this.props.updateEstado} 
-		/>
-	  </MediaQuery>
-	  <MediaQuery maxDeviceWidth={1224}>
-		<Carousel 
-		  materias={materias} 
-		  yearsPerTab={1}
-		  updateFn={this.props.updateEstado} 
-		/>		  
-      </MediaQuery>	      
-    </div>
-  </div>
-  );
-  
- }
- 
+  }
+
 }
 
-export default Seguidor;
+export default Seguidor
