@@ -1,37 +1,14 @@
 
-function getYearsArray(yearsPerTab, subjects) {
+const chunk = (array, n) =>
+  Array(Math.ceil(array.length / n)).fill().map((_, i) => array.slice(i * n, (i * n) + n));
 
-  let index = 0;
-  let yearIndex = 1;
-  let yearsArray = [];
-  const tabsArray = [];
-  let currentYear = 0;
-
-  const maxYearMaterias = 5;
-
-  while (yearIndex <= maxYearMaterias) {
-
-    index = 1;
-    while (index <= yearsPerTab && yearIndex <= maxYearMaterias) {
-
-      currentYear = {
-        year: yearIndex,
-        subjects: subjects.filter(m => parseInt(m.year, 10) === yearIndex)
-      };
-
-      yearsArray.push(currentYear);
-
-      index += 1;
-      yearIndex += 1
-    }
-
-    tabsArray.push(yearsArray);
-    yearsArray = [];
-
-  }
-
-  return tabsArray;
-
-}
+const getYearsArray = (yearsPerTab, subjects) =>
+  chunk(subjects.reduce((rv, sub) => {
+    // de lo contrario estariamos recreando el array en cada vuelta
+    // eslint-disable-next-line no-param-reassign
+    rv[sub.year] = rv[sub.year] || [];
+    rv[sub.year].push(sub);
+    return rv;
+  }, []).map((subArr, year) => ({ year, subjects: subArr })).slice(1), yearsPerTab);
 
 export default getYearsArray;

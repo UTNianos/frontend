@@ -1,0 +1,708 @@
+{
+  "materias": [
+    {
+      "id": "416",
+      "name": "Módulo A",
+      "status": 1,
+      "year": "0",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "417",
+      "name": "Módulo B",
+      "status": 1,
+      "year": "0",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "5",
+      "name": "Álgebra y Geometría Analítica",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "2",
+      "name": "Algoritmos y Estructuras de Datos",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "7",
+      "name": "Análisis Matemático I",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "3",
+      "name": "Arquitectura de Computadoras",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "4",
+      "name": "Ingeniería y Sociedad",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "6",
+      "name": "Matemática Discreta",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "69",
+      "name": "Química General",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "1",
+      "name": "Sistemas y Organizaciones",
+      "status": 1,
+      "year": "1",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "10",
+      "name": "Análisis de Sistemas",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "14",
+      "name": "Análisis Matemático II",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "67",
+      "name": "Física I",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "64",
+      "name": "Inglés I",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "8",
+      "name": "Paradigmas de Programación",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "12",
+      "name": "Probabilidad y Estadística",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "11",
+      "name": "Sintaxis y Semántica de los Lenguajes",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "66",
+      "name": "Sistemas de Representación",
+      "status": 1,
+      "year": "2",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "15",
+      "name": "Diseño de Sistemas",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "71",
+      "name": "Economía",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "68",
+      "name": "Física II",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "17",
+      "name": "Gestión de Datos",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "65",
+      "name": "Inglés II",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "72",
+      "name": "Legislación",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "70",
+      "name": "Matemática Superior",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "9",
+      "name": "Sistemas Operativos",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "422",
+      "name": "Algoritmos Complejos para Estructuras de Datos Avanzadas",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "76",
+      "name": "Comunicaciones y Redes",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "20",
+      "name": "Creatividad",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "21",
+      "name": "Gestión de Recursos Humanos",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "33",
+      "name": "Ingeniería de Requisitos",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "22",
+      "name": "Innovación Tecnológica",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "23",
+      "name": "Investigación Tecnológica",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "75",
+      "name": "Metodología de la Conducción de Equipos de Trabajo",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "24",
+      "name": "Seguridad Informática",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "25",
+      "name": "Técnicas Avanzadas de Programación",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "26",
+      "name": "Técnicas de Gráficos por Computadoras",
+      "status": 1,
+      "year": "3",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "27",
+      "name": "Administración de Recursos",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "16",
+      "name": "Comunicaciones",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "73",
+      "name": "Ingeniería de Software",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "358",
+      "name": "Investigación operativa (Sistemas)",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "18",
+      "name": "Redes de Información",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "360",
+      "name": "Simulación (Sistemas)",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "29",
+      "name": "Teoría de Control",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "30",
+      "name": "Administración de Personal",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "35",
+      "name": "Criptografía",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "446",
+      "name": "Emprendimientos Digitales",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "40",
+      "name": "Gerenciamiento de Proyectos Informáticos",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "447",
+      "name": "Informática Industrial",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "34",
+      "name": "Programación de la Producción Industrial",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "31",
+      "name": "Seguridad en Redes",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "37",
+      "name": "Sistemas de Información Geográfica",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "36",
+      "name": "Tecnologías Avanzadas en la Construcción de Software",
+      "status": 1,
+      "year": "4",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "43",
+      "name": "Administración Gerencial",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "44",
+      "name": "Inteligencia Artificial",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "41",
+      "name": "Proyecto (Sistemas)",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "74",
+      "name": "Sistemas de Gestión",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "477",
+      "name": " Sistemas Embebidos Aplicados a Robótica",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "58",
+      "name": "Arquitecturas de Proyectos en TI",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "46",
+      "name": "Aspectos Legales de las Nuevas Tecnologías de la Información",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "426",
+      "name": "Bioinformática ",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "478",
+      "name": "Ciudades Digitales, Gobierno y Sociedad",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "425",
+      "name": "Comunicación y Comercialización de Productos y Servicios de IT",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "479",
+      "name": "Desarrollo de Aplicaciones para Dispositivos Moviles",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "427",
+      "name": "Desarrollo Emprendedor",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "54",
+      "name": "Financiamiento de Proyectos de Internet",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "51",
+      "name": "Gestión del Cambio Organizacional",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "448",
+      "name": "Implementación de Arquitecturas de Software Concurrente",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "421",
+      "name": "Implementación de Bases de datos NoSQL",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "423",
+      "name": "Infraestructura y Virtualización",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "444",
+      "name": "Inteligencia Artificial Avanzada",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "59",
+      "name": "Inteligencia de Negocios",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "445",
+      "name": "Marcos de Referencia en TI",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "56",
+      "name": "Marketing en Internet y Nueva Economía",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "49",
+      "name": "Modelos de Negocios en Internet",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "45",
+      "name": "Modelos Organizacionales",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "55",
+      "name": "Pericias Informáticas",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "52",
+      "name": "Procesamiento de Señales",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "475",
+      "name": "Seguridad en Aplicaciones Web",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "50",
+      "name": "Sistemas Avanzados de Bases de Datos",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "53",
+      "name": "Sistemas de Costos y Presupuestos",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "362",
+      "name": "Sistemas Integrados de Gestión (Sistemas)",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "60",
+      "name": "Sistemas Mainframe",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "48",
+      "name": "Tecnología y Discapacidad",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "476",
+      "name": "Tecnologías Aplicadas a Soluciones de Datos",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "424",
+      "name": "Tecnologías Avanzadas en Redes ",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "61",
+      "name": "Tecnologías Para la Explotación de Información",
+      "status": 1,
+      "year": "5",
+      "cursada": false,
+      "final": false
+    },
+    {
+      "id": "108",
+      "name": "Práctica Profesional Supervisada (Sistemas)",
+      "status": 1,
+      "year": null,
+      "cursada": false,
+      "final": false
+    }
+  ]
+}
