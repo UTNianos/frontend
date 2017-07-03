@@ -1,48 +1,50 @@
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router-dom';
-import FetchingIndicator from '../Fetching/FetchingIndicator';
-import Styles from './Seguidor.scss';
-import cssModules from 'react-css-modules';
-import YearOfStudy from './YearOfStudy/YearOfStudy';
-
-const studyYears = [1, 2, 3, 4, 5];
+import React, { Component } from 'react'
+import MediaQuery from 'react-responsive'
+import FetchingIndicator from '../Fetching/FetchingIndicator'
+import SeguidorHeading from './SeguidorHeading'
+import Carousel from './Carousel/Carousel'
 
 class Seguidor extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    this.props.onLoad();
+    this.props.onLoad()
   }
 
   render() {
-    const { isFetching, error, materias, estados } = this.props;
 
-    if (isFetching) { return <FetchingIndicator />; }
+    const { isFetching, error, materias } = this.props
 
-    if (error) { return <p>Hubo un error recuperando las materias</p>; }
+    if (isFetching) { return <FetchingIndicator /> }
+
+    if (error) { return <p>Hubo un error recuperando las materias</p> }
 
     return (
-    <div>
-        
-      <h1 styleName="SeguidorHeading">Materias</h1>
+      <div>
 
-        <div styleName="YearsVisualizer">
-          {studyYears.map((year, i) =>
-            <YearOfStudy
-              key={year}
-              subjects={materias.filter(m => m.year == year)}
-              year={year}
-              updateEstado={this.props.updateEstado}
-            />
-           )}
+        <div>
+          <SeguidorHeading />
         </div>
-        
-    </div>
-    );
+
+        <div>
+          <MediaQuery minDeviceWidth={1224}>
+            <Carousel
+              materias={materias}
+              yearsPerTab={3}
+              updateFn={this.props.updateEstado}
+            />
+          </MediaQuery>
+          <MediaQuery maxDeviceWidth={1224}>
+            <Carousel
+              materias={materias}
+              yearsPerTab={1}
+              updateFn={this.props.updateEstado}
+            />
+          </MediaQuery>
+        </div>
+      </div>
+    )
+
   }
+
 }
 
-export default cssModules(Seguidor, Styles, { allowMultiple: true });
+export default Seguidor

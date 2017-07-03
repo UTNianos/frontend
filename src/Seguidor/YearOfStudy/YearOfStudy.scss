@@ -5,8 +5,23 @@
   font-weight: 400;
 }
 
-.Container
+.Separator
 {
-  margin: 8px;
-  width: 300px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 900px){
+ .Container
+ {
+   margin: 8px;
+   max-width: 400px;
+   width: 380px;
+ }
+}
+
+@media (max-width: 900px){
+ .Container
+ {
+   margin: 8px;
+ }
 }

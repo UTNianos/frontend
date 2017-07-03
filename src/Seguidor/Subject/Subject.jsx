@@ -1,88 +1,81 @@
 import React from 'react';
 import Styles from './Subject.scss';
 import cssModules from 'react-css-modules';
-
-function getValueStatus(value) {
-  let status = '';
-
-  switch (value) {
-    case 1:
-      status = 'Pending';
-      break;
-    case 2:
-      status = 'Taking';
-      break;
-    case 3:
-      status = 'PartiallyFinished'; // Firmada
-      break;
-    case 4:
-      status = 'Passed';
-      break;
-    default:
-      status = '';
-  }
-
-  return status;
-}
+import { Popover, Card, Menu, Dropdown } from 'antd';
+import SubjectBadge from './SubjectBadge';
 
 const subjectValues = [
-{ number: 1, name: 'Pendiente' },
-{ number: 2, name: 'Cursando' },
-{ number: 3, name: 'Firmada' },
-{ number: 4, name: 'Aprobada' }
+	{"number": 1, "name": "Pendiente"},
+	{"number": 2, "name": "Cursando"},
+	{"number": 3, "name": "Firmada"},
+	{"number": 4, "name": "Aprobada"}
 ];
 
-class Subject extends React.Component {
+function updateMateria(e, id, updateFn){
 
-  constructor(props) {
-    super(props);
-    this.state = { value: this.props.status, id: this.props.id };
-    this.updateMateria = this.updateMateria.bind(this);
-    this.updateStatusFn = this.props.updateEstado;
-  }
+   const actualKey = parseInt(e.key)+1;
+   const currentStatus = subjectValues.filter(s => s.number == actualKey)[0];
+   const value = currentStatus.number;
 
-  updateMateria() {
-	  const materiaStatus = { id: parseInt(this.state.id), status: this.state.value };
-	  this.updateStatusFn(materiaStatus);
-  }
+   const materiaStatus = {"id": id, "status": value};
+   updateFn(materiaStatus);
+}
 
-  handleChange = (event) => {
-    const value = event.target.value;
-	  this.setState({ value }, this.updateMateria);
-  };
 
-  render() {
-    const cursadaClass = this.props.cursada ? ' Enabled' : ' Disabled';
-    const cssClass = `Subject ${getValueStatus(this.state.value)}${cursadaClass}`;
-
-    if (!this.props.cursada) {
-	 return (
-  <div styleName={cssClass}>
-
-    <div>{this.props.name}</div>
-
-    <select disabled>
-      <option value={0}>Pendiente</option>
-    </select>
-
+const PopoverContent = (
+  <div>
+    <p>No se cumplen las coorrelativas para que curses esta materia.</p>    
   </div>
- );
-    }
+);
 
-    return (
-      <div styleName={cssClass}>
+const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
-        <div>{this.props.name}</div>
+  const currentStatus = subjectValues.filter(s => s.number == status);
+  const statusName = currentStatus[0].name;
+  const subjectClass = "Subject " + statusName;
+  
+  const menu = (
+	<Menu onClick={(e) => updateMateria(e, id, updateEstado)}>
+	  {subjectValues.map((sValue, i) =>
+	   <Menu.Item key={i} >
+          {sValue.name}
+	   </Menu.Item>
+	   )}
+	</Menu>
+  );
 
-        <select value={this.state.value} onChange={this.handleChange}>
-          {subjectValues.map((sValue, i) =>
-            <option value={sValue.number} key={i}>{sValue.name}</option>
-	)}
-        </select>
-
-      </div>
+  if(cursada) {
+	  return (
+	  <div styleName={subjectClass}>
+		<Card styleName="SubjectCard">
+		  <strong styleName="SubjectName">{name}</strong>
+		  <Dropdown.Button overlay={menu} style={{'display': 'inline', 'marginLeft': '4px'}}>
+		   {statusName}
+		  </Dropdown.Button>
+		</ Card>
+	  </div>
     );
   }
+
+  if(!cursada) {
+	 return (
+	 <div styleName="Subject Disabled">
+	    <Popover content={PopoverContent} title={name} trigger="hover">
+		  <Card styleName="SubjectCard">
+		    <strong styleName="SubjectName">{name}</strong>
+		    <Dropdown.Button  
+			       disabled 
+				   style={{'display': 'inline', 'marginLeft': '4px'}} 
+				   overlay={menu}
+			>
+ 			Pendiente
+		    </Dropdown.Button>
+		  </Card>
+		</ Popover>
+	 </div>
+	 );
+  }
+
 }
 
 export default cssModules(Subject, Styles, { allowMultiple: true });

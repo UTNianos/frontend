@@ -1,53 +1,52 @@
+div .Subject
+{
+  width: 100%;
+}
+
 .Subject
 {
   margin-bottom: 10px;
-  max-width: 100%;
-  padding-left: 17px;
-  padding-bottom: 2px;
-  outline: none;
 }
 
-.Subject.Enabled
+.Pendiente 
 {
-  border: 1px solid black;
+  visibility: visible;
 }
+
+.Cursando 
+{
+  visibility: visible;
+}
+
+.Firmada 
+{
+  visibility: visible;
+}
+
+.Aprobada 
+{
+  visibility: visible;
+}
+
 
 .Subject.Disabled
 {
-  border: 1px solid gainsboro;
+  cursor: no-drop;
+  color: darkgray;
 }
 
-.Subject.Pending.Enabled
+.Disabled .SubjectCard
 {
-  visibility: visible;
-  /*border-color: red;
-  box-shadow: 0 0 10px red;*/
+  background: gainsboro;
 }
 
-.Subject.Taking.Enabled
+.SubjectCard div
 {
-  visibility: visible;
-  /*border-color: #9ecaed;
-  box-shadow: 0 0 10px #9ecaed;*/
+  padding: 10px;
 }
 
-.Subject.PartiallyFinished.Enabled
+.SubjectName
 {
-  visibility: visible;
-  /*border-color: yellow;
-  box-shadow: 0 0 10px yellow;*/
-}
-
-.Subject.Passed.Enabled
-{
-  visibility: visible;
-  /*border-color: green;
-  box-shadow: 0 0 10px green;*/
-}
-
-.Subject.Enabled:hover
-{
-  border-color: black;
-  box-shadow: 0 0 10px black;
-  border: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -11,7 +11,6 @@ var rewriteUrl = function (replacePath) {
   };
 };
 
-
 var config = {
   devtool: 'cheap-module-source-map',
   entry: {
@@ -75,11 +74,21 @@ var config = {
       query: {presets: ['es2015', 'stage-2', 'react']}
     },
     { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader',
-      query: {presets: ['es2015', 'stage-2', 'react']}
+        query: {
+		  presets: ['es2015', 'stage-2', 'react'],
+          plugins: [
+            ['import', [{ libraryName: "antd", style: 'css-loader' }]],
+          ],              
+          cacheDirectory: true
+	    }
     },
 	{ test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader',
 	  query: {
-	   presets: ['es2015', 'stage-2', 'react']
+	     presets: ['es2015', 'stage-2', 'react'],
+         plugins: [
+            ['import', [{ libraryName: "antd", style: 'css-loader' }]],
+         ],              
+         cacheDirectory: true
 	  }
 	},
 	{
@@ -91,7 +100,7 @@ var config = {
 	      'sass-loader'
 		]
 	},
-	{ test: /\.css$/, loader: 'style!css' },
+	{ test: /\.css$/, loader: 'style!css-loader' },
 	{ test: /\.(png|svg)$/, loader: 'url-loader?limit=100000' },
 	{ test: /\.jpg$/, loader: 'file-loader' }
   ]
