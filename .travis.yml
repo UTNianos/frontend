@@ -14,9 +14,9 @@ install:
   - npm rebuild node-sass
 
 script:
-  - npm run lint-all
-  - npm test
-  - npm run build-prod
+  - yarn lint-all
+  - yarn test:coverage
+  - yarn build-prod
 
 notifications:
   email: false
