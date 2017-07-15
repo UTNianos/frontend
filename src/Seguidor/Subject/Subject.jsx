@@ -3,6 +3,7 @@ import Styles from './Subject.scss';
 import cssModules from 'react-css-modules';
 import { Popover, Card, Menu, Dropdown } from 'antd';
 import SubjectBadge from './SubjectBadge';
+import PopoverContent from './Popover';
 
 const subjectValues = [
 	{"number": 1, "name": "Pendiente"},
@@ -20,13 +21,6 @@ function updateMateria(e, id, updateFn){
    const materiaStatus = {"id": id, "status": value};
    updateFn(materiaStatus);
 }
-
-
-const PopoverContent = (
-  <div>
-    <p>No se cumplen las coorrelativas para que curses esta materia.</p>    
-  </div>
-);
 
 const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
