@@ -22,7 +22,8 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 		</ Card>
 	  </div>
     );  
-
+  }
+  
   if(!cursada) {
     return (
     <div styleName="Subject Disabled">
@@ -39,7 +40,7 @@ const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 	</div>
 	);
   }
-  
+ 
 }
 
 export default cssModules(Subject, Styles, { allowMultiple: true });
