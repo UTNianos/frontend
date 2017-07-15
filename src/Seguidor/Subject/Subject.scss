@@ -1,11 +1,17 @@
 div .Subject
 {
   width: 100%;
+  text-align:center;  
 }
 
 .Subject
 {
   margin-bottom: 10px;
+}
+
+.SubjectNameContainer
+{
+  margin-bottom: 7px;
 }
 
 .Pendiente 
@@ -28,7 +34,6 @@ div .Subject
   visibility: visible;
 }
 
-
 .Subject.Disabled
 {
   cursor: no-drop;
@@ -38,15 +43,12 @@ div .Subject
 .Disabled .SubjectCard
 {
   background: gainsboro;
-}
-
-.SubjectCard div
-{
-  padding: 10px;
+  height: 106px;
 }
 
 .SubjectName
 {
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size:14px;
 }
