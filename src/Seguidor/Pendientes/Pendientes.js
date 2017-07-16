@@ -26,9 +26,7 @@ const Pendientes = ({pendientes, materias}) => {
 
  const firma = materias.filter(m => pendientes.firma.includes(m.id));
  const final = materias.filter(m => pendientes.final.includes(m.id));
-
- console.log(final);
-
+ 
  return(
  <div>
     <strong>Para cursar te faltan las siguientes correlativas:</strong>
