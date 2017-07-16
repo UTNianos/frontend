@@ -1,7 +1,7 @@
 div .Subject
 {
   width: 100%;
-  text-align:center;  
+  text-align:center;
 }
 
 .Subject
@@ -14,22 +14,22 @@ div .Subject
   margin-bottom: 7px;
 }
 
-.Pendiente 
+.Pendiente
 {
   visibility: visible;
 }
 
-.Cursando 
+.Cursando
 {
   visibility: visible;
 }
 
-.Firmada 
+.Firmada
 {
   visibility: visible;
 }
 
-.Aprobada 
+.Aprobada
 {
   visibility: visible;
 }
@@ -38,6 +38,17 @@ div .Subject
 {
   cursor: no-drop;
   color: darkgray;
+}
+
+.Unselectable
+{
+  /*  Hace que el texto de la descripcion sea imposible de seleccionar. */
+  user-select: none; /* non-prefixed version, currently not supported by any browser */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
 }
 
 .Disabled .SubjectCard
