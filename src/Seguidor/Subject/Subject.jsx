@@ -5,14 +5,6 @@ import PopoverContent from '../Pendientes/Container';
 import StatusDropdown from './StatusDropdown';
 import Styles from './Subject.scss';
 
-/*
-      id={subject.id}
-      name={subject.name}
-      status={subject.status}
-      cursada={subject.cursada}
-      final={subject.final}
-*/
-
 const Subject = ({subject, updateEstado}) => {
       
   if(subject.cursada) {
