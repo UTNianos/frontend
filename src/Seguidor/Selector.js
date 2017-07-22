@@ -32,13 +32,13 @@ function validarReq(requerimientos, estados, estado) {
 
   // No hay requisitos, la condición es verdadera.
   if (!requerimientos || requerimientos.length === 0) {
-    return { valido: true , pendientes: [] };
+    return { valido: true, pendientes: [] };
   }
 
-  const reqPendientes = requerimientos.filter(req => !(reqSatisfy(estados, req, estado)));     
-  
-  const valido = (reqPendientes.length === 0 ? true : false);
-  return { valido: valido, pendientes: reqPendientes };
+  const reqPendientes = requerimientos.filter(req => !(reqSatisfy(estados, req, estado)));
+
+  const valido = (reqPendientes.length === 0);
+  return { valido, pendientes: reqPendientes };
 }
 
 /*
@@ -51,14 +51,14 @@ function validarReq(requerimientos, estados, estado) {
 function getEstadoMateria(correlativas, estados) {
 
   if (correlativas.length === 0) {
-    return { 
-	  cursada: true, 
-	  final: true, 
-	  pendientes:{ 
-	    firma:[], 
-		final:[] 	   
-	  }
-	}
+    return {
+      cursada: true,
+      final: true,
+      pendientes: {
+        firma: [],
+        final: []
+      }
+    }
   }
 
   // Requisitos para cursar.
@@ -72,10 +72,10 @@ function getEstadoMateria(correlativas, estados) {
   const valCFinal = validarReq(CFinales, estados, ESTADO_APROBACION);
   const valFFirma = validarReq(Fcursadas, estados, ESTADO_FIRMA);
   const valFFinal = validarReq(Ffinales, estados, ESTADO_APROBACION);
-  
+
   const puedeCursar = valCFirma.valido && valCFinal.valido;
   const puededarFinal = valFFirma.valido && valFFinal.valido;
-  
+
   const pendientes = {
     firma: valCFirma.pendientes,
     final: valCFinal.pendientes
@@ -84,7 +84,7 @@ function getEstadoMateria(correlativas, estados) {
   return {
     cursada: puedeCursar,
     final: puededarFinal,
-    pendientes: pendientes
+    pendientes
   };
 
 }
@@ -100,7 +100,7 @@ function calcularEstado(materia, estados, correlativas) {
     final: false,
     pendientes: {}
   };
-  
+
   const materiaEstado = estados.filter(c => c.id === newMateria.id);
   let estadoMateria = 1; // Por defecto, la materia esta pendiente.
 

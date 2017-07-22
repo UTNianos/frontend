@@ -35,10 +35,11 @@ const StatusDropdown = ({ updateFn, materiaId, status }) =>
       defaultValue={categroyFromStatus(status, categories)}
     >
       {categories.map(category =>
-        (<Option value={category.name} key={category.id}>
-          <Badge status={category.color} />
-          {category.name}
-        </Option>
+        (
+          <Option value={category.name} key={category.id} title={category.name}>
+            <Badge status={category.color} />
+            {category.name}
+          </Option>
         )
        )}
     </Select>
