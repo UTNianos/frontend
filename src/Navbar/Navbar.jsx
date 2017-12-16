@@ -6,15 +6,17 @@ import { Affix } from 'antd';
 
 const Navbar = () => {
 
-  return (
-  <Affix>
-   <MediaQuery minDeviceWidth={1224} >
-      <NavbarDesktop />
-    </MediaQuery>
+  return (  
+  <span>
+	<MediaQuery minDeviceWidth={1224} >
+		<Affix>
+			<NavbarDesktop />
+		</Affix>
+	</MediaQuery>
 	<MediaQuery maxDeviceWidth={1224}>
-      <NavbarMobile />
-    </MediaQuery>
-  </Affix>
+		<NavbarMobile />
+    </MediaQuery>  
+  </span>
   );
 }
 

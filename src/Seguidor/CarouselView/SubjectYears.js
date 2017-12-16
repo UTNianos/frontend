@@ -1,6 +1,6 @@
 import React from 'react';
 import cssModules from 'react-css-modules';
-import Styles from './Seguidor.scss';
+import Styles from '../Seguidor.scss';
 import YearOfStudy from './YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => (
