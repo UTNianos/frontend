@@ -9,10 +9,14 @@ class Carousel extends Component {
 
   constructor(props) {
     super(props);
+
+    const { materias, yearsPerTab } = props;
+    const studyYears = getYearsArray(yearsPerTab, materias);
+
     this.state = {
       currentTab: 1,
-      totalTabs: 0,
-      studyYears: []
+      totalTabs: studyYears.length,
+      studyYears: studyYears
     };
   }
 
@@ -44,6 +48,8 @@ class Carousel extends Component {
   }
 
   render() {
+
+    console.log("RENDER!")
 
     if (this.state.studyYears.length <= 0) { return null; }
 

@@ -2,10 +2,35 @@ import React, { Component } from 'react'
 import FetchingIndicator from '../Fetching/FetchingIndicator'
 import SeguidorHeading from './SeguidorHeading'
 import CarouselView from './CarouselView/CarouselView';
+import TreeView from './TreeView/TreeView';
+import FinalesPendientes from './FinalesPendientes/FinalesPendientes';
+
+const SeguidorView = ({view, materias, updateEstado}) => {
+
+  if(view === 'tree')
+     return <TreeView materias={materias} updateEstado={updateEstado} />;
+
+  if(view === 'carousel')
+     return <CarouselView materias={materias} updateEstado={updateEstado} />;
+
+  if(view === 'finales')
+    return <FinalesPendientes materias={materias} updateEstado={updateEstado} />;
+
+}
 
 class Seguidor extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { view: 'carousel' };
+  }
+
   componentDidMount() {
     this.props.onLoad()
+  }
+
+  changeViewType(type) {
+    this.setState({view: type});
   }
 
   render() {
@@ -26,10 +51,17 @@ class Seguidor extends Component {
       <div>
 
         <div>
-          <SeguidorHeading />
+          <SeguidorHeading
+              changeViewType={this.changeViewType.bind(this)}
+              currentView={this.state.view}
+          />
         </div>
 
-        <CarouselView materias={materias} updateEstado={updateEstado} />
+        <SeguidorView
+            materias={materias}
+            updateEstado={updateEstado}
+            view={this.state.view}
+        />
 
       </div>
     )
