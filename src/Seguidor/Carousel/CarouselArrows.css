@@ -1,0 +1,34 @@
+@media(min-width: 900px) 
+{	
+  .ArrowLeft
+  {
+	  position: absolute;
+	  top: 251px;
+	  right: 94%;
+  }
+    
+  .ArrowRight
+  { 
+	  position: absolute;
+	  top: 251px;
+	  margin-left: 95%;
+  }
+}
+
+@media(max-width:900px) 
+{	
+  .ArrowLeft
+  {
+    position: absolute;
+    top: 94px;
+    right: 67%;	
+  }
+
+  .ArrowRight
+  {
+    position: absolute;
+    top: 94px;
+    margin-left: 67%;
+  }
+  
+}

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Fetching /> renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "marginLeft": "0%",
+      "marginTop": "10%",
+    }
+  }
+/>
+`;
