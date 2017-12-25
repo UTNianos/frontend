@@ -13,11 +13,14 @@
 	 "comma-dangle": 0,
 	 "padded-blocks": 0,
 	 "semi": 0,
-	 "react/jsx-no-bind": 0
+	 "react/jsx-no-bind": 0,
+	 "jsx-a11y/anchor-is-valid": 0,
+	 "object-curly-newline": 0
    },
    "env": {
      "es6": true,
-     "browser": true
+     "browser": true,
+	 "jest": true
    },
    "globals": {
      "__IS_BROWSER__": true,

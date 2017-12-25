@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux';
 import seguidor from './Reducers/Seguidor';
-import session from './Reducers/Sesion';
 
-const rootReducer = combineReducers({
-  seguidor,
-  session
-});
+const rootReducer = combineReducers({ seguidor });
 
 export default rootReducer;

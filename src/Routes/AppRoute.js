@@ -2,29 +2,14 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-const AppRoute = ({
-  exact, path, component, isPrivate, isAuthenticated
-}) => {
+const AppRoute = ({ exact, path, component, isPrivate, isAuthenticated }) => {
 
   if (isPrivate && !isAuthenticated) { return <Redirect to="/login" />; }
-  return (
-    <Route
-      exact={exact}
-      path={path}
-      component={component}
-    />
-  );
+
+  return <Route exact={exact} path={path} component={component} />;
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: false // state.session.loggedIn
-})
+const mapStateToProps = ({ isAuthenticated: false });
+const mapDispatchToProps = () => {};
 
-const mapDispatchToProps = (dispatch, ownProps) => {}
-
-const ConnectedAppRoute = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppRoute)
-
-export default ConnectedAppRoute;
+export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);
