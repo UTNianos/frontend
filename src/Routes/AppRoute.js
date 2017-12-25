@@ -9,7 +9,7 @@ const AppRoute = ({ exact, path, component, isPrivate, isAuthenticated }) => {
   return <Route exact={exact} path={path} component={component} />;
 }
 
-const mapStateToProps = ({ isAuthenticated: false });
+const mapStateToProps = state => ({ isAuthenticated: state ? true : false });
 const mapDispatchToProps = () => {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);
