@@ -29,6 +29,6 @@ const NavbarMobile = () => (
       </Col>
     </Row>
   </Menu>
-  )
+)
 
 export default NavbarMobile;

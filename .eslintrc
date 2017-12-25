@@ -19,9 +19,6 @@
      "es6": true,
      "browser": true
    },
-   "ecmaFeatures": {
-     "experimentalObjectRestSpread": true
-   },
    "globals": {
      "__IS_BROWSER__": true,
      "it": true,
