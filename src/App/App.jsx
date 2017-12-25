@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Container';
 import Footer from './Footer';
-import Styles from './Base.css';
+import './Base.css';
 import 'antd/dist/antd.css';
 
 const App = ({ children }) => (
