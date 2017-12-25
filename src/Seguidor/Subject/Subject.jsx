@@ -1,7 +1,6 @@
 import React from 'react';
 import './Subject.css';
 import { Popover, Card, Menu, Dropdown } from 'antd';
-import SubjectBadge from './SubjectBadge';
 
 const subjectValues = [
 	{"number": 1, "name": "Pendiente"},
@@ -12,8 +11,8 @@ const subjectValues = [
 
 function updateMateria(e, id, updateFn){
 
-   const actualKey = parseInt(e.key)+1;
-   const currentStatus = subjectValues.filter(s => s.number == actualKey)[0];
+   const actualKey = parseInt(e.key, 10)+1;
+   const currentStatus = subjectValues.filter(s => s.number === actualKey)[0];
    const value = currentStatus.number;
 
    const materiaStatus = {"id": id, "status": value};
@@ -29,7 +28,7 @@ const PopoverContent = (
 
 const Subject = ({id, name, status, cursada, final, updateEstado}) => {
 
-  const currentStatus = subjectValues.filter(s => s.number == status);
+  const currentStatus = subjectValues.filter(s => s.number === status);
   const statusName = currentStatus[0].name;
   const subjectClass = "Subject " + statusName;
   
