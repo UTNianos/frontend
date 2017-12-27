@@ -16,7 +16,7 @@ install:
 script:
   - yarn lint-all
   - yarn test:coverage
-  - yarn build-prod
+  - yarn build
 
 notifications:
   email: false

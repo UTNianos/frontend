@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 const LoginMenu = () => (
   <span>
     <Link to="/login">
-      <Button type="primary" icon="login" size="default" style={{ marginRight: '4px' }}>
+      <Button type="primary" icon="login" size="default" style={{ marginRight: '4px', fontSize: '12px' }}>
            Ingresar
-       </Button>
+      </Button>
     </Link>
     <Link to="/register">
       <Button type="primary" icon="user-add" size="default">
            Registrarse
-       </Button>
+      </Button>
     </Link>
   </span>
-  );
+);
 
 export default LoginMenu;

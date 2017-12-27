@@ -1,31 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import storeCreator from './store/configureStore';
+import ApplicationRoutes from './Routes/Routes';
+import AppRoute from './Routes/AppRoute';
 
-// Route components.
-import App from './App/App'; // Main application.
-import Home from './App/Home'; // Home
-import Seguidor from './Seguidor/Container';
-
-// Create store and browser history.
+// Create browser history.
 const store = storeCreator();
 const browserHistory = createBrowserHistory();
+const { App } = ApplicationRoutes;
+const { Routes } = ApplicationRoutes;
 
-const Root = () => (
+const Utnianos = () => (
   <div>
     <Provider store={store}>
       <Router history={browserHistory}>
-        <div>
-          <Route path="/" component={App} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/seguidor" component={Seguidor} />
-        </div>
+        <App>
+          <Switch>
+            {Routes.map(route =>
+            (<AppRoute
+              exact={route.exact}
+              path={route.path}
+              component={route.component}
+              isPrivate={route.private}
+            />))}
+          </Switch>
+        </App>
       </Router>
     </Provider>
   </div>
-)
+);
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<Utnianos />, document.getElementById('root'));

@@ -29,8 +29,7 @@ function flattenSubjects(studyYears) {
 
   const flattened = studyYears.reduce((prevYear, currYear) =>
     prevYear.concat(currYear.v.reduce((prev, curr) =>
-      prev.concat(mapMateria(curr, currYear.a)), [])
-    ), []);
+      prev.concat(mapMateria(curr, currYear.a)), [])), []);
 
   return flattened;
 }

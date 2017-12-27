@@ -27,34 +27,44 @@ npm install -g yarn
 yarn
 ```
 
-Para generar el build de desarrollo.
+### Comandos básicos
+
++ Arrancar el servidor de desarrollo.
 
 ```sh
-webpack --progress
-```
-Para generar el build de producción.
-
-```sh
-webpack --config webpack.config.prod.js
+yarn start
 ```
 
-### Iniciar un servidor en la carpeta donde esta el JS.
++ Generar el build de producción.
 
-Cualquier servidor de archivos estáticos funciona, por ejemplo 
-http.server de python o npm start de node.
- 
 ```sh
-cd build
-python -m http.server
-http://localhost:8000/
+yarn build
 ```
 
-ó
++ Para correr los tests
 
 ```sh
-cd build
-npm start
-http://localhost:3000/
+yarn test
+```
+
++ Correr los tests con cobertura de código.
+
+```sh
+yarn test --coverage
+```
+
+### Linter
+
++ Correr el linter
+
+```sh
+yarn lint-all
+```
+
++ Correr el linter en modo CI.
+
+```sh
+yarn lint-all-ci
 ```
 
 ## Instalar Redux DevTools extension (opcional).
