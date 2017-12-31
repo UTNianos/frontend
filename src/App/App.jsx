@@ -1,17 +1,17 @@
 import React from 'react';
-import cssModules from 'react-css-modules';
 import Navbar from '../Navbar/Container';
 import Footer from './Footer';
-import Styles from './Base.scss';
+import './Base.css';
+import 'antd/dist/antd.css';
 
 const App = ({ children }) => (
-  <div styleName="App">
+  <div className="App">
     <Navbar />
-    <div styleName="MainApp" >
+    <div className="MainApp" >
       {children}
     </div>
     <Footer />
   </div>
 );
 
-export default cssModules(App, Styles, { allowMultiple: true });
+export default App;

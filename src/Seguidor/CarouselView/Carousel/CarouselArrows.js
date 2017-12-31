@@ -1,17 +1,16 @@
 import React from 'react';
 import { Icon } from 'react-fa';
-import cssModules from 'react-css-modules';
-import Styles from './CarouselArrows.scss';
+import './CarouselArrows.css';
 
 const CarouselArrows = ({ prevFn, nextFn }) => (
   <span>
-    <span styleName="ArrowLeft">
+    <span className="ArrowLeft">
       <Icon name="arrow-left" size="3x" onClick={prevFn} />
     </span>
-    <span styleName="ArrowRight">
+    <span className="ArrowRight">
       <Icon name="arrow-right"size="3x" onClick={nextFn} />
     </span>
   </span>
 );
 
-export default cssModules(CarouselArrows, Styles, { allowMultiple: true });
+export default CarouselArrows;

@@ -1,6 +1,5 @@
 import React from 'react';
-import cssModules from 'react-css-modules';
-import Styles from '../Seguidor.scss';
+import '../Seguidor.css';
 import YearOfStudy from './YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => {
@@ -9,7 +8,7 @@ const SubjectYears = ({ years, updateFn }) => {
     return null;
 
   return (
-    <div styleName="YearsVisualizer">
+    <div className="YearsVisualizer">
       {years.map(year =>
         <YearOfStudy
           key={year.year}
@@ -23,4 +22,4 @@ const SubjectYears = ({ years, updateFn }) => {
 
 }
 
-export default cssModules(SubjectYears, Styles, { allowMultiple: true });
+export default SubjectYears;

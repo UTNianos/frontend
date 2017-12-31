@@ -1,18 +1,13 @@
 import React from 'react';
 import Subject from '../Subject/Subject';
-import Styles from './YearOfStudy.scss';
-import cssModules from 'react-css-modules';
+import './YearOfStudy.css';
 
 const YearOfStudy = ({subjects, year, updateEstado}) => {
 
-  console.log(subjects);
-  console.log(year);
-  console.log("<>>>>>>>>>>>>>>>>>>>><<<<<>>");
-
   return(
-  <div styleName="Container">
-    <p styleName="Heading">Año {year}</p>
-    <hr styleName="Separator" />
+  <div className="Container">
+    <p className="Heading">Año {year}</p>
+    <hr className="Separator" />
     {subjects.map((subject, i) =>
     <div key={subject.id}>
       <Subject subject={subject} updateEstado={updateEstado} />
@@ -23,4 +18,4 @@ const YearOfStudy = ({subjects, year, updateEstado}) => {
 
 };
 
-export default cssModules(YearOfStudy, Styles, { allowMultiple: true });
+export default YearOfStudy;

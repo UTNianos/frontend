@@ -32,6 +32,6 @@ const NavbarDesktop = () => (
       </Col>
     </Row>
   </Menu>
-  );
+);
 
 export default NavbarDesktop;

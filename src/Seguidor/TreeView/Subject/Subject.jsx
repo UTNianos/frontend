@@ -1,18 +1,17 @@
 import React from 'react';
-import cssModules from 'react-css-modules';
 import { Popover, Card, Menu, Dropdown } from 'antd';
 import PopoverContent from '../Pendientes/Container';
 import StatusDropdown from './StatusDropdown';
-import Styles from './Subject.scss';
+import './Subject.css';
 
 const Subject = ({subject, updateEstado}) => {
 
   if(subject.cursada) {
 	  return (
-	  <div styleName="Subject">
-		<Card styleName="SubjectCard">
-		  <p styleName="SubjectNameContainer">
-			<strong styleName="SubjectName">{subject.name}</strong>
+	  <div className="Subject">
+		<Card className="SubjectCard">
+		  <p className="SubjectNameContainer">
+			<strong className="SubjectName">{subject.name}</strong>
 		  </p>
 		  <StatusDropdown
 			updateFn={updateEstado}
@@ -26,21 +25,21 @@ const Subject = ({subject, updateEstado}) => {
 
   if(!subject.cursada) {
     return (
-    <div styleName="Subject Disabled">
+    <div className="Subject Disabled">
       <Popover
 		    content={<PopoverContent pendientes={subject.pendientes} />}
 			  title={subject.name}
 			  trigger="hover"
 		  >
-		    <Card styleName="SubjectCard">
+		    <Card className="SubjectCard">
 
-          <p styleName="Unselectable">
-		        <strong styleName="SubjectName">
+          <p className="Unselectable">
+		        <strong className="SubjectName">
 			        {subject.name}
 			      </strong>
           </p>
 
-			    <p styleName="Unselectable">
+			    <p className="Unselectable">
 			      No se cumplen las coorrelativas para que curses esta materia.
 			    </p>
 
@@ -53,4 +52,4 @@ const Subject = ({subject, updateEstado}) => {
 
 }
 
-export default cssModules(Subject, Styles, { allowMultiple: true });
+export default Subject;

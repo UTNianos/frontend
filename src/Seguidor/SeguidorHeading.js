@@ -1,6 +1,5 @@
 import React from 'react';
-import cssModules from 'react-css-modules';
-import Styles from './Seguidor.scss';
+import './Seguidor.css';
 import { Icon } from 'react-fa';
 import { Button } from 'antd';
 
@@ -8,10 +7,10 @@ const SeguidorHeading = ({changeViewType, currentView}) => (
   <div>
 
     <div className="SeguidorTitle">
-      <h1 styleName="SeguidorHeading">Materias</h1>
+      <h1 className="SeguidorHeading">Materias</h1>
     </div>
 
-    <div styleName="ViewChooser">
+    <div className="ViewChooser">
       <Button onClick={() => changeViewType('carousel')} >
           <Icon name="arrows-h" size="lg"/>
        </Button>
@@ -26,4 +25,4 @@ const SeguidorHeading = ({changeViewType, currentView}) => (
   </div>
   )
 
-export default cssModules(SeguidorHeading, Styles, { allowMultiple: true });
+export default SeguidorHeading;
