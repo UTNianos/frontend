@@ -51,10 +51,10 @@ div .Subject
   -ms-user-select: none;       /* IE/Edge */
 }
 
-.Disabled .SubjectCard
+.Disabled .SubjectCard 
 {
-  background: gainsboro;
-  height: 106px;
+    background: gainsboro;
+    height: 129px;
 }
 
 .SubjectName
