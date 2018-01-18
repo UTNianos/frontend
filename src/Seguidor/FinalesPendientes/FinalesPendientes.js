@@ -5,7 +5,7 @@ import './FinalesPendientes.css';
 const FinalesPendientes = ({materias, updateEstado}) => {
 
   const pendientesDeFinal = materias.filter(m => m.final === true && m.status == 3);
-
+  
   return(
   <div className="PendientesList">
   
@@ -13,10 +13,16 @@ const FinalesPendientes = ({materias, updateEstado}) => {
     itemLayout="horizontal"
     dataSource={pendientesDeFinal}
     renderItem={item => (
-      <List.Item actions={[<a>Aprobada</a>]}>
-        <List.Item.Meta
-          title={<a href="https://ant.design">{item.name}</a>}/>
-      </List.Item>
+      <List.Item actions={[
+		<a onClick={() => updateEstado({id:item.id, status:"4"})}>
+		  Aprobada
+		</a>
+		]}
+      >
+        <List.Item.Meta 
+		   title={<a href="http://utnianos.com">{item.name}</a>}
+		/>
+     </List.Item>
 		)}
 	/>  
   </div>
