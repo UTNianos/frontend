@@ -54,7 +54,7 @@ div .Subject
 .Disabled .SubjectCard 
 {
     background: gainsboro;
-    height: 129px;
+    height: 100%;
 }
 
 .SubjectName
