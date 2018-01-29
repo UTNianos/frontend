@@ -1,6 +1,11 @@
 import React from 'react';
 import './Seguidor.css';
-import { Icon } from 'react-fa';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import {
+	faClock,
+	faTree,
+	faArrowsAltH
+} from '@fortawesome/fontawesome-free-solid';
 import { Button } from 'antd';
 
 const SeguidorHeading = ({changeViewType, currentView}) => (
@@ -12,13 +17,13 @@ const SeguidorHeading = ({changeViewType, currentView}) => (
 
     <div className="ViewChooser">
       <Button onClick={() => changeViewType('carousel')} >
-          <Icon name="arrows-h" size="lg"/>
+		  <FontAwesomeIcon icon={faArrowsAltH} size="lg" />
        </Button>
        <Button onClick={() => changeViewType('tree')}>
-          <Icon name="tree" size="lg" />
+          <FontAwesomeIcon icon={faTree} size="lg" />
        </Button>
        <Button onClick={() => changeViewType('finales')}>
-          <Icon name="clock-o" size="lg" />
+          <FontAwesomeIcon icon={faClock} size="lg" />
        </Button>
     </div>
 

@@ -1,14 +1,18 @@
 import React from 'react';
-import { Icon } from 'react-fa';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import {
+	faArrowLeft,
+	faArrowRight
+} from '@fortawesome/fontawesome-free-solid';
 import './CarouselArrows.css';
 
 const CarouselArrows = ({ prevFn, nextFn }) => (
   <span>
     <span className="ArrowLeft">
-      <Icon name="arrow-left" size="3x" onClick={prevFn} />
+      <FontAwesomeIcon icon={faArrowLeft} size="3x" onClick={prevFn} />
     </span>
     <span className="ArrowRight">
-      <Icon name="arrow-right"size="3x" onClick={nextFn} />
+      <FontAwesomeIcon icon={faArrowRight} size="3x" onClick={nextFn} />
     </span>
   </span>
 );
