@@ -16,12 +16,12 @@ class Carousel extends Component {
     this.state = {
       currentTab: 1,
       totalTabs: studyYears.length,
-      studyYears: studyYears
+      studyYears
     };
   }
 
   componentWillReceiveProps(nextProps) {
-		
+
     const { materias, yearsPerTab } = nextProps;
     const studyYears = getYearsArray(yearsPerTab, materias);
 
@@ -48,7 +48,7 @@ class Carousel extends Component {
   }
 
   render() {
-  
+
     if (this.state.studyYears.length <= 0) { return null; }
 
     const index = this.state.currentTab - 1;
@@ -56,21 +56,21 @@ class Carousel extends Component {
     const { updateFn } = this.props;
 
     return (
-	<div>
-	 <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
-	 <TransitionGroup>
-	   <CSSTransition
-		  transitionName="TransitionGroup"
-		  transitionAppear={false}
-		  transitionEnterTimeout={1000}
-		  transitionLeaveTimeout={1000}
-		  transitionEnter
-		  transitionLeave
-	   >
-	      <SubjectYears years={years} updateFn={updateFn} />
-	   </CSSTransition>
-	  </TransitionGroup>
-	</div>
+      <div>
+        <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
+        <TransitionGroup>
+          <CSSTransition
+            transitionName="TransitionGroup"
+            transitionAppear={false}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+            transitionEnter
+            transitionLeave
+          >
+            <SubjectYears years={years} updateFn={updateFn} />
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
     );
   }
 }

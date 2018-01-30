@@ -5,8 +5,6 @@ const mapStateToProps = state => ({
   materias: state.seguidor.materias
 });
 
-const PendientesContainer = connect(
-    mapStateToProps
-)(Pendientes);
+const PendientesContainer = connect(mapStateToProps)(Pendientes);
 
 export default PendientesContainer;

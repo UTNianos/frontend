@@ -2,9 +2,7 @@ import React from 'react';
 import MediaQuery from 'react-responsive'
 import Carousel from './Carousel/Carousel'
 
-const CarouselView = ({ materias, updateEstado }) => {
-
-  return(
+const CarouselView = ({ materias, updateEstado }) => (
   <div>
     <MediaQuery minDeviceWidth={1224}>
       <Carousel
@@ -21,8 +19,6 @@ const CarouselView = ({ materias, updateEstado }) => {
       />
     </MediaQuery>
   </div>
-  );
-
-}
+)
 
 export default CarouselView;

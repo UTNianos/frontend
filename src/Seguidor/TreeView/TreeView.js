@@ -6,14 +6,14 @@ const TreeView = ({ materias, updateEstado }) => {
 
   const years = getYearsArray(5, materias);
 
-  return(
-  <div>
-    <SubjectYears
-      years={years[0]}
-      yearsPerTab={5}
-      updateFn={updateEstado}
-    />
-  </div>
+  return (
+    <div>
+      <SubjectYears
+        years={years[0]}
+        yearsPerTab={5}
+        updateFn={updateEstado}
+      />
+    </div>
   );
 
 }

@@ -10,9 +10,8 @@ const SubjectYears = ({ years, updateFn }) => (
       year={year.year}
       subjects={year.subjects}
       updateEstado={updateFn}
-    />)
-  )}
+    />))}
   </div>
- )
+)
 
 export default SubjectYears;

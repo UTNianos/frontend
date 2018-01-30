@@ -10,6 +10,6 @@ const SubjectBadge = ({ name, status }) => (
       <Badge status={status} />
     </span>
   </span>
-   )
+)
 
 export default SubjectBadge;

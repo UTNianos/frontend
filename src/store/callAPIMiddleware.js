@@ -5,7 +5,7 @@ function callApiMiddleware({ dispatch }) {
   return next => (action) => {
 
     const { types, endpoint, headers } = action;
-	
+
     if (!types) {
       return next(action);
     }

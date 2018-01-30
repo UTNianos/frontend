@@ -1,8 +1,8 @@
 import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import {
-	faArrowLeft,
-	faArrowRight
+  faArrowLeft,
+  faArrowRight
 } from '@fortawesome/fontawesome-free-solid';
 import './CarouselArrows.css';
 

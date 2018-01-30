@@ -4,21 +4,19 @@ import YearOfStudy from './YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => {
 
-  if(!years)
-    return null;
+  if (!years) { return null; }
 
   return (
     <div className="YearsVisualizer">
       {years.map(year =>
-        <YearOfStudy
+        (<YearOfStudy
           key={year.year}
           year={year.year}
           subjects={year.subjects}
           updateEstado={updateFn}
-        />
-      )}
+        />))}
     </div>
-   )
+  )
 
 }
 
