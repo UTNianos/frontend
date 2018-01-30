@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, Badge } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const categories = [
   { id: 0, name: 'Pendiente', color: 'default' },

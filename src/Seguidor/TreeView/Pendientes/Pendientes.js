@@ -9,10 +9,11 @@ const DisplayList = ({ title, list }) => {
       <p>{title}</p>
 
       <ul>
-        {list.map(pendiente =>
-         (<li key={pendiente.id}>
-           {pendiente.name}
-         </li>))}
+        {list.map(pendiente => (
+          <li key={pendiente.id}>
+            {pendiente.name}
+          </li>
+       ))}
       </ul>
 
     </div>

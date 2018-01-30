@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover, Card, Menu, Dropdown } from 'antd';
+import { Popover, Card } from 'antd';
 import PopoverContent from '../Pendientes/Container';
 import StatusDropdown from './StatusDropdown';
 import './Subject.css';
