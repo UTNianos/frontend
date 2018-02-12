@@ -14,8 +14,8 @@ const FinalesPendientes = ({ materias, updateEstado }) => {
         </h1>
         <h3>
          No tenés materias pendientes de final.
-         Una vez que termines la cursada de una materia y la marques como
-          <strong>firmada</strong> la misma aparecera en este área.
+         Una vez que termines la cursada de una materia y la marques
+         como <strong>firmada</strong> la misma aparecera en este área.
         </h3>
       </div>
     );
