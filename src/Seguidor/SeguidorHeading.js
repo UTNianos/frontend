@@ -2,9 +2,14 @@ import React from 'react';
 import { Select } from 'antd';
 import './Seguidor.css';
 
-const Option = Select.Option;
+const { Option } = Select;
 
-const SeguidorHeading = ({ changeViewType , currentView }) => (
+function filterOption(input, option) {
+  return option.props.children.toLowerCase()
+    .indexOf(input.toLowerCase()) >= 0;
+}
+
+const SeguidorHeading = ({ changeViewType, currentView }) => (
   <div>
 
     <div className="SeguidorTitle">
@@ -18,14 +23,14 @@ const SeguidorHeading = ({ changeViewType , currentView }) => (
         style={{ width: 200 }}
         placeholder="Elegir una vista"
         optionFilterProp="children"
-        onChange={(value) => changeViewType(value)}
+        onChange={value => changeViewType(value)}
         defaultValue={currentView}
-        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-     >
+        filterOption={(input, option) => filterOption(input, option)}
+      >
         <Option value="carousel">Vista alargada</Option>
         <Option value="tree">Vista compacta</Option>
         <Option value="finales">Finales Pendientes</Option>
-     </Select>
+      </Select>
 
     </div>
 
