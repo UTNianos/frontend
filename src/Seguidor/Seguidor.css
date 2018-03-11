@@ -4,13 +4,19 @@
   font-weight: 100;
   margin-bottom: 38px;
 }
-	
-@media (min-width: 900px) 
-{	
-    .YearsVisualizer 
+
+.ViewChooser
+{
+  margin-left: 77%;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 900px)
+{
+    .YearsVisualizer
 	{
-      display: flex;      
-	  width: 1145px;      
+      display: flex;
+	  width: 1145px;
 	  margin: 0 auto;
 	}
 }

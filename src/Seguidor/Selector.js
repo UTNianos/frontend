@@ -32,11 +32,13 @@ function validarReq(requerimientos, estados, estado) {
 
   // No hay requisitos, la condición es verdadera.
   if (!requerimientos || requerimientos.length === 0) {
-    return true;
+    return { valido: true, pendientes: [] };
   }
 
-  const valido = requerimientos.every(req => reqSatisfy(estados, req, estado));
-  return valido;
+  const reqPendientes = requerimientos.filter(req => !(reqSatisfy(estados, req, estado)));
+
+  const valido = (reqPendientes.length === 0);
+  return { valido, pendientes: reqPendientes };
 }
 
 /*
@@ -49,7 +51,14 @@ function validarReq(requerimientos, estados, estado) {
 function getEstadoMateria(correlativas, estados) {
 
   if (correlativas.length === 0) {
-    return { cursada: true, final: true };
+    return {
+      cursada: true,
+      final: true,
+      pendientes: {
+        firma: [],
+        final: []
+      }
+    }
   }
 
   // Requisitos para cursar.
@@ -59,14 +68,25 @@ function getEstadoMateria(correlativas, estados) {
   // Requisitos para dar final.
   const Fcursadas = correlativas.rCF;
   const Ffinales = correlativas.rFF;
+  const valCFirma = validarReq(Ccursadas, estados, ESTADO_FIRMA);
+  const valCFinal = validarReq(CFinales, estados, ESTADO_APROBACION);
+  const valFFirma = validarReq(Fcursadas, estados, ESTADO_FIRMA);
+  const valFFinal = validarReq(Ffinales, estados, ESTADO_APROBACION);
 
-  const puedeCursar = validarReq(Ccursadas, estados, ESTADO_FIRMA) &&
-                      validarReq(CFinales, estados, ESTADO_APROBACION);
+  const puedeCursar = valCFirma.valido && valCFinal.valido;
+  const puededarFinal = valFFirma.valido && valFFinal.valido;
 
-  const puededarFinal = validarReq(Fcursadas, estados, ESTADO_FIRMA) &&
-                        validarReq(Ffinales, estados, ESTADO_APROBACION);
+  const pendientes = {
+    firma: valCFirma.pendientes,
+    final: valCFinal.pendientes
+  }
 
-  return { cursada: puedeCursar, final: puededarFinal };
+  return {
+    cursada: puedeCursar,
+    final: puededarFinal,
+    pendientes
+  };
+
 }
 
 function calcularEstado(materia, estados, correlativas) {
@@ -77,7 +97,8 @@ function calcularEstado(materia, estados, correlativas) {
     status: materia.status,
     year: materia.year,
     cursada: false,
-    final: false
+    final: false,
+    pendientes: {}
   };
 
   const materiaEstado = estados.filter(c => c.id === newMateria.id);
@@ -98,6 +119,7 @@ function calcularEstado(materia, estados, correlativas) {
   newMateria.status = (estado.cursada === false ? 1 : estadoMateria);
   newMateria.cursada = estado.cursada;
   newMateria.final = estado.final;
+  newMateria.pendientes = estado.pendientes;
 
   return newMateria;
 }

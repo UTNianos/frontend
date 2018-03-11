@@ -10,14 +10,7 @@ const YearOfStudy = ({subjects, year, updateEstado}) => {
     <hr className="Separator" />
     {subjects.map((subject, i) =>
     <div key={subject.id}>
-      <Subject
-      id={subject.id}
-      name={subject.name}
-      status={subject.status}
-      cursada={subject.cursada}
-      final={subject.final}
-      updateEstado={updateEstado}
-    />
+      <Subject subject={subject} updateEstado={updateEstado} />
     </div>
     )}
   </div>
@@ -25,4 +18,4 @@ const YearOfStudy = ({subjects, year, updateEstado}) => {
 
 };
 
-export default YearOfStudy; //cssModules(YearOfStudy, Styles, { allowMultiple: true });
+export default YearOfStudy;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group' // ES6
+import { TransitionGroup, CSSTransition } from 'react-transition-group' // ES6
 import SubjectYears from '../SubjectYears';
 import CarouselArrows from './CarouselArrows';
 import getYearsArray from './getYearsArray';
@@ -9,10 +9,14 @@ class Carousel extends Component {
 
   constructor(props) {
     super(props);
+
+    const { materias, yearsPerTab } = props;
+    const studyYears = getYearsArray(yearsPerTab, materias);
+
     this.state = {
       currentTab: 1,
-      totalTabs: 0,
-      studyYears: []
+      totalTabs: studyYears.length,
+      studyYears
     };
   }
 
@@ -45,9 +49,7 @@ class Carousel extends Component {
 
   render() {
 
-    if (this.state.studyYears.length <= 0) {
-      return null;
-    }
+    if (this.state.studyYears.length <= 0) { return null; }
 
     const index = this.state.currentTab - 1;
     const years = this.state.studyYears[index];
@@ -56,15 +58,18 @@ class Carousel extends Component {
     return (
       <div>
         <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
-        <CSSTransition
-          classNames="TransitionGroup"
-          transitionAppear={false}
-          timeout={1000}
-          enter
-          exit
-        >
-          <SubjectYears years={years} updateFn={updateFn} />
-        </CSSTransition>
+        <TransitionGroup>
+          <CSSTransition
+            transitionName="TransitionGroup"
+            transitionAppear={false}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+            transitionEnter
+            transitionLeave
+          >
+            <SubjectYears years={years} updateFn={updateFn} />
+          </CSSTransition>
+        </TransitionGroup>
       </div>
     );
   }

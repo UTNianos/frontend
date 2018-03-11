@@ -1,5 +1,5 @@
 import React from 'react';
-import './Seguidor.css';
+import '../Seguidor.css';
 import YearOfStudy from './YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => (
@@ -12,6 +12,6 @@ const SubjectYears = ({ years, updateFn }) => (
       updateEstado={updateFn}
     />))}
   </div>
-);
+)
 
 export default SubjectYears;

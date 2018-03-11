@@ -1,45 +1,68 @@
 import React, { Component } from 'react'
-import MediaQuery from 'react-responsive'
 import FetchingIndicator from '../Fetching/FetchingIndicator'
 import SeguidorHeading from './SeguidorHeading'
-import Carousel from './Carousel/Carousel'
+import CarouselView from './CarouselView/CarouselView';
+import TreeView from './TreeView/TreeView';
+import FinalesPendientes from './FinalesPendientes/FinalesPendientes';
+
+const SeguidorView = ({view, materias, updateEstado}) => {
+
+  if(view === 'tree')
+     return <TreeView materias={materias} updateEstado={updateEstado} />;
+
+  if(view === 'carousel')
+     return <CarouselView materias={materias} updateEstado={updateEstado} />;
+
+  if(view === 'finales')
+    return <FinalesPendientes materias={materias} updateEstado={updateEstado} />;
+
+}
 
 class Seguidor extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { view: 'carousel' };
+  }
+
   componentDidMount() {
     this.props.onLoad()
   }
 
+  changeViewType(type) {
+    this.setState({view: type});
+  }
+
   render() {
 
-    const { isFetching, error, materias } = this.props
+    const { isFetching, error, materias, updateEstado } = this.props;
 
-    if (isFetching) { return <FetchingIndicator /> }
+    if (isFetching)
+      return <FetchingIndicator />;
 
-    if (error) { return <p>Hubo un error recuperando las materias</p> }
+    if (error)
+      return (
+      <p>
+        Hubo un error recuperando las materias.
+      </p>
+      );
 
     return (
       <div>
 
         <div>
-          <SeguidorHeading />
+          <SeguidorHeading
+              changeViewType={this.changeViewType.bind(this)}
+              currentView={this.state.view}
+          />
         </div>
 
-        <div>
-          <MediaQuery minDeviceWidth={1224}>
-            <Carousel
-              materias={materias}
-              yearsPerTab={3}
-              updateFn={this.props.updateEstado}
-            />
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1224}>
-            <Carousel
-              materias={materias}
-              yearsPerTab={1}
-              updateFn={this.props.updateEstado}
-            />
-          </MediaQuery>
-        </div>
+        <SeguidorView
+            materias={materias}
+            updateEstado={updateEstado}
+            view={this.state.view}
+        />
+
       </div>
     )
 
