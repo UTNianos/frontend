@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> <Home /> 1`] = `
+<div
+  className="main-body"
+>
+  <a
+    href="/seguidor"
+    onClick={[Function]}
+  >
+    <p>
+      Seguidor de carrera
+    </p>
+  </a>
+</div>
+`;
+
+exports[`<App /> Render main app. 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="MainApp"
+  />
+  <div
+    className="footer"
+  />
+</div>
+`;
