@@ -51,7 +51,7 @@ describe('<Seguidor />', () => {
     const initialState = { seguidor: seguidorState };
     const store = mockStore(initialState);
 
-    const SeguidorElement = (
+    const SeguidorElement = () => (
       <Provider store={store} >
         <Seguidor
           onLoad={onLoadFn}
