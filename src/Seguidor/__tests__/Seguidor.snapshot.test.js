@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store' //ES6 modules
+import configureStore from 'redux-mock-store' // ES6 modules
 import Seguidor from '../Seguidor';
 import Container from '../Container';
 
@@ -17,33 +17,33 @@ describe('<Seguidor />', () => {
 
   it('Renders correctly', () => {
 
-    const materias =  [{"cursada": false, "final": false, "id": "416", "name": "Materia 1", "status": 1, "year": "0"}, {"cursada": false, "final": false, "id": "415", "name": "Materia 2", "status": 1, "year": "0"}];
+    const materias = [{ cursada: false, final: false, id: '416', name: 'Materia 1', status: 1, year: '0' }, { cursada: false, final: false, id: '415', name: 'Materia 2', status: 1, year: '0' }];
 
     const correlativas = [{
-      "m": 1,
-      "d": {
-        "rCC": ["1", "2"],
-        "rFF": ["1", "2"],
-        "hCC": ["15", "71", "17", "72", "75", "20", "21", "22", "23", "24", "25", "26", "33"],
-        "hFF": ["15", "71", "17", "72", "75", "20", "21", "22", "23", "24", "25", "26", "33"],
-        "hFC": ["27", "73", "446", "447"]
+      m: 1,
+      d: {
+        rCC: ['1', '2'],
+        rFF: ['1', '2'],
+        hCC: ['15', '71', '17', '72', '75', '20', '21', '22', '23', '24', '25', '26', '33'],
+        hFF: ['15', '71', '17', '72', '75', '20', '21', '22', '23', '24', '25', '26', '33'],
+        hFC: ['27', '73', '446', '447']
       }
     }];
 
     const estados = [{
-        "id": 416,
-        "status": 2
-      },
-      {
-       "id": 415,
-       "status": 3
-      }
+      id: 416,
+      status: 2
+    },
+    {
+      id: 415,
+      status: 3
+    }
     ];
 
     const seguidorState = {
-      materias: materias,
-      correlativas: correlativas,
-      estados: estados,
+      materias,
+      correlativas,
+      estados,
       isFetching: false,
       error: false
     };
@@ -54,17 +54,15 @@ describe('<Seguidor />', () => {
     const initialState = { seguidor: seguidorState };
     const store = mockStore(initialState);
 
-    const tree = renderer.create(
-      <Provider store={store} >
-         <Seguidor
-            onLoad={onLoadFn}
-            updateEstado={updateEstadoFn}
-            materias={materias}
-            estados={estados}
-            correlativas={correlativas}
-            />
-      </Provider>
-    ).toJSON();
+    const tree = renderer.create(<Provider store={store} >
+      <Seguidor
+        onLoad={onLoadFn}
+        updateEstado={updateEstadoFn}
+        materias={materias}
+        estados={estados}
+        correlativas={correlativas}
+      />
+    </Provider>).toJSON();
 
     expect(tree).toMatchSnapshot();
 

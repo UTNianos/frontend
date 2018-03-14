@@ -16,11 +16,9 @@ describe('<Navbar />', () => {
 
 describe('<LoginMenu />', () => {
   it('Render correcto.', () => {
-    const tree = renderer.create(
-     <MemoryRouter>
+    const tree = renderer.create(<MemoryRouter>
       <LoginMenu />
-    </MemoryRouter>
-  ).toJSON();
+    </MemoryRouter>).toJSON();
     expect(tree).toMatchSnapshot();
   })
 });

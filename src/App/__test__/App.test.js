@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store' //ES6 modules
+import configureStore from 'redux-mock-store' // ES6 modules
 import App from '../App';
 import Home from '../Home';
 import { Provider } from 'react-redux';
@@ -15,24 +15,20 @@ jest.mock('antd');
 describe('<App />', () => {
 
   it('Render main app.', () => {
-   const initialState = {};
-   const store = mockStore(initialState);
-   const tree = renderer.create(
-     <Provider store={store} >
-        <App children={null} />
-     </Provider>
-   ).toJSON();
+    const initialState = {};
+    const store = mockStore(initialState);
+    const tree = renderer.create(<Provider store={store} >
+      <App children={null} />
+    </Provider>).toJSON();
 
-   expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   })
 
 
   it('<Home />', () => {
-    const home = renderer.create(
-    <MemoryRouter>
+    const home = renderer.create(<MemoryRouter>
       <Home />
-    </ MemoryRouter>
-    ).toJSON();
+    </MemoryRouter>).toJSON();
     expect(home).toMatchSnapshot();
   })
 

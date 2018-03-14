@@ -4,6 +4,6 @@ import renderer from 'react-test-renderer';
 
 test('<NotFound /> renders correctly', () => {
   const component = renderer.create(<NotFound />,);
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
