@@ -8,9 +8,7 @@ import {
   REQUEST_CORRELATIVAS,
   RECEIVE_CORRELATIVAS,
   RECEIVE_CORRELATIVAS_FAILURE,
-  UPDATE_ESTADO,
-  UPDATE_ESTADO_OK,
-  UPDATE_ESTADO_FAILURE,
+  UPDATE_ESTADO_OK
 } from '../Actions';
 
 import reducer from '../../store/Reducers/Seguidor';

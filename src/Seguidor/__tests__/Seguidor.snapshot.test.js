@@ -1,11 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store' // ES6 modules
-import Seguidor from '../Seguidor';
-import Container from '../Container';
-
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
+import Seguidor from '../Seguidor';
 
 const middlewares = []
 const mockStore = configureStore(middlewares)
@@ -54,15 +51,19 @@ describe('<Seguidor />', () => {
     const initialState = { seguidor: seguidorState };
     const store = mockStore(initialState);
 
-    const tree = renderer.create(<Provider store={store} >
-      <Seguidor
-        onLoad={onLoadFn}
-        updateEstado={updateEstadoFn}
-        materias={materias}
-        estados={estados}
-        correlativas={correlativas}
-      />
-    </Provider>).toJSON();
+    const SeguidorElement = (
+      <Provider store={store} >
+        <Seguidor
+          onLoad={onLoadFn}
+          updateEstado={updateEstadoFn}
+          materias={materias}
+          estados={estados}
+          correlativas={correlativas}
+        />
+      </Provider>
+    );
+
+    const tree = renderer.create(<SeguidorElement />).toJSON();
 
     expect(tree).toMatchSnapshot();
 
