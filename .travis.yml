@@ -16,6 +16,7 @@ install:
 script:
   - yarn lint-all
   - yarn test:coverage
+  - codecov
   - yarn build
 
 notifications:
