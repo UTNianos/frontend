@@ -11,7 +11,7 @@ const Navbar = () => {
    <MediaQuery minDeviceWidth={1224} >
       <NavbarDesktop />
     </MediaQuery>
-	<MediaQuery maxDeviceWidth={1224}>
+	 <MediaQuery maxDeviceWidth={1224}>
       <NavbarMobile />
     </MediaQuery>
   </Affix>

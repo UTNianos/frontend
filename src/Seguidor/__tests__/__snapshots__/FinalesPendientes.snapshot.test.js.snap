@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FinalesPendientes /> Con materias. 1`] = `
+<div
+  className="PendientesList"
+>
+  <div
+    className="ant-list ant-list-split"
+  >
+    <div>
+      <div
+        className="ant-spin-nested-loading"
+        style={null}
+      >
+        <div
+          className="ant-spin-container"
+        >
+          <div
+            className="ant-list-item"
+          >
+            <div
+              className="ant-list-item-meta"
+            >
+              <div
+                className="ant-list-item-meta-content"
+              >
+                <h4
+                  className="ant-list-item-meta-title"
+                >
+                  <a
+                    href="http://utnianos.com"
+                  >
+                    Materia 1
+                  </a>
+                </h4>
+              </div>
+            </div>
+            <ul
+              className="ant-list-item-action"
+            >
+              <li>
+                <a
+                  onClick={[Function]}
+                  onKeyPress={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  Aprobada
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ant-list-item"
+          >
+            <div
+              className="ant-list-item-meta"
+            >
+              <div
+                className="ant-list-item-meta-content"
+              >
+                <h4
+                  className="ant-list-item-meta-title"
+                >
+                  <a
+                    href="http://utnianos.com"
+                  >
+                    Materia 2
+                  </a>
+                </h4>
+              </div>
+            </div>
+            <ul
+              className="ant-list-item-action"
+            >
+              <li>
+                <a
+                  onClick={[Function]}
+                  onKeyPress={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  Aprobada
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FinalesPendientes /> Sin materias. 1`] = `
+<div
+  style={
+    Object {
+      "marginTop": "60px",
+      "textAlign": "center",
+    }
+  }
+>
+  <h1>
+    No existen materias pendientes de final.
+  </h1>
+  <h3>
+    No tenés materias pendientes de final. Una vez que termines la cursada de una materia y la marques como 
+    <strong>
+      firmada
+    </strong>
+     la misma aparecera en este área.
+  </h3>
+</div>
+`;

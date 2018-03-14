@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Navbar /> renders correctly 1`] = `null`;
+exports[`<LoginMenu /> Render correcto. 1`] = `
+<span>
+  <a
+    href="/login"
+    onClick={[Function]}
+  />
+  <a
+    href="/register"
+    onClick={[Function]}
+  />
+</span>
+`;
+
+exports[`<Navbar /> Render correcto. 1`] = `null`;
