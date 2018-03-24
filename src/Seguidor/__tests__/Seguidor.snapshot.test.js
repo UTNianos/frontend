@@ -66,7 +66,6 @@ describe('<Seguidor />', () => {
     const tree = renderer.create(<SeguidorElement />).toJSON();
 
     expect(tree).toMatchSnapshot();
-
-  })
+  });
 
 });
