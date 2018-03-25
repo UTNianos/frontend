@@ -4,6 +4,7 @@ import configureStore from 'redux-mock-store' // ES6 modules
 import { Provider } from 'react-redux';
 import Seguidor from '../Seguidor';
 import CarouselView from '../CarouselView/CarouselView';
+import TreeView from '../TreeView/TreeView';
 import Carousel from '../CarouselView/Carousel/Carousel';
 import Subject from '../Subject/Subject';
 
@@ -104,14 +105,24 @@ describe('<Seguidor />', () => {
      carouselClass.render();
   });
 
+  it('Vista de arbol renderea correctamente.', () => {
+     const carouselViewTree = renderer.create(<TreeView materias={materias2} updateEstado={jest.fn()} />).toJSON();
+     expect(carouselViewTree).toMatchSnapshot();
+  });
 
   it('Materia renderea correctamente.', () => {
 
-    const subjectTree = renderer.create(<Subject subject={materias2[0]} updateEstado={jest.fn()} />).toJSON();
+    // Materia sin cursada.
+    const subject = renderer.create(<Subject subject={materias2[0]} updateEstado={jest.fn()} />);
+    const subjectTree = subject.toJSON();
+    console.log(subjectTree);
+    console.log("!")
     expect(subjectTree).toMatchSnapshot();
 
+    // Materia con cursada.
     const subjectTree2 = renderer.create(<Subject subject={materias2[1]} updateEstado={jest.fn()} />).toJSON();
     expect(subjectTree2).toMatchSnapshot();
   });
+
 
 });
