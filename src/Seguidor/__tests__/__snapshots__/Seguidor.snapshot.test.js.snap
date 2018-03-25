@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Seguidor /> Renders correctly 1`] = `
+exports[`<Seguidor /> Materia renderea correctamente. 1`] = `
+<div
+  className="Subject Disabled"
+/>
+`;
+
+exports[`<Seguidor /> Materia renderea correctamente. 2`] = `
+<div
+  className="Subject"
+/>
+`;
+
+exports[`<Seguidor /> Render inicial correcto. 1`] = `
 <div>
   <div>
     <div>
@@ -21,3 +33,5 @@ exports[`<Seguidor /> Renders correctly 1`] = `
   <div />
 </div>
 `;
+
+exports[`<Seguidor /> Vista de carousel renderea correctamente. 1`] = `<div />`;
