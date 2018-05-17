@@ -50,6 +50,13 @@
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/registerServiceWorker.js",
+      "!**/index.js"
+    ]
+  },
   "bugs": {
     "url": "https://github.com/UTNianos/frontend/issues"
   },
