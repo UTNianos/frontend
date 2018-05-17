@@ -7,6 +7,7 @@ import CarouselView from '../CarouselView/CarouselView';
 import TreeView from '../TreeView/TreeView';
 import Carousel from '../CarouselView/Carousel/Carousel';
 import Subject from '../Subject/Subject';
+import Pendientes from '../Pendientes/Pendientes';
 
 const middlewares = []
 const mockStore = configureStore(middlewares)
@@ -115,8 +116,6 @@ describe('<Seguidor />', () => {
     // Materia sin cursada.
     const subject = renderer.create(<Subject subject={materias2[0]} updateEstado={jest.fn()} />);
     const subjectTree = subject.toJSON();
-    console.log(subjectTree);
-    console.log("!")
     expect(subjectTree).toMatchSnapshot();
 
     // Materia con cursada.
@@ -124,5 +123,15 @@ describe('<Seguidor />', () => {
     expect(subjectTree2).toMatchSnapshot();
   });
 
+ it('Pendientes renderea correctamente', () => {
+
+    const pendientes = {
+        firma: [{id: '1', name: 'Pendiente 1'}],
+        final: [{id: '2', name: 'Pendiente 2'}]
+     };
+
+    const pendientesTree = renderer.create(<Pendientes materias={materias2} pendientes={pendientes} />).toJSON();
+    expect(pendientesTree).toMatchSnapshot();
+ });
 
 });

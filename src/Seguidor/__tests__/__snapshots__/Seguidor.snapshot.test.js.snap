@@ -12,6 +12,16 @@ exports[`<Seguidor /> Materia renderea correctamente. 2`] = `
 />
 `;
 
+exports[`<Seguidor /> Pendientes renderea correctamente 1`] = `
+<div>
+  <strong>
+    Para cursar te faltan las siguientes correlativas:
+  </strong>
+  <div />
+  <div />
+</div>
+`;
+
 exports[`<Seguidor /> Render inicial correcto. 1`] = `
 <div>
   <div>
