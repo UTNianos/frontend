@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import Seguidor from './Seguidor';
-import { loadEstado, loadMaterias, loadCorrelativas, updateEstadoMateria } from './Actions';
+import {
+  loadEstado,
+  loadMaterias,
+  loadCorrelativas,
+  updateEstadoMateria
+} from './Actions';
 import getMateriasEstado from './Selector';
 
 const mapStateToProps = state => ({
