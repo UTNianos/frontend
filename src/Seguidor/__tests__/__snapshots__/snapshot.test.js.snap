@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Seguidor /> Materia renderea correctamente. 1`] = `
+<div
+  className="Subject Disabled"
+/>
+`;
+
+exports[`<Seguidor /> Materia renderea correctamente. 2`] = `
+<div
+  className="Subject"
+/>
+`;
+
+exports[`<Seguidor /> Pendientes renderea correctamente 1`] = `
+<div>
+  <strong>
+    Para cursar te faltan las siguientes correlativas:
+  </strong>
+  <div />
+  <div />
+</div>
+`;
+
+exports[`<Seguidor /> Render inicial correcto. 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        className="SeguidorTitle"
+      >
+        <h1
+          className="SeguidorHeading"
+        >
+          Materias
+        </h1>
+      </div>
+      <div
+        className="ViewChooser"
+      />
+    </div>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`<Seguidor /> Vista de arbol renderea correctamente. 1`] = `
+<div>
+  <div
+    className="YearsVisualizer"
+  >
+    <div
+      className="Container"
+    >
+      <p
+        className="Heading"
+      >
+        Año 
+        1
+      </p>
+      <hr
+        className="Separator"
+      />
+      <div>
+        <div
+          className="Subject Disabled"
+        />
+      </div>
+      <div>
+        <div
+          className="Subject"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Seguidor /> Vista de carousel renderea correctamente. 1`] = `<div />`;
