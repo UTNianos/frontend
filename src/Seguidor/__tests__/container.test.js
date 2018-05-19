@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import Container from '../Container';
 
 Enzyme.configure({ adapter: new Adapter() });
-
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -41,10 +40,10 @@ const estadoConDatos = {
   error: false
 };
 
-const ContainerWithStore = ({store, fnProps}) => {
+const ComponentWithStore = ({component, store}) => {
   return(
   <Provider store={store}>
-    <Container />
+    {component}
   </Provider>
   )
 };
@@ -53,12 +52,14 @@ describe('<Seguidor /> Container', () => {
 
   it('Render container with initial state.', () => {
     const store = mockStore(estadoInicial);
-    expect(<ContainerWithStore store={store} />).toBeTruthy();
+    const component = <ComponentWithStore component={Container} store={store} />;
+    expect(component).toBeTruthy();
   })
 
   it('Renderear container con datos precargados.', () => {
     const store = mockStore(estadoConDatos);
-		expect(<ContainerWithStore store={store} />).toBeTruthy();
+    const component = <ComponentWithStore component={Container} store={store} />;
+    expect(component).toBeTruthy();
   })
 
 })
