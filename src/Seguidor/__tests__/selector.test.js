@@ -76,7 +76,7 @@ const updateMaterias = (id, status) => {
 		return { type: 'UPDATE_ESTADO_OK', data: {id: id, status: status} };
 }
 
-describe('PlayerSelector', () => {
+describe('Seguidor Selector', () => {
  it('Selector unit test.', () => {
 
 	 const reducedState = reducer(undefined, {});
