@@ -23,7 +23,9 @@ exports[`<Seguidor /> Pendientes renderea correctamente 1`] = `
 `;
 
 exports[`<Seguidor /> Render inicial correcto. 1`] = `
-<div>
+<div
+  className="Seguidor"
+>
   <div>
     <div>
       <div

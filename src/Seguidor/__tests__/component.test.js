@@ -3,13 +3,17 @@ import Enzyme,  { shallow, mount, render }  from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-//import Seguidor from '../Seguidor';
 import { Provider } from 'react-redux';
 import Container from '../Container';
-//import PlayersTable from '../PlayersTable';
-//import PlayerSearch from '../PlayerSearch';
-//import PositionSelect from '../PositionSelect';
-//import LoadingIndicator from '../LoadingIndicator';
+
+// Components.
+import Seguidor from '../Seguidor';
+import SeguidorHeading from '../SeguidorHeading';
+import SeguidorView from '../SeguidorView';
+import CarouselView from '../CarouselView/CarouselView';
+import TreeView from '../TreeView/TreeView';
+import FinalesPendientes from '../FinalesPendientes/FinalesPendientes';
+import LoadingIndicator from '../../Fetching/FetchingIndicator';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -51,6 +55,8 @@ const props = {
   loadMaterias: jest.fn(),
   loadCorrelativas: jest.fn(),
   updateEstadoMateria: jest.fn(),
+	onLoad: jest.fn(),
+	updateEstado: jest.fn(),
   materias: materiasResult,
 	correlativas: correlativas,
 	estados: estadosRespuesta,
@@ -58,9 +64,23 @@ const props = {
 	error: false
 }
 
+const props2 = {
+  loadEstado: jest.fn(),
+  loadMaterias: jest.fn(),
+  loadCorrelativas: jest.fn(),
+  updateEstadoMateria: jest.fn(),
+	onLoad: jest.fn(),
+	updateEstado: jest.fn(),
+  materias: [],
+	correlativas: [],
+	estados: [],
+	isFetching: true,
+	error: false
+}
+
 const store = mockStore({seguidor: props});
 
-function setupSeguidor(props) {
+function setupSeguidorContainer(props) {
 
   const enzymeWrapper = render(
   <Provider store={store}>
@@ -74,12 +94,38 @@ function setupSeguidor(props) {
   }
 }
 
+function setupSeguidor(props) {
+  const enzymeWrapper = mount(
+  <Provider store={store}>
+    <Seguidor {...props} />
+  </Provider>
+  );
+
+  return {
+    props,
+    enzymeWrapper
+  }
+}
+
+function setupSeguidorView(view){
+	const enzymeWrapper = mount(
+		<SeguidorView
+			 materias={props.materias}
+			 updateEstado={jest.fn()}
+			 view={view}
+		/>
+	);
+
+  return  enzymeWrapper  ;
+}
+
 describe('<Seguidor /> ', () => {
 
-    it('Rendererear con datos.', () => {
-      const { enzymeWrapper } = setupSeguidor(props)
-      const componentContainer = enzymeWrapper.find('.PlayerFinderContainer');
-      /*const heading = enzymeWrapper.find('.PlayerFinderHeading');
+    it('Rendererear container con datos.', () => {
+      const { enzymeWrapper } = setupSeguidorContainer(props);
+			const wrappedComponent = enzymeWrapper.find(".Seguidor");
+      /*const componentContainer = enzymeWrapper.find('.PlayerFinderContainer');
+      const heading = enzymeWrapper.find('.PlayerFinderHeading');
       const controls = enzymeWrapper.find('.PlayerFinderControls');
       const table =  enzymeWrapper.find('.PlayerFinderTable');
 
@@ -87,16 +133,48 @@ describe('<Seguidor /> ', () => {
       expect(componentContainer.contains(PlayerSearch));
       expect(componentContainer.contains(PlayersTable));
       */
-      expect(componentContainer).toBeTruthy();
+      expect(wrappedComponent).toBeTruthy();
       //expect(controls.length).toBe(1);
       //expect(table.length).toBe(1);
     })
 
-    /*
+		it('Renderear component Seguidor con datos', () => {
+			const { enzymeWrapper } = setupSeguidor(props);
+			//const wrappedComponent = enzymeWrapper.find(".Seguidor");
+
+			const heading = enzymeWrapper.find(SeguidorHeading);
+			const view = enzymeWrapper.find(SeguidorView);
+			const viewChooser = enzymeWrapper.find(".ViewChooserSelect");
+			/*const componentContainer = enzymeWrapper.find('.PlayerFinderContainer');
+			const heading = enzymeWrapper.find('.PlayerFinderHeading');
+			const controls = enzymeWrapper.find('.PlayerFinderControls');
+			const table =  enzymeWrapper.find('.PlayerFinderTable');
+
+			expect(componentContainer.contains(PositionSelect));
+			expect(componentContainer.contains(PlayerSearch));
+			expect(componentContainer.contains(PlayersTable));
+			*/
+			expect(enzymeWrapper.contains(SeguidorHeading));
+			expect(enzymeWrapper.contains(SeguidorView));
+			//expect(wrappedComponent).toBeTruthy();
+			//expect(controls.length).toBe(1);
+			//expect(table.length).toBe(1);
+		})
+
     it('Render con indicador de carga.', () => {
-      const { enzymeWrapper } = setupPlayerFinder(props2)
-      const componentContainer = enzymeWrapper.find('.PlayerFinderContainer');
-      expect(componentContainer.contains(LoadingIndicator));
-    })*/
+      const { enzymeWrapper } = setupSeguidor(props2)
+      expect(enzymeWrapper.contains(LoadingIndicator));
+    })
+
+		it('Renderear SeguidorView para distintas vistas.', () => {
+
+			const enzymeWrapperTreeView = setupSeguidorView('tree');
+			const enzymeWrapperCarouselView = setupSeguidorView('carousel');
+			const enzymeWrapperFinalesView = setupSeguidorView('finales');
+
+			expect(enzymeWrapperTreeView.contains(TreeView));
+			expect(enzymeWrapperCarouselView.contains(CarouselView));
+			expect(enzymeWrapperFinalesView.contains(FinalesPendientes));
+		})
 
   })
