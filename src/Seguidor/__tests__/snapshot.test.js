@@ -81,9 +81,9 @@ describe('<Seguidor />', () => {
     const seguidorClass = new Seguidor({
       onLoad: onLoadFn,
       updateEstado: updateEstadoFn,
-      materias: materias,
-      estados: estados,
-      correlativas: correlativas
+      materias,
+      estados,
+      correlativas
     });
 
     seguidorClass.changeViewType('tree');
@@ -91,47 +91,68 @@ describe('<Seguidor />', () => {
   });
 
   it('Vista de carousel renderea correctamente.', () => {
-     const carouselViewTree = renderer.create(<CarouselView materias={materias} updateEstado={jest.fn()} />).toJSON();
-     expect(carouselViewTree).toMatchSnapshot();
+    const carouselViewTree = renderer.create(<CarouselView
+      materias={materias}
+      updateEstado={jest.fn()}
+    />).toJSON();
 
-     const params = {
-       materias: materias2,
-       yearsPerTab: 1,
-       updateFn: jest.fn()
-     };
+    expect(carouselViewTree).toMatchSnapshot();
 
-     const carouselClass = new Carousel(params);
-     carouselClass.nextTab();
-     carouselClass.prevTab();
-     carouselClass.render();
+    const params = {
+      materias: materias2,
+      yearsPerTab: 1,
+      updateFn: jest.fn()
+    };
+
+    const carouselClass = new Carousel(params);
+    carouselClass.nextTab();
+    carouselClass.prevTab();
+    carouselClass.render();
   });
 
   it('Vista de arbol renderea correctamente.', () => {
-     const carouselViewTree = renderer.create(<TreeView materias={materias2} updateEstado={jest.fn()} />).toJSON();
-     expect(carouselViewTree).toMatchSnapshot();
+    const carouselViewTree = renderer.create(<TreeView
+      materias={materias2}
+      updateEstado={jest.fn()}
+    />).toJSON();
+
+    expect(carouselViewTree).toMatchSnapshot();
   });
 
   it('Materia renderea correctamente.', () => {
 
     // Materia sin cursada.
-    const subject = renderer.create(<Subject subject={materias2[0]} updateEstado={jest.fn()} />);
+    const subject = renderer.create(<Subject
+      subject={materias2[0]}
+      updateEstado={jest.fn()}
+    />);
+
     const subjectTree = subject.toJSON();
     expect(subjectTree).toMatchSnapshot();
 
     // Materia con cursada.
-    const subjectTree2 = renderer.create(<Subject subject={materias2[1]} updateEstado={jest.fn()} />).toJSON();
+    const subjectTree2 = renderer.create(<Subject
+      subject={materias2[1]}
+      updateEstado={jest.fn()}
+    />)
+      .toJSON();
+
     expect(subjectTree2).toMatchSnapshot();
   });
 
- it('Pendientes renderea correctamente', () => {
+  it('Pendientes renderea correctamente', () => {
 
     const pendientes = {
-        firma: [{id: '1', name: 'Pendiente 1'}],
-        final: [{id: '2', name: 'Pendiente 2'}]
-     };
+      firma: [{ id: '1', name: 'Pendiente 1' }],
+      final: [{ id: '2', name: 'Pendiente 2' }]
+    };
 
-    const pendientesTree = renderer.create(<Pendientes materias={materias2} pendientes={pendientes} />).toJSON();
+    const pendientesTree = renderer.create(<Pendientes
+      materias={materias2}
+      pendientes={pendientes}
+    />).toJSON();
+
     expect(pendientesTree).toMatchSnapshot();
- });
+  });
 
 });

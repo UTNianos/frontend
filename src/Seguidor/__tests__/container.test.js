@@ -1,13 +1,9 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
-import Enzyme,  { shallow, mount, render }  from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
 import { Provider } from 'react-redux';
 import Container from '../Container';
 
-Enzyme.configure({ adapter: new Adapter() });
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -20,7 +16,7 @@ const estadoInicial = {
 };
 
 const materiasResult = [{ cursada: false, final: false, id: '416', name: 'Materia 1', status: 1, year: '0' }, { cursada: false, final: false, id: '415', name: 'Materia 2', status: 1, year: '0' }];
-const estados = [{id: 416, status: 2}, {id: 415, status: 3 }];
+const estados = [{ id: 416, status: 2 }, { id: 415, status: 3 }];
 const correlativas = [{
   m: 1,
   d: {
@@ -34,19 +30,17 @@ const correlativas = [{
 
 const estadoConDatos = {
   materias: materiasResult,
-  correlativas: correlativas,
-  estados: estados,
+  correlativas,
+  estados,
   isFetching: false,
   error: false
 };
 
-const ComponentWithStore = ({component, store}) => {
-  return(
+const ComponentWithStore = ({ component, store }) => (
   <Provider store={store}>
     {component}
   </Provider>
-  )
-};
+);
 
 describe('<Seguidor /> Container', () => {
 

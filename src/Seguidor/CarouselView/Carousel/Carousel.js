@@ -56,21 +56,21 @@ class Carousel extends Component {
     const { updateFn } = this.props;
 
     return (
-    <div>
-      <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
-      <TransitionGroup>
-        <CSSTransition
-          transitionName="TransitionGroup"
-          transitionAppear={false}
-          transitionEnterTimeout={1000}
-          transitionLeaveTimeout={1000}
-          transitionEnter
-          transitionLeave
-        >
-          <SubjectYears years={years} updateFn={updateFn} />
-        </CSSTransition>
-      </TransitionGroup>
-    </div>
+      <div>
+        <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
+        <TransitionGroup>
+          <CSSTransition
+            transitionName="TransitionGroup"
+            transitionAppear={false}
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}
+            transitionEnter
+            transitionLeave
+          >
+            <SubjectYears years={years} updateFn={updateFn} />
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
     );
   }
 }
