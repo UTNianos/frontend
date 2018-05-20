@@ -46,32 +46,6 @@ exports[`<Seguidor /> Render inicial correcto. 1`] = `
 </div>
 `;
 
-exports[`<Seguidor /> Snapshot YearOfStudy 1`] = `
-<div
-  className="Container"
->
-  <p
-    className="Heading"
-  >
-    Año 
-    1
-  </p>
-  <hr
-    className="Separator"
-  />
-  <div>
-    <div
-      className="Subject Disabled"
-    />
-  </div>
-  <div>
-    <div
-      className="Subject Disabled"
-    />
-  </div>
-</div>
-`;
-
 exports[`<Seguidor /> Vista de arbol renderea correctamente. 1`] = `
 <div>
   <div

@@ -56,7 +56,10 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/registerServiceWorker.js",
-      "!**/index.js"
+      "!**/index.js",
+      "!**/store/configureStore.js",
+      "!**/store/Reducers.js",
+      "!**/Routes/*" 
     ]
   },
   "bugs": {
