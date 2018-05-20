@@ -26,6 +26,7 @@ const SeguidorHeading = ({ changeViewType, currentView }) => (
         onChange={value => changeViewType(value)}
         defaultValue={currentView}
         filterOption={(input, option) => filterOption(input, option)}
+        className="ViewChooserSelect"
       >
         <Option value="carousel">Vista alargada</Option>
         <Option value="tree">Vista compacta</Option>
