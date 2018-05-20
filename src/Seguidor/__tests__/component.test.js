@@ -15,10 +15,22 @@ import TreeView from '../TreeView/TreeView';
 import FinalesPendientes from '../FinalesPendientes/FinalesPendientes';
 import LoadingIndicator from '../../Fetching/FetchingIndicator';
 
+// Subject.
+import Subject from '../Subject/Subject';
+import StatusDropdown from '../Subject/StatusDropdown';
+import SubjectBadge from '../Subject/SubjectBadge';
+
+// Componente año de estudio.
+import YearOfStudy from '../YearOfStudy/YearOfStudy';
+import SubjectYearsCarousel from '../CarouselView/SubjectYears';
+import getYearsArray from '../CarouselView/Carousel/getYearsArray';
+
 Enzyme.configure({ adapter: new Adapter() });
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+
+jest.mock('antd');
 
 const materiasResult = [{
 			cursada: false,
@@ -26,7 +38,7 @@ const materiasResult = [{
 			id: '416',
 			name: 'Materia 1',
 			status: 1,
-			year: '0'
+			year: '1'
 		},
 		{
 			cursada: false,
@@ -34,7 +46,7 @@ const materiasResult = [{
 			id: '415',
 			name: 'Materia 2',
 			status: 1,
-			year: '0'
+			year: '1'
 }];
 
 const correlativas = [{
@@ -116,7 +128,7 @@ function setupSeguidorView(view){
 		/>
 	);
 
-  return  enzymeWrapper  ;
+  return  enzymeWrapper;
 }
 
 describe('<Seguidor /> ', () => {
@@ -175,6 +187,63 @@ describe('<Seguidor /> ', () => {
 			expect(enzymeWrapperTreeView.contains(TreeView));
 			expect(enzymeWrapperCarouselView.contains(CarouselView));
 			expect(enzymeWrapperFinalesView.contains(FinalesPendientes));
+		})
+
+		it('Renderear componente materia.', () => {
+
+			const enzymeWrapperSubject = mount(
+					<Subject
+						subject={materiasResult[0]}
+						updateEstado={jest.fn()}
+					/>);
+
+		  expect(enzymeWrapperSubject.contains(StatusDropdown));
+		  expect(enzymeWrapperSubject.contains(SubjectBadge));
+
+			// Testear dropdown de estado.
+			const enzymeWrapperStatus = mount(
+				<StatusDropdown
+					updateFn={jest.fn()}
+					materiaId={materiasResult[0].id}
+					status={materiasResult[0].status}
+			/>);
+
+			expect(enzymeWrapperStatus).toBeTruthy();
+
+			// Testear componente indicador de estado materia.
+			const enzymeWrapperBadge = mount(
+				<SubjectBadge
+					name={materiasResult[0].name}
+					status={materiasResult[0].status}
+			/>);
+
+			expect(enzymeWrapperBadge).toBeTruthy();
+
+			const yearsArray = getYearsArray(1, materiasResult);
+
+			// Componente de vistas del carousel.
+			const enzymeWrapperYearsCarousel = mount(
+				<SubjectYearsCarousel
+					years={yearsArray[0]}
+					updateFn={jest.fn()}
+			/>);
+
+			const yearsVisualizer = enzymeWrapperYearsCarousel.find('.YearsVisualizer');
+			expect(yearsVisualizer.length).toBe(1);
+
+			// YearOfStudy test.
+			const yearOfStudy = yearsArray[0][0];
+			const yearOfStudyWrapper = mount(
+				<YearOfStudy
+				   subjects={yearOfStudy.subjects}
+					 year={yearOfStudy.year}
+					updateEstado={jest.fn()}
+				/>
+			);
+
+			const yearOfStudyContainer = yearOfStudyWrapper.find('.Container');
+			expect(yearOfStudyContainer.length).toBe(1);
+			expect(yearOfStudyWrapper.contains(Subject));
 		})
 
   })
