@@ -48,7 +48,7 @@ class Seguidor extends Component {
       );
 
     return (
-      <div>
+      <div className="Seguidor">
 
         <div>
           <SeguidorHeading
