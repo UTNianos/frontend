@@ -94,24 +94,20 @@ const store = mockStore({ seguidor: props });
 
 function setupSeguidorContainer(propsSeguidor) {
 
-  const enzymeWrapper = render(<Provider store={store}>
-    <Container />
-  </Provider>);
+  const wrapper = render(<Provider store={store}><Container /></Provider>);
 
   return {
     propsSeguidor,
-    enzymeWrapper
+    wrapper
   }
 }
 
 function setupSeguidor(propsSeguidor) {
-  const enzymeWrapper = mount(<Provider store={store}>
-    <Seguidor {...propsSeguidor} />
-  </Provider>);
+  const wrapper = mount(<Provider store={store}><Seguidor {...propsSeguidor} /></Provider>);
 
   return {
     propsSeguidor,
-    enzymeWrapper
+    wrapper
   }
 }
 
