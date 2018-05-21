@@ -124,22 +124,22 @@ function setupSeguidorView(view) {
 describe('<Seguidor /> ', () => {
 
   it('Rendererear container con datos.', () => {
-    const { enzymeWrapper } = setupSeguidorContainer(props);
-    const wrappedComponent = enzymeWrapper.find('.Seguidor');
+    const { wrapper } = setupSeguidorContainer(props);
+    const wrappedComponent = wrapper.find('.Seguidor');
 
     expect(wrappedComponent).toBeTruthy();
   })
 
   it('Renderear component Seguidor con datos', () => {
-    const { enzymeWrapper } = setupSeguidor(props);
+    const { wrapper } = setupSeguidor(props);
 
-    expect(enzymeWrapper.contains(SeguidorHeading));
-    expect(enzymeWrapper.contains(SeguidorView));
+    expect(wrapper.contains(SeguidorHeading));
+    expect(wrapper.contains(SeguidorView));
   })
 
   it('Render con indicador de carga.', () => {
-    const { enzymeWrapper } = setupSeguidor(props2)
-    expect(enzymeWrapper.contains(LoadingIndicator));
+    const { wrapper } = setupSeguidor(props2)
+    expect(wrapper.contains(LoadingIndicator));
   })
 
   it('Renderear SeguidorView para distintas vistas.', () => {
