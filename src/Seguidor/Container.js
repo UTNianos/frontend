@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import Seguidor from './Seguidor';
-import { loadEstado, loadMaterias, loadCorrelativas, updateEstadoMateria } from './Actions';
+import {
+  loadEstado,
+  loadMaterias,
+  loadCorrelativas,
+  updateEstadoMateria
+} from './Actions';
 import getMateriasEstado from './Selector';
 
 const mapStateToProps = state => ({
@@ -8,7 +13,7 @@ const mapStateToProps = state => ({
   isFetching: state.seguidor.isFetching,
   error: state.seguidor.error,
   estados: state.seguidor.estados
-});
+})
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
@@ -19,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
   updateEstado: (materiaEstado) => {
     dispatch(updateEstadoMateria(materiaEstado));
   }
-});
+})
 
 const SeguidorContainer = connect(
   mapStateToProps,

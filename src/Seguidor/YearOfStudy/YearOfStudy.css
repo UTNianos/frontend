@@ -10,14 +10,14 @@
   margin-bottom: 10px;
 }
 
-@media all and (max-width: 900px){
+@media(max-width: 900px){
  .Container
  {
    margin: 8px;
  }
 }
 
-@media all screen and (min-width: 900px){
+@media(min-width: 900px){
  .Container
  {
    margin: 8px;

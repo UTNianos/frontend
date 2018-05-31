@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Seguidor.css';
-import YearOfStudy from './YearOfStudy/YearOfStudy';
+import YearOfStudy from '../YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => {
 
