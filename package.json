@@ -30,6 +30,7 @@
     "react-transition-group": "2.3.1",
     "redux": "3.7.2",
     "redux-mock-store": "^1.5.1",
+    "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   },
@@ -59,7 +60,7 @@
       "!**/index.js",
       "!**/store/configureStore.js",
       "!**/store/Reducers.js",
-      "!**/Routes/*" 
+      "!**/Routes/*"
     ]
   },
   "bugs": {

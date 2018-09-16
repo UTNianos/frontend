@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import createBrowserHistory from 'history/createBrowserHistory';
-import storeCreator from './store/configureStore';
+import store from './store/configureStore';
 import ApplicationRoutes from './Routes/Routes';
 import AppRoute from './Routes/AppRoute';
 
 // Create browser history.
-const store = storeCreator();
 const browserHistory = createBrowserHistory();
 const { App } = ApplicationRoutes;
 const { Routes } = ApplicationRoutes;
+
+console.log(store);
+console.log(":::::::::::");
 
 const Utnianos = () => (
   <div>
