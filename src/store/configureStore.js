@@ -10,7 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
 function storeCreator() {
 
   const middleWareTools = compose(
-    applyMiddleware(sagaMiddleware, thunkMiddleware, callAPIMiddleware),
+    applyMiddleware(sagaMiddleware),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   );
 
