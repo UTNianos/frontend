@@ -22,7 +22,6 @@ export const UPDATE_ESTADO_FAILURE = 'UPDATE_ESTADO_FAILURE';
 
 export function* loadEstado(action) {
   try{
-    yield put({type: REQUEST_ESTADO});
     yield put({type: RECEIVE_ESTADO, data: estadosData});
   }
   catch(error) {
@@ -32,7 +31,6 @@ export function* loadEstado(action) {
 
 export function* loadMaterias(action) {
   try{
-    yield put({type: REQUEST_MATERIAS});
     yield put({type: RECEIVE_MATERIAS, data: materiasData});
   }
   catch(error) {
@@ -42,7 +40,6 @@ export function* loadMaterias(action) {
 
 export function* loadCorrelativas(action) {
   try{
-    yield put({type: REQUEST_CORRELATIVAS});
     yield put({type: RECEIVE_CORRELATIVAS, data: correlativasData});
   }
   catch(error) {
@@ -50,9 +47,14 @@ export function* loadCorrelativas(action) {
   }
 }
 
-export function* updateEstadoMateria(estadoMateria) {
-  const newStatus = parseInt(estadoMateria.status, 10);
-  const newEstado = { id: estadoMateria.id, status: newStatus };
+export function* updateEstadoMateria(action) {
+  try{
+    const newStatus = parseInt(action.materiaEstado.status, 10);
+    const newEstado = { id: action.materiaEstado.id, status: newStatus };
 
-  yield put({type: UPDATE_ESTADO_OK, data: newEstado});
+    yield put({type: UPDATE_ESTADO_OK, data: newEstado});
+  }
+  catch(error) {
+    yield put({type: UPDATE_ESTADO_FAILURE, error: error})
+  }
 }

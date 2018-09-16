@@ -5,6 +5,7 @@ import {
   REQUEST_MATERIAS,
   REQUEST_ESTADO,
   REQUEST_CORRELATIVAS,
+  UPDATE_ESTADO,
   updateEstadoMateria
 } from './Actions';
 
@@ -24,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: REQUEST_CORRELATIVAS});
   },
   updateEstado: (materiaEstado) => {
-    dispatch(updateEstadoMateria(materiaEstado));
+    dispatch({type: UPDATE_ESTADO, materiaEstado: materiaEstado});
   }
 })
 
