@@ -5,8 +5,7 @@ import {
   REQUEST_MATERIAS,
   REQUEST_ESTADO,
   REQUEST_CORRELATIVAS,
-  UPDATE_ESTADO,
-  updateEstadoMateria
+  UPDATE_ESTADO
 } from './Actions';
 
 import getMateriasEstado from './Selector';

@@ -1,4 +1,4 @@
-import { call, put } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 
 import estadosData from './data/estados.json';
 import materiasData from './data/materias.json';
