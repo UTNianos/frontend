@@ -2,7 +2,6 @@ import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import Container from '../Container';
 
@@ -27,8 +26,7 @@ import getYearsArray from '../CarouselView/Carousel/getYearsArray';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+const mockStore = configureMockStore();
 
 jest.mock('antd');
 

@@ -1,25 +1,65 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
 import expect from 'expect'; // You can use any testing library
-import callAPIMiddleware from '../../store/callAPIMiddleware';
-
+import { put } from 'redux-saga/effects';
 import {
-  /* UPDATE_ESTADO, */
+  UPDATE_ESTADO,
   UPDATE_ESTADO_OK,
-  /* UPDATE_ESTADO_FAILURE,
+  UPDATE_ESTADO_FAILURE,
+  REQUEST_MATERIAS,
+  RECEIVE_MATERIAS,
+  RECEIVE_MATERIAS_FAILURE,
+  REQUEST_CORRELATIVAS,
+  RECEIVE_CORRELATIVAS,
+  RECEIVE_CORRELATIVAS_FAILURE,
   REQUEST_ESTADO,
   RECEIVE_ESTADO,
-  REQUEST_ESTADO_FAILURE, */
+  REQUEST_ESTADO_FAILURE,
   updateEstadoMateria,
   loadEstado
 } from '../Actions';
 
-const middlewares = [thunk, callAPIMiddleware];
-const mockStore = configureMockStore(middlewares);
+import estadosData from '../data/estados.json';
+import materiasData from '../data/materias.json';
+import correlativasData from '../data/correlativas.json';
 
 describe('Acciones del seguidor', () => {
 
+  it('Obtiene estado inicial de las materias', () => {
+
+    const newStatus = {
+      id: 1,
+      status: 1
+    };
+
+    const updateAction = {
+      type: 'UPDATE_ESTADO',
+      materiaEstado: {
+        id: 1,
+        status: 1
+      }
+    };
+
+   const updateEstadoGen = updateEstadoMateria(updateAction);
+   const nextVal = updateEstadoGen.next().value;
+   const expectedStatus = put({type: UPDATE_ESTADO_OK, data: newStatus});
+
+   expect(nextVal).toEqual(expectedStatus);
+
+/* export function* updateEstadoMateria(action) {
+  try{
+    const newStatus = parseInt(action.materiaEstado.status, 10);
+    const newEstado = { id: action.materiaEstado.id, status: newStatus };
+
+    yield put({type: UPDATE_ESTADO_OK, data: newEstado});
+  }
+  catch(error) {
+    yield put({type: UPDATE_ESTADO_FAILURE, error: error})
+  }
+}*/
+
+
+  })
+
+  /*
   it('Actualizar estado del seguidor', () => {
 
     const newEstado = { id: 416, status: 3 };
@@ -27,32 +67,6 @@ describe('Acciones del seguidor', () => {
     const estadoParams = { id: 416, status: '3' };
 
     expect(updateEstadoMateria(estadoParams)).toEqual(expectedAction);
-  });
-
-  // TODO la función pasada por fetchmock no devuelve nada.
-  it('Obtener estado inicial del seguidor', () => {
-
-    /*
-    const expectedActions = [
-      { type: REQUEST_ESTADO },
-      { type: RECEIVE_ESTADO, data: [{ id: 416, status: 2 }, { id: 415, status: 3 }] }
-    ]; */
-
-    const store = mockStore({ estados: [] });
-    const respuesta = {
-      body: { data: '[{id: 416,status: 2}, { id: 415, status: 3 }]' },
-      headers: { 'content-type': 'application/json' },
-      status: 200,
-    };
-
-    fetchMock.getOnce('http://localhost/data/estados.json', respuesta, 200)
-    /* .catch((response) => { console.log(response) }); */
-
-    return store.dispatch(loadEstado()).then(() => {
-    //  console.log(store.getActions());
-      // expect(store.getActions()).toEqual(expectedActions)
-    });
-
-  });
+  });*/
 
 })
