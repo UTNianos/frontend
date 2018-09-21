@@ -13,7 +13,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Navbar /> ', () => {
 
-  it('Rendererear <Navbar />', () => {
+  it('<Navbar /> (Main Component)', () => {
     const wrapper = mount(<Navbar />);
     const affixContainer = wrapper.find(Affix);
 
@@ -23,7 +23,7 @@ describe('<Navbar /> ', () => {
   })
 
 
-  it('Rendererear <NavbarMobile />.', () => {
+  it('<NavbarMobile />.', () => {
     const wrapper = mount(
     <MemoryRouter>
       <NavbarMobile />
@@ -31,9 +31,22 @@ describe('<Navbar /> ', () => {
     );
     const image = wrapper.find('img');
 
-    console.log(image.props());
     expect(wrapper.contains('img'));
-    //expect(image);
+    expect(image.props().alt).toEqual('UTNianos')
+  })
+
+  it('<NavbarDesktop />.', () => {
+    const wrapper = mount(
+    <MemoryRouter>
+      <NavbarDesktop />
+    </MemoryRouter>
+    );
+
+    const image = wrapper.find('img');
+
+    expect(wrapper.contains(LoginMenu));
+    expect(wrapper.contains('img'));
+    expect(image.props().alt).toEqual('UTNianos')
   })
 
 })
