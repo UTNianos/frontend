@@ -16,7 +16,7 @@ const NavbarMobile = () => (
       <Col span={4} />
       <Col span={4}>
         <Link to="/">
-          <img src={logo} alt="ReactiveBB" style={imgStyle} />
+          <img src={logo} alt="UTNianos" style={imgStyle} />
         </Link>
       </Col>
       <Col span={4} />
