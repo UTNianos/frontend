@@ -14,7 +14,9 @@ import {
   RECEIVE_ESTADO,
   REQUEST_ESTADO_FAILURE,
   updateEstadoMateria,
-  loadEstado
+  loadEstado,
+  loadMaterias,
+  loadCorrelativas
 } from '../Actions';
 
 import estadosData from '../data/estados.json';
@@ -23,7 +25,31 @@ import correlativasData from '../data/correlativas.json';
 
 describe('Acciones del seguidor', () => {
 
-  it('Obtiene estado inicial de las materias', () => {
+  it('Carga inicial de datos', () => {
+
+    // Estado
+    const loadEstadoGen = loadEstado({type: REQUEST_ESTADO});
+    const expectedEstadoData = loadEstadoGen.next().value;
+    const expectedEstadoStatus = put({type: RECEIVE_ESTADO, data: estadosData});
+
+    // Materias
+    const loadMateriasGen = loadMaterias({type: REQUEST_MATERIAS});
+    const expectedMateriasData = loadMateriasGen.next().value;
+    const expectedMateriasStatus = put({type: RECEIVE_MATERIAS, data: materiasData});
+
+    // Correlativas
+    const loadCorrelativasGen = loadCorrelativas({type: REQUEST_CORRELATIVAS});
+    const expectedCorrelativasData = loadCorrelativasGen.next().value;
+    const expectedCorrelativasStatus = put({type: RECEIVE_CORRELATIVAS, data: correlativasData});
+
+    // Expect(s)
+    expect(expectedEstadoData).toEqual(expectedEstadoStatus);
+    expect(expectedMateriasData).toEqual(expectedMateriasStatus);
+    expect(expectedCorrelativasData).toEqual(expectedCorrelativasStatus);
+
+  })
+
+  it('Actualiza correctamente el estado de las materias.', () => {
 
     const newStatus = {
       id: 1,
@@ -44,29 +70,6 @@ describe('Acciones del seguidor', () => {
 
    expect(nextVal).toEqual(expectedStatus);
 
-/* export function* updateEstadoMateria(action) {
-  try{
-    const newStatus = parseInt(action.materiaEstado.status, 10);
-    const newEstado = { id: action.materiaEstado.id, status: newStatus };
-
-    yield put({type: UPDATE_ESTADO_OK, data: newEstado});
-  }
-  catch(error) {
-    yield put({type: UPDATE_ESTADO_FAILURE, error: error})
-  }
-}*/
-
-
   })
-
-  /*
-  it('Actualizar estado del seguidor', () => {
-
-    const newEstado = { id: 416, status: 3 };
-    const expectedAction = { type: UPDATE_ESTADO_OK, data: newEstado };
-    const estadoParams = { id: 416, status: '3' };
-
-    expect(updateEstadoMateria(estadoParams)).toEqual(expectedAction);
-  });*/
 
 })
