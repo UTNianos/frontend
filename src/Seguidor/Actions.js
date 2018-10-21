@@ -25,7 +25,7 @@ export function* loadEstado(action) {
     yield put({type: RECEIVE_ESTADO, data: estadosData});
   }
   catch(error) {
-    yield put({type: REQUEST_ESTADO_FAILURE, error: error})
+    yield put({type: REQUEST_ESTADO_FAILURE })
   }
 }
 
@@ -34,7 +34,7 @@ export function* loadMaterias(action) {
     yield put({type: RECEIVE_MATERIAS, data: materiasData});
   }
   catch(error) {
-    yield put({type: RECEIVE_MATERIAS_FAILURE, error: error})
+    yield put({type: RECEIVE_MATERIAS_FAILURE })
   }
 }
 
@@ -43,7 +43,7 @@ export function* loadCorrelativas(action) {
     yield put({type: RECEIVE_CORRELATIVAS, data: correlativasData});
   }
   catch(error) {
-    yield put({type: RECEIVE_CORRELATIVAS_FAILURE, error: error})
+    yield put({type: RECEIVE_CORRELATIVAS_FAILURE })
   }
 }
 
