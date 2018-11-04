@@ -2,10 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSignInAlt,
-  faUserPlus
-} from '@fortawesome/fontawesome-free-solid';
+import { faSignInAlt, faUserPlus } from '@fortawesome/fontawesome-free-solid';
 
 const buttonStyles = { marginRight: '4px', fontSize: '12px' };
 
