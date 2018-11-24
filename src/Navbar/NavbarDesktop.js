@@ -12,7 +12,6 @@ const imgStyle = {
   height: '30px'
 };
 
-
 const NavbarDesktop = () => (
   <Menu mode="horizontal">
     <Row type="flex" justify="space-between">
