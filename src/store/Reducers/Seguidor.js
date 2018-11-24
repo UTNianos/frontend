@@ -9,7 +9,7 @@ import
   REQUEST_ESTADO,
   RECEIVE_ESTADO,
   REQUEST_ESTADO_FAILURE,
-  UPDATE_ESTADO_OK
+  UPDATE_ESTADO_MATERIA
 } from '../../Seguidor/Actions';
 
 import flattenSubjects, { getNuevoEstadoArray } from './MapSubjects';
@@ -50,10 +50,12 @@ function seguidor(state = initialState, action) {
       return { ...state, isFetching: false, error: true };
 
     /* ACTUALIZAR ESTADO */
-    case UPDATE_ESTADO_OK:
-      const estadosNuevos = getNuevoEstadoArray(action.data, state.estados);
+    case UPDATE_ESTADO_MATERIA:
+      const newStatus = parseInt(action.materiaEstado.status, 10);
+      const newEstado = { id: action.materiaEstado.id, status: newStatus };
+      const estadosNuevos = getNuevoEstadoArray(newEstado, state.estados);
       return { ...state, estados: estadosNuevos };
-
+    
     default:
       return state;
   }
