@@ -49,7 +49,6 @@ const Navbar = (props) => {
         <div className="logo container">
           <a href="/" className="topnav header-logo">
             <img src={logo} alt="UTNianos" />
-            <h1>UTNianos</h1>
           </a>
         </div>
       </Col>

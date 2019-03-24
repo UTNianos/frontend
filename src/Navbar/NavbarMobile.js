@@ -55,8 +55,7 @@ const Navbar = (props) => {
    <Row gutter={4}>
      <Col className="gutter-row" span={16}>
        <Link to="/" className="topnav header-logo">
-         <img src={logo} alt="Morpheus" />
-         <h1>Morpheus</h1>
+         <img src={logo} alt="UTNianos" />
        </Link>
      </Col>
      <Col className="gutter-row" span={4}>
