@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import NavbarDesktop from './NavbarDesktop';
 import NavbarMobile from './NavbarMobile';
 import MediaQuery from 'react-responsive';
