@@ -1,34 +1,79 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { Menu, Row, Col, Icon, Button } from 'antd';
+import React, { useState } from 'react';
+import { Drawer, Row, Col } from 'antd';
+import { Link } from 'react-router-dom'; // Replace
 import logo from './logo_utnianos.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import NavbarMenu from './Mobile/MobileMenu';
+import AccountMenuAvatar from './AccountMenuAvatar.js';
 
-const imgStyle = {
-  marginLeft: '17px',
-  marginTop: '9px',
-  width: '150px',
-  height: '25px'
-};
+import './Navbar.css';
 
-const NavbarMobile = () => (
-  <Menu mode="horizontal">
-    <Row type="flex" justify="space-between">
-      <Col span={4} />
-      <Col span={4}>
-        <Link to="/">
-          <img src={logo} alt="UTNianos" style={imgStyle} />
-        </Link>
-      </Col>
-      <Col span={4} />
-      <Col span={4} />
-      <Col span={4} />
-      <Col span={4}>
-        <Button>
-          <Icon type="bars" />
-        </Button>
-      </Col>
-    </Row>
-  </Menu>
-)
+const menuTitleStyle = {marginLeft: '5px', fontSize:'15px'};
 
-export default NavbarMobile;
+const Navbar = (props) => {
+
+ const [drawerVisible, setDrawerVisible] = useState(false);
+
+ const {
+   loggedIn,
+   user,
+   notifications,
+   notificationsEnabled,
+   logoutFn,
+   dismissNotifications
+ } = props;
+
+ return (
+ <div className="navbar-container">
+   <Drawer
+     visible={drawerVisible}
+     placement="right"
+     onClose={() => setDrawerVisible(false)}
+     title={
+       loggedIn ?
+       <React.Fragment>
+         <AccountMenuAvatar user={user} />
+         <strong style={menuTitleStyle}>
+            {user.username}
+         </strong>
+       </React.Fragment>
+       : null
+     }
+     className="drawer-navbar"
+   >
+     <NavbarMenu
+       logoutFn={logoutFn}
+       loggedIn={loggedIn}
+       notifications={notifications}
+       notificationsEnabled={notificationsEnabled}
+       user={user}
+       clearFn={dismissNotifications}
+       setDrawerVisible={setDrawerVisible}
+     />
+   </Drawer>
+   <Row gutter={4}>
+     <Col className="gutter-row" span={16}>
+       <Link to="/" className="topnav header-logo">
+         <img src={logo} alt="Morpheus" />
+         <h1>Morpheus</h1>
+       </Link>
+     </Col>
+     <Col className="gutter-row" span={4}>
+     </Col>
+     <Col className="gutter-row" span={4}>
+       <span onClick={() => setDrawerVisible(true)}>
+         <FontAwesomeIcon
+             icon={faBars}
+             size="lg"
+             color="gainsboro"
+          />
+       </span>
+     </Col>
+   </Row>
+ </div>
+ );
+
+}
+
+export default Navbar;
