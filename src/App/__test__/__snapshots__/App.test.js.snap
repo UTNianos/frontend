@@ -15,15 +15,4 @@ exports[`<App /> <Home /> 1`] = `
 </div>
 `;
 
-exports[`<App /> Render main app. 1`] = `
-<div
-  className="App"
->
-  <div
-    className="MainApp"
-  />
-  <div
-    className="footer"
-  />
-</div>
-`;
+exports[`<App /> Render main app. 1`] = `<div />`;
