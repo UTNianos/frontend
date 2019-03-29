@@ -49,27 +49,4 @@ describe('Acciones del seguidor', () => {
 
   })
 
-  it('Actualiza correctamente el estado de las materias.', () => {
-
-    const newStatus = {
-      id: 1,
-      status: 1
-    };
-
-    const updateAction = {
-      type: 'UPDATE_ESTADO',
-      materiaEstado: {
-        id: 1,
-        status: 1
-      }
-    };
-
-   const updateEstadoGen = updateEstadoMateria(updateAction);
-   const nextVal = updateEstadoGen.next().value;
-   const expectedStatus = put({type: UPDATE_ESTADO_OK, data: newStatus});
-
-   expect(nextVal).toEqual(expectedStatus);
-
-  })
-
 })
