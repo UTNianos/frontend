@@ -32,14 +32,15 @@ la misma aparecera en este área.
         dataSource={pendientesDeFinal}
         renderItem={item => (
           <List.Item actions={[
-            <a
+            <span
+              className="link-button"
               role="button"
               tabIndex={0}
               onClick={() => updateEstado({ id: item.id, status: '4' })}
               onKeyPress={() => {}}
             >
            Aprobada
-            </a>
+            </span>
           ]}
           >
             <List.Item.Meta
