@@ -12,12 +12,10 @@ const menuStyle = {
   marginLeft: '-24px'
 }
 
-const LoginMenu = ({ setDrawerVisible }) => {
-
-  return (
+const LoginMenu = ({ setDrawerVisible }) => (
   <div className="sidemenu-inline" style={menuStyle}>
     <Menu
-      onClick={() => console.log('null and void')}
+      onClick={() => {}}
       defaultSelectedKeys={[]}
       defaultOpenKeys={[]}
       mode="inline"
@@ -29,16 +27,15 @@ const LoginMenu = ({ setDrawerVisible }) => {
           Log in
         </Link>
       </Menu.Item>
-     <Menu.Item key="2" onClick={() => setDrawerVisible(false)}>
-       <Link to="/login/register">
-         <FontAwesomeIcon icon={userPlus} />
+      <Menu.Item key="2" onClick={() => setDrawerVisible(false)}>
+        <Link to="/login/register">
+          <FontAwesomeIcon icon={userPlus} />
          &nbsp;
          Register
-       </Link>
-     </Menu.Item>
+        </Link>
+      </Menu.Item>
     </Menu>
   </div>
-  )
-};
+);
 
 export default LoginMenu;

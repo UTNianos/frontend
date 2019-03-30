@@ -32,28 +32,29 @@ class Carousel extends Component {
   }
 
   nextTab() {
-    if (this.state.currentTab < this.state.totalTabs) {
-      this.setState({
-        currentTab: this.state.currentTab + 1
-      });
+    const { currentTab, totalTabs } = this.state;
+
+    if (currentTab < totalTabs) {
+      this.setState({ currentTab: currentTab + 1 });
     }
   }
 
   prevTab() {
-    if (this.state.currentTab > 1) {
-      this.setState({
-        currentTab: this.state.currentTab - 1
-      });
+    const { currentTab } = this.state;
+    if (currentTab > 1) {
+      this.setState({ currentTab: currentTab - 1 });
     }
   }
 
   render() {
 
-    if (this.state.studyYears.length <= 0) { return null; }
-
-    const index = this.state.currentTab - 1;
-    const years = this.state.studyYears[index];
+    const { studyYears, currentTab } = this.state
     const { updateFn } = this.props;
+
+    if (studyYears.length <= 0) { return null; }
+
+    const index = currentTab - 1;
+    const years = studyYears[index];
 
     return (
       <div>

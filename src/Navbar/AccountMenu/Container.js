@@ -1,20 +1,11 @@
 import { connect } from 'react-redux';
 import AccountMenu from './AccountMenu';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    notifications: state.session.notifications,
-	  notificationsEnabled: state.config.notificationsEnabled
-  }
-}
+const mapStateToProps = state => ({
+  notifications: state.session.notifications,
+  notificationsEnabled: state.config.notificationsEnabled
+})
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
-}
-
-const AccountMenuContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AccountMenu)
+const AccountMenuContainer = connect(mapStateToProps, null)(AccountMenu)
 
 export default AccountMenuContainer;

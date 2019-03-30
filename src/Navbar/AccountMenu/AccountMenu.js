@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Dropdown } from 'antd';
-import AccountMenuAvatar from '../AccountMenuAvatar';
 
 // Font awesome icons.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,10 +10,11 @@ import {
   faCog as cog,
   faSignOutAlt as signOut
 } from '@fortawesome/free-solid-svg-icons';
+import AccountMenuAvatar from '../AccountMenuAvatar';
 import './AccountMenu.css';
 
 const userNameStyle = {
-  textAlign:'center',
+  textAlign: 'center',
   color: 'gainsboro',
   fontSize: '20px',
   marginLeft: '10px',
@@ -22,17 +22,17 @@ const userNameStyle = {
 };
 
 const hrLineStyle = {
-   height: '12px',
-   border: '0',
-   borderTop: '1px solid rgba(0, 0, 0, 0.1)',
-   borderBottom: '1px solid rgba(255, 255, 255, 0.3)'
+  height: '12px',
+  border: '0',
+  borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+  borderBottom: '1px solid rgba(255, 255, 255, 0.3)'
 };
 
-const AccountMenu = ({ logoutFn, user, isFetching }) => {
+const AccountMenu = ({ logoutFn, user /* , isFetching */ }) => {
 
   const menu = (
     <Menu className="AccountDropdownMenu">
-      <Menu.Item key="account:0" disabled={true}>
+      <Menu.Item key="account:0" disabled>
         <AccountMenuAvatar user={user} />
         <span style={userNameStyle}>
           {user.username}
@@ -51,7 +51,7 @@ const AccountMenu = ({ logoutFn, user, isFetching }) => {
       </Menu.Item>
       <Menu.Item key="account:2">
         <Link to="/categories">
-         <FontAwesomeIcon
+          <FontAwesomeIcon
             icon={addressCard}
             className="MenuIcon"
             size="lg"
@@ -70,7 +70,12 @@ const AccountMenu = ({ logoutFn, user, isFetching }) => {
         </Link>
       </Menu.Item>
       <Menu.Item key="account:4">
-        <span onClick={() => logoutFn()}>
+        <span
+          onClick={() => logoutFn()}
+          onKeyUp={() => {}}
+          role="button"
+          tabIndex={0}
+        >
           <FontAwesomeIcon
             icon={signOut}
             className="MenuIcon"
@@ -82,12 +87,12 @@ const AccountMenu = ({ logoutFn, user, isFetching }) => {
     </Menu>
   );
 
-  return(
-  <Dropdown overlay={menu}>
-    <span className="UserMenuAvatar">
-      <AccountMenuAvatar user={user} />
-    </span>
-  </Dropdown>
+  return (
+    <Dropdown overlay={menu}>
+      <span className="UserMenuAvatar">
+        <AccountMenuAvatar user={user} />
+      </span>
+    </Dropdown>
   )
 
 }

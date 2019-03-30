@@ -12,24 +12,25 @@ const NavbarMenu = (props) => {
   const {
     logoutFn,
     loggedIn,
-    notifications,
+    /* notifications, */
     user,
-    clearFn
+    /* clearFn */
   } = props;
 
-  if(loggedIn)
-    return(
-    <div style={{marginLeft:'176px'}}>
-      {/*
+  if (loggedIn) {
+    return (
+      <div style={{ marginLeft: '176px' }}>
+        {/*
         <Notifications
           notifications={notifications} clearFn={clearFn}
         />
        */}
-      <AccountMenu user={user} logoutFn={logoutFn} />
-    </div>
+        <AccountMenu user={user} logoutFn={logoutFn} />
+      </div>
     )
+  }
 
-   return <LoginMenu />;
+  return <LoginMenu />;
 }
 
 const Navbar = (props) => {
@@ -43,35 +44,34 @@ const Navbar = (props) => {
   } = props;
 
   return (
-  <div className="navbar-container">
-    <Row gutter={16}>
-      <Col className="gutter-row" span={6}>
-        <div className="logo container">
-          <a href="/" className="topnav header-logo">
-            <img src={logo} alt="UTNianos" />
-          </a>
-        </div>
-      </Col>
-      <Col className="gutter-row" span={6}>
-      </Col>
-      <Col className="gutter-row" span={6}></Col>
-      <Col className="gutter-row" span={6}>
-        <NavbarMenu
-          notifications={notifications}
-          loggedIn={loggedIn}
-          user={user}
-          logoutFn={logoutFn}
-          clearFn={dismissNotifications}
-        />
-      </Col>
-    </Row>
-  </div>
+    <div className="navbar-container">
+      <Row gutter={16}>
+        <Col className="gutter-row" span={6}>
+          <div className="logo container">
+            <a href="/" className="topnav header-logo">
+              <img src={logo} alt="UTNianos" />
+            </a>
+          </div>
+        </Col>
+        <Col className="gutter-row" span={6} />
+        <Col className="gutter-row" span={6} />
+        <Col className="gutter-row" span={6}>
+          <NavbarMenu
+            notifications={notifications}
+            loggedIn={loggedIn}
+            user={user}
+            logoutFn={logoutFn}
+            clearFn={dismissNotifications}
+          />
+        </Col>
+      </Row>
+    </div>
   );
 }
 
 /*
 Navbar.propTypes = {
   : PropTypes.
-};*/
+}; */
 
 export default Navbar;

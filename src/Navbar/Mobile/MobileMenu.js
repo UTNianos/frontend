@@ -14,19 +14,20 @@ const NavbarMenu = (props) => {
     setDrawerVisible
   } = props;
 
-  if(loggedIn)
-    return(
-    <AccountMenu
-      user={user}
-      logoutFn={logoutFn}
-      notifications={notifications}
-      notificationsEnabled={notificationsEnabled}
-      clearFn={clearFn}
-      setDrawerVisible={setDrawerVisible}
-    />
+  if (loggedIn) {
+    return (
+      <AccountMenu
+        user={user}
+        logoutFn={logoutFn}
+        notifications={notifications}
+        notificationsEnabled={notificationsEnabled}
+        clearFn={clearFn}
+        setDrawerVisible={setDrawerVisible}
+      />
     )
+  }
 
-   return <LoginMenu setDrawerVisible={setDrawerVisible} />;
+  return <LoginMenu setDrawerVisible={setDrawerVisible} />;
 }
 
 export default NavbarMenu;

@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../Navbar/Container';
 import { Layout, Affix } from 'antd';
+import Navbar from '../Navbar/Container';
 import './App.css';
 
-const {Content, Header } = Layout;
+const { Content, Header } = Layout;
 
 const headerStyle = {
   width: '100%',
@@ -17,24 +17,20 @@ const contentStyle = {
   padding: '50px',
 };
 
-const LayoutDesktop = ({children}) => {
-
-  return (
+const LayoutDesktop = ({ children }) => (
   <Layout>
 
-	  <Header style={headerStyle}>
+    <Header style={headerStyle}>
       <Affix>
-	     <Navbar mobile={false} />
+        <Navbar mobile={false} />
       </Affix>
-	  </Header>
+    </Header>
 
-	  <Content style={contentStyle}>
-	    {children}
-	  </Content>
+    <Content style={contentStyle}>
+      {children}
+    </Content>
 
   </Layout>
-  );
-
-}
+)
 
 export default LayoutDesktop;

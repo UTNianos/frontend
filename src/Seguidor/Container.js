@@ -19,12 +19,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
-    dispatch({type: REQUEST_MATERIAS});
-    dispatch({type: REQUEST_ESTADO});
-    dispatch({type: REQUEST_CORRELATIVAS});
+    dispatch({ type: REQUEST_MATERIAS });
+    dispatch({ type: REQUEST_ESTADO });
+    dispatch({ type: REQUEST_CORRELATIVAS });
   },
   updateEstado: (materiaEstado) => {
-    dispatch({type: UPDATE_ESTADO_MATERIA, materiaEstado: materiaEstado });
+    dispatch({ type: UPDATE_ESTADO_MATERIA, materiaEstado });
   }
 })
 

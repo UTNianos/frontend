@@ -8,26 +8,26 @@ import {
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-const LoginMenu = () => {
-  return (
+const LoginMenu = () => (
   <span className="LoginButtons">
-		 <Link to="/login/login">
-		   <Button type="primary" size="default" style={{marginRight:'4px'}}>
-			   <FontAwesomeIcon icon={signIn} />
-			   &nbsp;
-			   Log in
-		   </Button>
-	   </Link>
+    <Link to="/login/login">
+      <Button type="primary" size="default" style={{ marginRight: '4px' }}>
+        <FontAwesomeIcon icon={signIn} />
+         &nbsp;
+         Log in
+        {' '}
+      </Button>
+    </Link>
 
-	   <Link to="/login/register">
-	     <Button type="primary" size="default">
-		     <FontAwesomeIcon icon={userPlus} />
-		     &nbsp;
-		     Register
-	     </Button>
-	   </Link>
-	</span>
-  );
-};
+    <Link to="/login/register">
+      <Button type="primary" size="default">
+        <FontAwesomeIcon icon={userPlus} />
+         &nbsp;
+         Register
+        {' '}
+      </Button>
+    </Link>
+  </span>
+);
 
 export default LoginMenu;

@@ -6,26 +6,24 @@ import {
   faBellSlash
 } from '@fortawesome/free-solid-svg-icons';
 
-const bellIconStyle = { marginTop:'23px' };
+const bellIconStyle = { marginTop: '23px' };
 
 const NotificationsHeader = ({ notifications, enabled }) => {
 
-  if(enabled)
-  {
-    return(
-    <Badge count={notifications.filter(n => !n.read).length}>
-      <FontAwesomeIcon icon={faBell} size="lg" style={bellIconStyle} />
-    </Badge>
+  if (enabled) {
+    return (
+      <Badge count={notifications.filter(n => !n.read).length}>
+        <FontAwesomeIcon icon={faBell} size="lg" style={bellIconStyle} />
+      </Badge>
     );
   }
-  else
-  {
-    return(
+
+  return (
     <span>
-       <FontAwesomeIcon icon={faBellSlash} size="lg" style={bellIconStyle} />
+      <FontAwesomeIcon icon={faBellSlash} size="lg" style={bellIconStyle} />
     </span>
-    )
-  }
+  )
+
 }
 
 export default NotificationsHeader;

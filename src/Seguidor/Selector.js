@@ -127,8 +127,9 @@ function calcularEstado(materia, estados, correlativas) {
 // Obtiene las materias con estado.
 const getMateriasEstado = createSelector(
   [getMaterias, getEstados, getCorrelativas],
-  (materias, estados, correlativas) =>
-    materias.map(mat => calcularEstado(mat, estados, correlativas))
+  (materias, estados, correlativas) => materias.map(
+    mat => calcularEstado(mat, estados, correlativas)
+  )
 );
 
 export default getMateriasEstado;

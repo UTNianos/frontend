@@ -55,7 +55,7 @@ function seguidor(state = initialState, action) {
       const newEstado = { id: action.materiaEstado.id, status: newStatus };
       const estadosNuevos = getNuevoEstadoArray(newEstado, state.estados);
       return { ...state, estados: estadosNuevos };
-    
+
     default:
       return state;
   }

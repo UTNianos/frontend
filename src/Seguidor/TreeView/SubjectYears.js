@@ -8,13 +8,14 @@ const SubjectYears = ({ years, updateFn }) => {
 
   return (
     <div className="YearsVisualizer">
-      {years.map(year =>
-        (<YearOfStudy
+      {years.map(year => (
+        <YearOfStudy
           key={year.year}
           year={year.year}
           subjects={year.subjects}
           updateEstado={updateFn}
-        />))}
+        />
+      ))}
     </div>
   )
 

@@ -9,8 +9,8 @@ import {
   loadCorrelativas
 } from '../Seguidor/Actions';
 
-export default function * rootSaga() {
+export default function* rootSaga() {
   yield takeEvery(REQUEST_MATERIAS, loadMaterias);
   yield takeEvery(REQUEST_ESTADO, loadEstado);
   yield takeEvery(REQUEST_CORRELATIVAS, loadCorrelativas);
- }
+}

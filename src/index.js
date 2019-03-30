@@ -12,22 +12,20 @@ const browserHistory = createBrowserHistory();
 const { App } = ApplicationRoutes;
 const { Routes } = ApplicationRoutes;
 
-console.log(store);
-console.log(":::::::::::");
-
 const Utnianos = () => (
   <div>
     <Provider store={store}>
       <Router history={browserHistory}>
         <App>
           <Switch>
-            {Routes.map(route =>
-            (<AppRoute
-              exact={route.exact}
-              path={route.path}
-              component={route.component}
-              isPrivate={route.private}
-            />))}
+            {Routes.map(route => (
+              <AppRoute
+                exact={route.exact}
+                path={route.path}
+                component={route.component}
+                isPrivate={route.private}
+              />
+            ))}
           </Switch>
         </App>
       </Router>

@@ -13,7 +13,7 @@ const DisplayList = ({ title, list }) => {
           <li key={pendiente.id}>
             {pendiente.name}
           </li>
-       ))}
+        ))}
       </ul>
 
     </div>
