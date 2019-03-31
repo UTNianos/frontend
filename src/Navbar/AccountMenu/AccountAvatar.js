@@ -8,17 +8,18 @@ const AccountAvatar = ({ link, username }) => {
   const hasLink = link.trim() === '';
 
   return (
-  <span className="UserMenu">
-    <Avatar
-          type="circle"
-          size="small"
-          className="Avatar"
-        >
-          {hasLink ? username[0] : null}
-        </Avatar>
-        <p className="UserMenuName">{username}</p>
-      </span>
-    );
+    <span className="UserMenu">
+      <Avatar
+        type="circle"
+        size="small"
+        className="Avatar"
+        src={avatarLink}
+      >
+        {hasLink ? username[0] : null}
+      </Avatar>
+      <p className="UserMenuName">{username}</p>
+    </span>
+  );
 }
 
 export default AccountAvatar;
