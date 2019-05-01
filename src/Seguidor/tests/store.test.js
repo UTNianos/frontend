@@ -8,7 +8,7 @@ import {
   REQUEST_CORRELATIVAS,
   RECEIVE_CORRELATIVAS,
   RECEIVE_CORRELATIVAS_FAILURE,
-  UPDATE_ESTADO_OK
+  UPDATE_ESTADO_MATERIA
 } from '../Actions';
 
 import reducer from '../../store/Reducers/Seguidor';
@@ -216,7 +216,6 @@ describe('Reducer Seguidor', () => {
 
 
   it('Actualizar estado de una materia', () => {
-
     // Recibio estados exitosamente.
     expect(reducer({
       materias: [],
@@ -224,7 +223,7 @@ describe('Reducer Seguidor', () => {
       estados: estadosRespuesta,
       isFetching: false,
       error: false
-    }, { type: UPDATE_ESTADO_OK, data: { id: 416, status: 4 } }))
+    }, { type: UPDATE_ESTADO_MATERIA, materiaEstado: { id: 416, status: 4 } }))
       .toEqual({
         materias: [],
         correlativas: [],

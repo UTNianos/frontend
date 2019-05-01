@@ -1,0 +1,89 @@
+.AccountMenu
+{
+  padding-left: 50px;
+  padding-right: 10px;
+  height: 67px;
+}
+
+.AccountMenu .Avatar .ant-avatar-string {
+  position: initial;
+}
+
+.AccountDropdownMenu {
+  min-width: 200px;
+  width: 200px;
+}
+
+.NotificationsSubmenu
+{
+  margin-right: 0%;
+  padding-left: 0%;
+  padding-bottom: 11px;
+  margin-left: 74%;
+  padding-top: 8px;
+}
+
+.NotificationsIcon
+{
+  marginTop:15px;
+  marginBottom:15px;
+}
+
+.UserMenuContainer
+{
+  margin-top: 5px !important;
+}
+
+.UserMenu
+{
+  height: 50px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 27px;
+}
+
+.UserMenu > .Avatar
+{
+  top: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.UserAvatarImg
+{
+  width:35px;
+  height: 35px;
+  margin-top: 8px;
+  margin-right: 5px;
+}
+
+.UserMenuName
+{
+  display: inline;
+  font-size: 15px;
+  vertical-align: text-top;
+  font-weight: 500;
+}
+
+.UserMenuAvatar {
+  margin-left: 13px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.UserMenuAvatar .Avatar {
+  margin-right: 4px;
+  margin-top: -5px;
+}
+
+.MenuIcon
+{
+  margin: 2px;
+}
+
+.SearchArea
+{
+  width: 300px;
+  height: 40px;
+  font-size: 15px;
+}

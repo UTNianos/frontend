@@ -1,17 +1,21 @@
 import React from 'react';
-import Navbar from '../Navbar/Container';
-import Footer from './Footer';
-import './Base.css';
-import 'antd/dist/antd.css';
+import LayoutDesktop from './LayoutDesktop';
+import LayoutMobile from './LayoutMobile';
+import MediaQuery from 'react-responsive';
 
-const App = ({ children }) => (
-  <div className="App">
-    <Navbar />
-    <div className="MainApp" >
-      {children}
-    </div>
-    <Footer />
+const App = ({children}) => {
+
+  return (
+  <div>
+   <MediaQuery minDeviceWidth={1224} >
+      <LayoutDesktop children={children} />
+   </MediaQuery>
+	 <MediaQuery maxDeviceWidth={1224}>
+      <LayoutMobile children={children} />
+   </MediaQuery>
   </div>
-);
+  );
+
+}
 
 export default App;

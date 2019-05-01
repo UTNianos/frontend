@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import Seguidor from './Seguidor';
+
 import {
-  loadEstado,
-  loadMaterias,
-  loadCorrelativas,
-  updateEstadoMateria
+  REQUEST_MATERIAS,
+  REQUEST_ESTADO,
+  REQUEST_CORRELATIVAS,
+  UPDATE_ESTADO_MATERIA
 } from './Actions';
+
 import getMateriasEstado from './Selector';
 
 const mapStateToProps = state => ({
@@ -17,12 +19,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
-    dispatch(loadEstado());
-    dispatch(loadCorrelativas());
-    dispatch(loadMaterias());
+    dispatch({ type: REQUEST_MATERIAS });
+    dispatch({ type: REQUEST_ESTADO });
+    dispatch({ type: REQUEST_CORRELATIVAS });
   },
   updateEstado: (materiaEstado) => {
-    dispatch(updateEstadoMateria(materiaEstado));
+    dispatch({ type: UPDATE_ESTADO_MATERIA, materiaEstado });
   }
 })
 

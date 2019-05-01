@@ -15,7 +15,11 @@ const FinalesPendientes = ({ materias, updateEstado }) => {
         <h3>
          No tenés materias pendientes de final.
          Una vez que termines la cursada de una materia y la marques
-         como <strong>firmada</strong> la misma aparecera en este área.
+         como
+          {' '}
+          <strong>firmada</strong>
+          {' '}
+la misma aparecera en este área.
         </h3>
       </div>
     );
@@ -28,15 +32,16 @@ const FinalesPendientes = ({ materias, updateEstado }) => {
         dataSource={pendientesDeFinal}
         renderItem={item => (
           <List.Item actions={[
-            <a
+            <span
+              className="link-button"
               role="button"
               tabIndex={0}
               onClick={() => updateEstado({ id: item.id, status: '4' })}
               onKeyPress={() => {}}
             >
            Aprobada
-            </a>
-        ]}
+            </span>
+          ]}
           >
             <List.Item.Meta
               title={<a href="http://utnianos.com">{item.name}</a>}

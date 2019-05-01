@@ -25,24 +25,22 @@ function categroyFromStatus(status, subjectCategories) {
   return subjectCategories.filter(c => (c.id + 1) === status)[0].name;
 }
 
-const StatusDropdown = ({ updateFn, materiaId, status }) =>
-  (
-    <span>
-      <Select
-        style={{ width: '100%' }}
-        optionFilterProp="children"
-        onChange={value => handleChange(value, updateFn, materiaId)}
-        defaultValue={categroyFromStatus(status, categories)}
-      >
-        {categories.map(category =>
-        (
-          <Option value={category.name} key={category.id} title={category.name}>
-            <Badge status={category.color} />
-            {category.name}
-          </Option>
-        ))}
-      </Select>
-    </span>
-  );
+const StatusDropdown = ({ updateFn, materiaId, status }) => (
+  <span>
+    <Select
+      style={{ width: '100%' }}
+      optionFilterProp="children"
+      onChange={value => handleChange(value, updateFn, materiaId)}
+      defaultValue={categroyFromStatus(status, categories)}
+    >
+      {categories.map(category => (
+        <Option value={category.name} key={category.id} title={category.name}>
+          <Badge status={category.color} />
+          {category.name}
+        </Option>
+      ))}
+    </Select>
+  </span>
+);
 
 export default StatusDropdown;

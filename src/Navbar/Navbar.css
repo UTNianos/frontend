@@ -1,5 +1,88 @@
-.HomeLinkActive, .HomeLinkActive:hover, .HomeLinkActive:focus
+.navbar-container {
+  background-color: white;
+  box-shadow: 0 2px 8px #f0f1f2;
+}
+
+.logo.container {
+  margin-left: 200px;
+  width: 140px;
+}
+
+.logo.container.mobile {
+  margin-left: 0px;
+  width: 100%;
+}
+
+.logo.container.mobile .header-search {
+  margin-left: 40px;
+}
+
+.logo.container.mobile .menu-logo {
+  padding-left: 35%;
+}
+
+.anticon.anticon-search,.ant-badge {
+  color: gainsboro;
+}
+
+.anticon.anticon-search {
+  margin-right: 20px;
+}
+
+.topnav.header-logo
 {
-  text-decoration: none;
-  color: #108ee9;
+  width: 165px;
+  height: 64px;
+  position: relative;
+  line-height: 64px;
+  transition: all .3s;
+  overflow: hidden;
+  color: gainsboro;
+}
+
+.topnav.header-logo img
+{
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+}
+
+.topnav.header-logo h1 {
+  color: gainsboro;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 0 0 12px;
+  font-weight: 400;
+}
+
+.userDropdown
+{
+  margin-left: 30px;
+  color: gainsboro;
+}
+
+.userName
+{
+  margin-left: 10px;
+}
+
+/* Sider styles */
+
+.sider {
+  min-height: 100vh;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  position: relative;
+  z-index: 10;
+}
+
+.sider.fixSiderbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sider.light {
+  box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+  background-color: white;
 }
