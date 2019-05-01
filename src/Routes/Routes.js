@@ -14,7 +14,7 @@ const ApplicationRoutes = {
       path: '/seguidor', exact: true, component: Seguidor, private: false
     },
     { component: NotFound }
-  ]
+  ].map((route, index) => ({ id: index, ...route })),
 };
 
 export default ApplicationRoutes;

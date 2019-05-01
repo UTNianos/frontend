@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import store from './store/configureStore';
 import ApplicationRoutes from './Routes/Routes';
 import AppRoute from './Routes/AppRoute';
@@ -20,6 +20,7 @@ const Utnianos = () => (
           <Switch>
             {Routes.map(route => (
               <AppRoute
+                key={route.id}
                 exact={route.exact}
                 path={route.path}
                 component={route.component}
