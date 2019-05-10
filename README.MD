@@ -2,7 +2,7 @@
 
 Codigo del Frontend de la nueva plataforma de UTNianos. 
 
-[![Build Status](https://travis-ci.org/UTNianos/frontend.svg?branch=master)](https://travis-ci.org/UTNianos/frontend)
+[![Build Status](https://travis-ci.com/UTNianos/frontend.svg?branch=master)](https://travis-ci.com/UTNianos/frontend)
 
 [![codecov](https://codecov.io/gh/UTNianos/frontend/branch/master/graph/badge.svg)](https://codecov.io/gh/UTNianos/frontend)
 
