@@ -10,6 +10,6 @@ const AppRoute = ({ exact, path, component, isPrivate, isAuthenticated }) => {
 }
 
 const mapStateToProps = state => ({ isAuthenticated: state ? true : false });
-const mapDispatchToProps = () => {};
+const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);
