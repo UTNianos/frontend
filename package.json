@@ -48,21 +48,14 @@
     "lint-all": "eslint src/",
     "lint-all-ci": "eslint -f checkstyle src/ > eslint.xml"
   },
+  "jest": {   
+   "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+ },
   "author": "UTNianos",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/UTNianos/frontend.git"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/registerServiceWorker.js",
-      "!**/index.js",
-      "!**/store/configureStore.js",
-      "!**/store/Reducers.js",
-      "!**/Routes/*"
-    ]
   },
   "bugs": {
     "url": "https://github.com/UTNianos/frontend/issues"

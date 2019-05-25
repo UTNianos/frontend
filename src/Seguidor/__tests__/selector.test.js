@@ -74,8 +74,8 @@ const estadoConMaterias = {
 
 const updateMaterias = (id, status) => ({ type: 'UPDATE_ESTADO_OK', data: { id, status } })
 
-describe('Seguidor Selector', () => {
-  it('Selector unit test.', () => {
+describe('Seguidor > Selector', () => {
+  it('Calcular recomputaciones', () => {
 
     const reducedState = reducer(undefined, {});
     const firstState = { seguidor: reducedState };

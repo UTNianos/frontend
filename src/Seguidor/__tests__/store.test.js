@@ -13,7 +13,7 @@ import {
 
 import reducer from '../../store/Reducers/Seguidor';
 
-describe('Reducer Seguidor', () => {
+describe('Seguidor > Store', () => {
 
   const estadoInicial = {
     materias: [],

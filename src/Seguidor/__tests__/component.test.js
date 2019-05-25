@@ -28,7 +28,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const mockStore = configureMockStore();
 
-jest.mock('antd');
+//jest.mock('antd');
 
 const materiasResult = [{
   cursada: false,
