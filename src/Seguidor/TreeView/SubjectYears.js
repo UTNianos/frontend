@@ -7,16 +7,16 @@ const SubjectYears = ({ years, updateFn }) => {
   if (!years) { return null; }
 
   return (
-    <div className="YearsVisualizer">
-      {years.map(year => (
-        <YearOfStudy
-          key={year.year}
-          year={year.year}
-          subjects={year.subjects}
-          updateEstado={updateFn}
-        />
-      ))}
-    </div>
+  <div className="YearsVisualizer">
+    {years.map(year => (
+      <YearOfStudy
+        key={year.year}
+        year={year.year}
+        subjects={year.subjects}
+        updateEstado={updateFn}
+      />
+    ))}
+  </div>
   )
 
 }

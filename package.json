@@ -22,6 +22,7 @@
     "fetch-mock": "7.0.0-alpha.6",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",
+    "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "7.0.3",
@@ -48,9 +49,11 @@
     "lint-all": "eslint src/",
     "lint-all-ci": "eslint -f checkstyle src/ > eslint.xml"
   },
-  "jest": {   
-   "collectCoverageFrom": ["src/**/*.{js,jsx}"]
- },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  },
   "author": "UTNianos",
   "license": "ISC",
   "repository": {

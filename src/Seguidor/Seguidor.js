@@ -1,58 +1,50 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import FetchingIndicator from '../Fetching/FetchingIndicator'
 import SeguidorHeading from './SeguidorHeading'
 import SeguidorView from './SeguidorView';
 
-class Seguidor extends Component {
+const Seguidor = (props) => {
 
-  constructor(props) {
-    super(props);
-    this.state = { view: 'carousel' };
-  }
+   const {
+    isFetching,
+    error,
+    materias,
+    updateEstado
+   } = props;
 
-  componentDidMount() {
-    this.props.onLoad()
-  }
+   useEffect(()=> {
+     if(props.materias.length === 0)
+       props.onLoad();
+     
+   }, [props, props.materias])
 
-  changeViewType(type) {
-    this.setState({view: type});
-  }
+   const [view, setView] = useState('carousel');
 
-  render() {
+   const changeViewType = (type) => {
+     setView(type);
+   }
 
-    const { isFetching, error, materias, updateEstado } = this.props;
+   if (isFetching)
+     return <FetchingIndicator />;
 
-    if (isFetching)
-      return <FetchingIndicator />;
+   if (error)
+     return <p>Hubo un error recuperando las materias.</p>;
 
-    if (error)
-      return (
-      <p>
-        Hubo un error recuperando las materias.
-      </p>
-      );
-
-    return (
-      <div className="Seguidor">
-
-        <div>
-          <SeguidorHeading
-              changeViewType={this.changeViewType.bind(this)}
-              currentView={this.state.view}
-          />
-        </div>
-
-        <SeguidorView
-            materias={materias}
-            updateEstado={updateEstado}
-            view={this.state.view}
-        />
-
-      </div>
-    )
-
-  }
-
+   return(
+   <div className="Seguidor">
+     <div>
+       <SeguidorHeading
+         changeViewType={changeViewType}
+         currentView={view}
+       />
+     </div>
+     <SeguidorView
+         materias={materias}
+         updateEstado={updateEstado}
+         view={view}
+     />
+   </div>
+   );
 }
 
-export default Seguidor
+export default Seguidor;
