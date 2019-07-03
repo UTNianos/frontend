@@ -1,18 +1,9 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import logo from './logo_utnianos.png';
 import HomeLink from './HomeLink';
 import './Navbar.css';
 
 const Navbar = (props) => {
-
-  const {
-    loggedIn,
-    user,
-    notifications,
-    logoutFn,
-    dismissNotifications,
-  } = props;
 
   return (
     <div className="navbar-container">

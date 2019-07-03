@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group' // ES6
 import SubjectYears from '../SubjectYears';
 import CarouselArrows from './CarouselArrows';
@@ -11,7 +11,7 @@ const Carousel = (props) => {
   const studyYears = getYearsArray(yearsPerTab, materias);
 
   const [currentTab, setCurrentTab] = useState(1);
-  const [totalTabs, setTotalTabs] = useState(studyYears.length);
+  const [totalTabs] = useState(studyYears.length);
   const index = currentTab-1;
   const years = studyYears[index];
 
