@@ -23,8 +23,7 @@ describe('App', () => {
     );
 
     const linkComponent = homeComponent.find(<Link />);
-    console.log(linkComponent);
-
+    //console.log(linkComponent);
     //expect(linkComponent.length).toBe(1);
   });
 

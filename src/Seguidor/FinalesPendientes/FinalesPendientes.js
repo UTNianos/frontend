@@ -5,7 +5,7 @@ import './FinalesPendientes.css';
 const FinalesPendientes = ({ materias, updateEstado }) => {
 
   const pendientesDeFinal = materias.filter(m => m.final === true && m.status === 3);
-
+  
   if (pendientesDeFinal.length === 0) {
     return (
     <div style={{ textAlign: 'center', marginTop: '60px' }}>

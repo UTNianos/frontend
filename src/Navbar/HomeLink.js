@@ -4,12 +4,11 @@ import logo from './logo_utnianos.png';
 import './Navbar.css';
 
 const HomeLink = () => (
-  <span className="HomeLink">
-    <Link to="/" className="HomeLinkActive">
-      <img alt="logo" src={logo} width="40" height="40" />
-      <h1>Morpheus</h1>
+  <div className="logo container">
+    <Link to="/" className="topnav header-logo">
+      <img src={logo} alt="UTNianos" />
     </Link>
-  </span>
+  </div>
 );
 
 export default HomeLink;

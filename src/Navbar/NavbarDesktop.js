@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import logo from './logo_utnianos.png';
+import HomeLink from './HomeLink';
 import './Navbar.css';
 
 const Navbar = (props) => {
@@ -17,11 +18,7 @@ const Navbar = (props) => {
     <div className="navbar-container">
       <Row gutter={16}>
         <Col className="gutter-row" span={6}>
-          <div className="logo container">
-            <a href="/" className="topnav header-logo">
-              <img src={logo} alt="UTNianos" />
-            </a>
-          </div>
+          <HomeLink />
         </Col>
         <Col className="gutter-row" span={6} />
         <Col className="gutter-row" span={6} />

@@ -9,10 +9,13 @@ import Container from '../Container';
 import Seguidor from '../Seguidor';
 import SeguidorHeading from '../SeguidorHeading';
 import SeguidorView from '../SeguidorView';
+import SubjectYears from '../TreeView/SubjectYears';
+import Pendientes from '../Pendientes/Pendientes';
 import CarouselView from '../CarouselView/CarouselView';
 import TreeView from '../TreeView/TreeView';
 import FinalesPendientes from '../FinalesPendientes/FinalesPendientes';
 import LoadingIndicator from '../../Fetching/FetchingIndicator';
+import Carousel from '../CarouselView/Carousel/Carousel';
 
 // Subject.
 import Subject from '../Subject/Subject';
@@ -28,8 +31,6 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const mockStore = configureMockStore();
 
-//jest.mock('antd');
-
 const materiasResult = [{
   cursada: false,
   final: false,
@@ -43,7 +44,7 @@ const materiasResult = [{
   final: false,
   id: '415',
   name: 'Materia 2',
-  status: 1,
+  status: 3,
   year: '1'
 }];
 
@@ -91,30 +92,29 @@ const props2 = {
 const store = mockStore({ seguidor: props });
 
 function setupSeguidorContainer(propsSeguidor) {
+  const wrapper = mount(<Provider store={store}><Container /></Provider>);
 
-  const wrapper = render(<Provider store={store}><Container /></Provider>);
-
-  return {
-    propsSeguidor,
-    wrapper
-  }
+  return { propsSeguidor, wrapper };
 }
 
 function setupSeguidor(propsSeguidor) {
-  const wrapper = mount(<Provider store={store}><Seguidor {...propsSeguidor} /></Provider>);
+  const wrapper = mount(
+  <Provider store={store}>
+    <Seguidor {...propsSeguidor} />
+  </Provider>
+  );
 
-  return {
-    propsSeguidor,
-    wrapper
-  }
+  return { propsSeguidor, wrapper };
 }
 
 function setupSeguidorView(view) {
-  const enzymeWrapper = mount(<SeguidorView
-    materias={props.materias}
-    updateEstado={jest.fn()}
-    view={view}
-  />);
+  const enzymeWrapper = mount(
+    <SeguidorView
+     materias={props.materias}
+     updateEstado={jest.fn()}
+     view={view}
+  />
+  );
 
   return enzymeWrapper;
 }
@@ -151,6 +151,28 @@ describe('<Seguidor /> ', () => {
     expect(enzymeWrapperFinalesView.contains(FinalesPendientes));
   })
 
+  it("<FinalesPendientes />", () => {
+      const materiasPorFinalizar = [{
+        cursada: true,
+        final: true,
+        id: 2,
+        name: "Algoritmos y Estructuras de Datos",
+        pendientes: {
+          final: [],
+          firma: []
+        },
+        status: 3,
+        year: "1"
+      }];
+
+      const finalesContainer = mount(
+      <FinalesPendientes
+        materias={materiasPorFinalizar}
+        updateEstado={jest.fn()}
+      />
+      );
+  })
+
   it('Renderear componente materia.', () => {
 
     const enzymeWrapperSubject = mount(<Subject
@@ -162,44 +184,105 @@ describe('<Seguidor /> ', () => {
     expect(enzymeWrapperSubject.contains(SubjectBadge));
 
     // Testear dropdown de estado.
-    const enzymeWrapperStatus = mount(<StatusDropdown
+    const enzymeWrapperStatus = mount(
+    <StatusDropdown
       updateFn={jest.fn()}
       materiaId={materiasResult[0].id}
       status={materiasResult[0].status}
-    />);
+    />
+    );
 
     expect(enzymeWrapperStatus).toBeTruthy();
 
     // Testear componente indicador de estado materia.
-    const enzymeWrapperBadge = mount(<SubjectBadge
+    const enzymeWrapperBadge = mount(
+    <SubjectBadge
       name={materiasResult[0].name}
       status={materiasResult[0].status}
-    />);
+    />
+    );
 
     expect(enzymeWrapperBadge).toBeTruthy();
 
     const yearsArray = getYearsArray(1, materiasResult);
 
     // Componente de vistas del carousel.
-    const enzymeWrapperYearsCarousel = mount(<SubjectYearsCarousel
-      years={yearsArray[0]}
-      updateFn={jest.fn()}
-    />);
+    const enzymeWrapperYearsCarousel = mount(
+    <SubjectYearsCarousel
+       years={yearsArray[0]}
+       updateFn={jest.fn()}
+    />
+    );
 
     const yearsVisualizer = enzymeWrapperYearsCarousel.find('.YearsVisualizer');
     expect(yearsVisualizer.length).toBe(1);
 
     // YearOfStudy test.
     const yearOfStudy = yearsArray[0][0];
-    const yearOfStudyWrapper = mount(<YearOfStudy
+    const yearOfStudyWrapper = mount(
+    <YearOfStudy
       subjects={yearOfStudy.subjects}
       year={yearOfStudy.year}
       updateEstado={jest.fn()}
-    />);
+    />
+    );
 
     const yearOfStudyContainer = yearOfStudyWrapper.find('.Container');
     expect(yearOfStudyContainer.length).toBe(1);
     expect(yearOfStudyWrapper.contains(Subject));
+  })
+
+  it('<Carousel />', () =>{
+    const carouselProps = {
+      materias: props.materias,
+      yearsPerTab: 3,
+      updateFn: jest.fn()
+    };
+
+    const carouselComponent = mount(<Carousel {...carouselProps} />);
+
+    expect(carouselComponent.contains(SubjectYears));
+  })
+
+  it('<Pendientes />', () =>{
+    const materiasPorFinalizar = [{
+      cursada: true,
+      final: true,
+      id: 2,
+      name: "Algoritmos y Estructuras de Datos",
+      pendientes: {
+        final: [],
+        firma: []
+      },
+      status: 3,
+      year: "1"
+    }];
+
+    const materiasPorFirmar = [{
+      cursada: true,
+      final: true,
+      id: 1,
+      name: "Algebra y Geometría Analítica",
+      pendientes: {
+        final: [],
+        firma: []
+      },
+      status: 2,
+      year: "1"
+    }]
+
+    const pendientes = {
+      firma: materiasPorFirmar,
+      final: materiasPorFinalizar
+    };
+
+    const pendientesComponent = mount(
+      <Pendientes
+        pendientes={pendientes}
+        materias={props.materias}
+      />
+    );
+
   })
 
 })
