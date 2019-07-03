@@ -5,46 +5,43 @@ import SeguidorView from './SeguidorView';
 
 const Seguidor = (props) => {
 
-   const {
+  const {
     isFetching,
     error,
     materias,
     updateEstado
-   } = props;
+  } = props;
 
-   useEffect(()=> {
-     if(props.materias.length === 0)
-       props.onLoad();
-     
-   }, [props, props.materias])
+  useEffect(() => {
+    if (materias.length === 0) { props.onLoad(); }
 
-   const [view, setView] = useState('carousel');
+  }, [props, materias])
 
-   const changeViewType = (type) => {
-     setView(type);
-   }
+  const [view, setView] = useState('carousel');
 
-   if (isFetching)
-     return <FetchingIndicator />;
+  const changeViewType = (type) => {
+    setView(type);
+  }
 
-   if (error)
-     return <p>Hubo un error recuperando las materias.</p>;
+  if (isFetching) { return <FetchingIndicator />; }
 
-   return(
-   <div className="Seguidor">
-     <div>
-       <SeguidorHeading
-         changeViewType={changeViewType}
-         currentView={view}
-       />
-     </div>
-     <SeguidorView
-         materias={materias}
-         updateEstado={updateEstado}
-         view={view}
-     />
-   </div>
-   );
+  if (error) { return <p>Hubo un error recuperando las materias.</p>; }
+
+  return (
+    <div className="Seguidor">
+      <div>
+        <SeguidorHeading
+          changeViewType={changeViewType}
+          currentView={view}
+        />
+      </div>
+      <SeguidorView
+        materias={materias}
+        updateEstado={updateEstado}
+        view={view}
+      />
+    </div>
+  );
 }
 
 export default Seguidor;

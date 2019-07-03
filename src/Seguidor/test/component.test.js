@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { mount, render } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -99,9 +99,9 @@ function setupSeguidorContainer(propsSeguidor) {
 
 function setupSeguidor(propsSeguidor) {
   const wrapper = mount(
-  <Provider store={store}>
-    <Seguidor {...propsSeguidor} />
-  </Provider>
+    <Provider store={store}>
+      <Seguidor {...propsSeguidor} />
+    </Provider>
   );
 
   return { propsSeguidor, wrapper };
@@ -110,10 +110,10 @@ function setupSeguidor(propsSeguidor) {
 function setupSeguidorView(view) {
   const enzymeWrapper = mount(
     <SeguidorView
-     materias={props.materias}
-     updateEstado={jest.fn()}
-     view={view}
-  />
+      materias={props.materias}
+      updateEstado={jest.fn()}
+      view={view}
+    />
   );
 
   return enzymeWrapper;
@@ -151,26 +151,28 @@ describe('<Seguidor /> ', () => {
     expect(enzymeWrapperFinalesView.contains(FinalesPendientes));
   })
 
-  it("<FinalesPendientes />", () => {
-      const materiasPorFinalizar = [{
-        cursada: true,
-        final: true,
-        id: 2,
-        name: "Algoritmos y Estructuras de Datos",
-        pendientes: {
-          final: [],
-          firma: []
-        },
-        status: 3,
-        year: "1"
-      }];
+  it('<FinalesPendientes />', () => {
+    const materiasPorFinalizar = [{
+      cursada: true,
+      final: true,
+      id: 2,
+      name: 'Algoritmos y Estructuras de Datos',
+      pendientes: {
+        final: [],
+        firma: []
+      },
+      status: 3,
+      year: '1'
+    }];
 
-      const finalesContainer = mount(
+    const finalesContainer = mount(
       <FinalesPendientes
         materias={materiasPorFinalizar}
         updateEstado={jest.fn()}
       />
-      );
+    );
+
+    expect(finalesContainer).toBeTruthy();
   })
 
   it('Renderear componente materia.', () => {
@@ -185,21 +187,21 @@ describe('<Seguidor /> ', () => {
 
     // Testear dropdown de estado.
     const enzymeWrapperStatus = mount(
-    <StatusDropdown
-      updateFn={jest.fn()}
-      materiaId={materiasResult[0].id}
-      status={materiasResult[0].status}
-    />
+      <StatusDropdown
+        updateFn={jest.fn()}
+        materiaId={materiasResult[0].id}
+        status={materiasResult[0].status}
+      />
     );
 
     expect(enzymeWrapperStatus).toBeTruthy();
 
     // Testear componente indicador de estado materia.
     const enzymeWrapperBadge = mount(
-    <SubjectBadge
-      name={materiasResult[0].name}
-      status={materiasResult[0].status}
-    />
+      <SubjectBadge
+        name={materiasResult[0].name}
+        status={materiasResult[0].status}
+      />
     );
 
     expect(enzymeWrapperBadge).toBeTruthy();
@@ -208,10 +210,10 @@ describe('<Seguidor /> ', () => {
 
     // Componente de vistas del carousel.
     const enzymeWrapperYearsCarousel = mount(
-    <SubjectYearsCarousel
-       years={yearsArray[0]}
-       updateFn={jest.fn()}
-    />
+      <SubjectYearsCarousel
+        years={yearsArray[0]}
+        updateFn={jest.fn()}
+      />
     );
 
     const yearsVisualizer = enzymeWrapperYearsCarousel.find('.YearsVisualizer');
@@ -220,11 +222,11 @@ describe('<Seguidor /> ', () => {
     // YearOfStudy test.
     const yearOfStudy = yearsArray[0][0];
     const yearOfStudyWrapper = mount(
-    <YearOfStudy
-      subjects={yearOfStudy.subjects}
-      year={yearOfStudy.year}
-      updateEstado={jest.fn()}
-    />
+      <YearOfStudy
+        subjects={yearOfStudy.subjects}
+        year={yearOfStudy.year}
+        updateEstado={jest.fn()}
+      />
     );
 
     const yearOfStudyContainer = yearOfStudyWrapper.find('.Container');
@@ -232,7 +234,7 @@ describe('<Seguidor /> ', () => {
     expect(yearOfStudyWrapper.contains(Subject));
   })
 
-  it('<Carousel />', () =>{
+  it('<Carousel />', () => {
     const carouselProps = {
       materias: props.materias,
       yearsPerTab: 3,
@@ -244,31 +246,31 @@ describe('<Seguidor /> ', () => {
     expect(carouselComponent.contains(SubjectYears));
   })
 
-  it('<Pendientes />', () =>{
+  it('<Pendientes />', () => {
     const materiasPorFinalizar = [{
       cursada: true,
       final: true,
       id: 2,
-      name: "Algoritmos y Estructuras de Datos",
+      name: 'Algoritmos y Estructuras de Datos',
       pendientes: {
         final: [],
         firma: []
       },
       status: 3,
-      year: "1"
+      year: '1'
     }];
 
     const materiasPorFirmar = [{
       cursada: true,
       final: true,
       id: 1,
-      name: "Algebra y Geometría Analítica",
+      name: 'Algebra y Geometría Analítica',
       pendientes: {
         final: [],
         firma: []
       },
       status: 2,
-      year: "1"
+      year: '1'
     }]
 
     const pendientes = {
@@ -282,6 +284,8 @@ describe('<Seguidor /> ', () => {
         materias={props.materias}
       />
     );
+
+    expect(pendientesComponent).toBeTruthy();
 
   })
 

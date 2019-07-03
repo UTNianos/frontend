@@ -6,18 +6,16 @@ const indicatorStyles = {
   marginTop: '10%'
 };
 
-const FetchingIndicator = () => {
-  return(
-	<div style={indicatorStyles}>
+const FetchingIndicator = () => (
+  <div style={indicatorStyles}>
     <Spin tip="Cargando...">
-     <Alert
+      <Alert
         message="Cargando"
         description="Por favor espere..."
         type="info"
-     />
+      />
     </Spin>
-	</div>
-  );
-}
+  </div>
+)
 
 export default FetchingIndicator;

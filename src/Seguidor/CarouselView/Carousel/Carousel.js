@@ -12,41 +12,41 @@ const Carousel = (props) => {
 
   const [currentTab, setCurrentTab] = useState(1);
   const [totalTabs] = useState(studyYears.length);
-  const index = currentTab-1;
+  const index = currentTab - 1;
   const years = studyYears[index];
 
   function nextTab() {
     if (currentTab < totalTabs) {
-      setCurrentTab(currentTab+1);
+      setCurrentTab(currentTab + 1);
     }
   }
 
   function prevTab() {
-    if(currentTab > 1) {
-      setCurrentTab(currentTab-1);
+    if (currentTab > 1) {
+      setCurrentTab(currentTab - 1);
     }
   }
 
-  if(studyYears.length <= 0) {
+  if (studyYears.length <= 0) {
     return null;
   }
 
-  return(
-  <div>
-    <CarouselArrows prevFn={prevTab} nextFn={nextTab} />
-    <TransitionGroup>
-      <CSSTransition
-        transitionName="TransitionGroup"
-        transitionAppear={false}
-        transitionEnterTimeout={1000}
-        transitionLeaveTimeout={1000}
-        transitionEnter
-        transitionLeave
-      >
-        <SubjectYears years={years} updateFn={updateFn} />
-      </CSSTransition>
-    </TransitionGroup>
-  </div>
+  return (
+    <div>
+      <CarouselArrows prevFn={prevTab} nextFn={nextTab} />
+      <TransitionGroup>
+        <CSSTransition
+          transitionName="TransitionGroup"
+          transitionAppear={false}
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}
+          transitionEnter
+          transitionLeave
+        >
+          <SubjectYears years={years} updateFn={updateFn} />
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
   );
 
 }
