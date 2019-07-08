@@ -32,18 +32,18 @@ const Seguidor = (props) => {
     <div className="Seguidor">
       <div>
         <MediaQuery maxDeviceWidth={1224}>
-         <SeguidorHeading
-           changeViewType={changeViewType}
-           currentView={view}
-           desktop={false}
-         />
+          <SeguidorHeading
+            changeViewType={changeViewType}
+            currentView={view}
+            desktop={false}
+          />
         </MediaQuery>
         <MediaQuery minDeviceWidth={1224}>
-           <SeguidorHeading
-             changeViewType={changeViewType}
-             currentView={view}
-             desktop={true}
-           />
+          <SeguidorHeading
+            changeViewType={changeViewType}
+            currentView={view}
+            desktop
+          />
         </MediaQuery>
       </div>
       <SeguidorView

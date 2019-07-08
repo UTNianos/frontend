@@ -5,28 +5,25 @@ import './Seguidor.css';
 const { Option } = Select;
 
 const subjectViews = [{
-  value: "carousel",
-  text: "Vista normal"
- },
- {
-   value: "tree",
-   text: "Vista compacta"
-  },
-  {
-    value: "finales",
-    text: "Finales Pendientes"
+  value: 'carousel',
+  text: 'Vista normal'
+},
+{
+  value: 'tree',
+  text: 'Vista compacta'
+},
+{
+  value: 'finales',
+  text: 'Finales Pendientes'
 }];
 
-const filterOption = (input, option) => {
-  return option.props.children.toLowerCase()
-    .indexOf(input.toLowerCase()) >= 0;
-}
+const filterOption = (input, option) => option.props.children.toLowerCase()
+  .indexOf(input.toLowerCase()) >= 0
 
 const getViews = (desktop) => {
-  if(desktop)
-    return subjectViews;
+  if (desktop) return subjectViews;
 
-  return subjectViews.filter(v => v.value !== "tree");
+  return subjectViews.filter(v => v.value !== 'tree');
 }
 
 const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
@@ -36,7 +33,7 @@ const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
       <h1 className="SeguidorHeading">Materias</h1>
     </div>
 
-    <div className={"ViewChooser " + (desktop ? " Desktop" : " Mobile")}>
+    <div className={`ViewChooser ${desktop ? ' Desktop' : ' Mobile'}`}>
 
       <Select
         showSearch
@@ -48,10 +45,11 @@ const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
         filterOption={(input, option) => filterOption(input, option)}
         className="ViewChooserSelect"
       >
-       {getViews(desktop).map(v =>
-         <Option key={v.value} view={v.value}>
+        {getViews(desktop).map(v => (
+          <Option key={v.value} view={v.value}>
             {v.text}
-         </Option>)}
+          </Option>
+        ))}
       </Select>
 
     </div>
