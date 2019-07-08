@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import MediaQuery from 'react-responsive';
-import FetchingIndicator from '../Fetching/FetchingIndicator'
-import SeguidorHeading from './SeguidorHeading'
+import FetchingIndicator from '../Fetching/FetchingIndicator';
+import SeguidorHeading from './SeguidorHeading';
 import SeguidorView from './SeguidorView';
 
 const Seguidor = (props) => {
@@ -31,10 +31,20 @@ const Seguidor = (props) => {
   return (
     <div className="Seguidor">
       <div>
-        <SeguidorHeading
-          changeViewType={changeViewType}
-          currentView={view}
-        />
+        <MediaQuery maxDeviceWidth={1224}>
+         <SeguidorHeading
+           changeViewType={changeViewType}
+           currentView={view}
+           desktop={false}
+         />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1224}>
+           <SeguidorHeading
+             changeViewType={changeViewType}
+             currentView={view}
+             desktop={true}
+           />
+        </MediaQuery>
       </div>
       <SeguidorView
         materias={materias}
