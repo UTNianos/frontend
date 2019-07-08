@@ -1,79 +1,54 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group' // ES6
 import SubjectYears from '../SubjectYears';
 import CarouselArrows from './CarouselArrows';
 import getYearsArray from './getYearsArray';
 import './Carousel.css';
 
-class Carousel extends Component {
+const Carousel = (props) => {
 
-  constructor(props) {
-    super(props);
+  const { materias, yearsPerTab, updateFn } = props;
+  const studyYears = getYearsArray(yearsPerTab, materias);
 
-    const { materias, yearsPerTab } = props;
-    const studyYears = getYearsArray(yearsPerTab, materias);
+  const [currentTab, setCurrentTab] = useState(1);
+  const [totalTabs] = useState(studyYears.length);
+  const index = currentTab - 1;
+  const years = studyYears[index];
 
-    this.state = {
-      currentTab: 1,
-      totalTabs: studyYears.length,
-      studyYears
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-    const { materias, yearsPerTab } = nextProps;
-    const studyYears = getYearsArray(yearsPerTab, materias);
-
-    this.setState({
-      totalTabs: studyYears.length,
-      studyYears
-    });
-  }
-
-  nextTab() {
-    const { currentTab, totalTabs } = this.state;
-
+  function nextTab() {
     if (currentTab < totalTabs) {
-      this.setState({ currentTab: currentTab + 1 });
+      setCurrentTab(currentTab + 1);
     }
   }
 
-  prevTab() {
-    const { currentTab } = this.state;
+  function prevTab() {
     if (currentTab > 1) {
-      this.setState({ currentTab: currentTab - 1 });
+      setCurrentTab(currentTab - 1);
     }
   }
 
-  render() {
-
-    const { studyYears, currentTab } = this.state
-    const { updateFn } = this.props;
-
-    if (studyYears.length <= 0) { return null; }
-
-    const index = currentTab - 1;
-    const years = studyYears[index];
-
-    return (
-      <div>
-        <CarouselArrows prevFn={this.prevTab.bind(this)} nextFn={this.nextTab.bind(this)} />
-        <TransitionGroup>
-          <CSSTransition
-            transitionName="TransitionGroup"
-            transitionAppear={false}
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={1000}
-            transitionEnter
-            transitionLeave
-          >
-            <SubjectYears years={years} updateFn={updateFn} />
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
-    );
+  if (studyYears.length <= 0) {
+    return null;
   }
+
+  return (
+    <div>
+      <CarouselArrows prevFn={prevTab} nextFn={nextTab} />
+      <TransitionGroup>
+        <CSSTransition
+          transitionName="TransitionGroup"
+          transitionAppear={false}
+          transitionEnterTimeout={1000}
+          transitionLeaveTimeout={1000}
+          transitionEnter
+          transitionLeave
+        >
+          <SubjectYears years={years} updateFn={updateFn} />
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
+  );
+
 }
 
 export default Carousel;

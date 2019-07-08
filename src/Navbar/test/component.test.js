@@ -1,13 +1,11 @@
 import React from 'react';
-import Enzyme, { mount, /* shallow */ } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-// import MediaQuery from 'react-responsive';
 import { Affix } from 'antd';
 import { MemoryRouter } from 'react-router';
 import Navbar from '../Navbar';
 import NavbarDesktop from '../NavbarDesktop';
 import NavbarMobile from '../NavbarMobile';
-// import LoginMenu from '../LoginMenu/LoginMenu';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -37,17 +35,15 @@ describe('<Navbar /> ', () => {
 
   it('<NavbarDesktop />.', () => {
 
-    /* const wrapper = shallow(
+    const wrapper = mount(
       <MemoryRouter>
         <NavbarDesktop />
       </MemoryRouter>
-    ); */
+    );
 
-    // const image = wrapper.find('img');
-    // TODO
-    // expect(wrapper.contains(LoginMenu));
-    // expect(image.props().alt).toEqual('UTNianos')
-    expect(true).toBe(true);
+    const image = wrapper.find('img');
+
+    expect(image.props().alt).toEqual('UTNianos')
   })
 
 })

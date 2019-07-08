@@ -10,16 +10,16 @@ const FinalesPendientes = ({ materias, updateEstado }) => {
     return (
       <div style={{ textAlign: 'center', marginTop: '60px' }}>
         <h1>
-         No existen materias pendientes de final.
+       No existen materias pendientes de final.
         </h1>
         <h3>
-         No tenés materias pendientes de final.
-         Una vez que termines la cursada de una materia y la marques
-         como
+       No tenés materias pendientes de final.
+       Una vez que termines la cursada de una materia y la marques
+       como
           {' '}
           <strong>firmada</strong>
           {' '}
-la misma aparecera en este área.
+        la misma aparecera en este área.
         </h3>
       </div>
     );
@@ -44,7 +44,11 @@ la misma aparecera en este área.
           ]}
           >
             <List.Item.Meta
-              title={<a href="http://utnianos.com">{item.name}</a>}
+              title={(
+                <a href="http://utnianos.com">
+                  {item.name}
+                </a>
+)}
             />
           </List.Item>
         )}
