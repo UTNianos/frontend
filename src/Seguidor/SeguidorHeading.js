@@ -4,19 +4,39 @@ import './Seguidor.css';
 
 const { Option } = Select;
 
-function filterOption(input, option) {
+const subjectViews = [{
+  value: "carousel",
+  text: "Vista normal"
+ },
+ {
+   value: "tree",
+   text: "Vista compacta"
+  },
+  {
+    value: "finales",
+    text: "Finales Pendientes"
+}];
+
+const filterOption = (input, option) => {
   return option.props.children.toLowerCase()
     .indexOf(input.toLowerCase()) >= 0;
 }
 
-const SeguidorHeading = ({ changeViewType, currentView }) => (
+const getViews = (desktop) => {
+  if(desktop)
+    return subjectViews;
+
+  return subjectViews.filter(v => v.value !== "tree");
+}
+
+const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
   <div>
 
     <div className="SeguidorTitle">
       <h1 className="SeguidorHeading">Materias</h1>
     </div>
 
-    <div className="ViewChooser">
+    <div className={"ViewChooser " + (desktop ? " Desktop" : " Mobile")}>
 
       <Select
         showSearch
@@ -28,9 +48,10 @@ const SeguidorHeading = ({ changeViewType, currentView }) => (
         filterOption={(input, option) => filterOption(input, option)}
         className="ViewChooserSelect"
       >
-        <Option value="carousel">Vista alargada</Option>
-        <Option value="tree">Vista compacta</Option>
-        <Option value="finales">Finales Pendientes</Option>
+       {getViews(desktop).map(v =>
+         <Option key={v.value} view={v.value}>
+            {v.text}
+         </Option>)}
       </Select>
 
     </div>

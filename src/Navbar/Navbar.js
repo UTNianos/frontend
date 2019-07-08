@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
   <Affix>
-   <MediaQuery minDeviceWidth={1224} >
+   <MediaQuery minDeviceWidth={1224}>
       <NavbarDesktop />
     </MediaQuery>
 	 <MediaQuery maxDeviceWidth={1224}>
