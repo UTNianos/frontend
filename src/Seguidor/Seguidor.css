@@ -5,9 +5,15 @@
   margin-bottom: 38px;
 }
 
-.ViewChooser
+.ViewChooser.Desktop
 {
   margin-left: 77%;
+  margin-bottom: 50px;
+}
+
+.ViewChooser.Mobile
+{
+  margin-left: 40%;
   margin-bottom: 50px;
 }
 
