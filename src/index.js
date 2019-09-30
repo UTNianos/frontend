@@ -4,13 +4,12 @@ import { Router, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
 import store from './store/configureStore';
-import ApplicationRoutes from './Routes/Routes';
+import routes from './Routes/Routes';
 import AppRoute from './Routes/AppRoute';
+import App from './App/App';
 
 // Create browser history.
 const browserHistory = createBrowserHistory();
-const { App } = ApplicationRoutes;
-const { Routes } = ApplicationRoutes;
 
 const Utnianos = () => (
   <div>
@@ -18,9 +17,9 @@ const Utnianos = () => (
       <Router history={browserHistory}>
         <App>
           <Switch>
-            {Routes.map((route) => (
+            {routes.map((route) => (
               <AppRoute
-                key={route.id}
+                key={route.path}
                 exact={route.exact}
                 path={route.path}
                 component={route.component}
