@@ -35,5 +35,12 @@
      "describe": true,
      "afterEach": true,
      "beforeEach": true
-   }
+   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
 }
