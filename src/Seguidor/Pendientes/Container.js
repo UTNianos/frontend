@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Pendientes from './Pendientes';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   materias: state.seguidor.materias
 });
 

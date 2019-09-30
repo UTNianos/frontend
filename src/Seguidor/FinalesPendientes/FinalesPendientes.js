@@ -4,22 +4,22 @@ import './FinalesPendientes.css';
 
 const FinalesPendientes = ({ materias, updateEstado }) => {
 
-  const pendientesDeFinal = materias.filter(m => m.final === true && m.status === 3);
+  const pendientesDeFinal = materias.filter((m) => m.final === true && m.status === 3);
 
   if (pendientesDeFinal.length === 0) {
     return (
       <div style={{ textAlign: 'center', marginTop: '60px' }}>
         <h1>
-         No existen materias pendientes de final.
+       No existen materias pendientes de final.
         </h1>
         <h3>
-         No tenés materias pendientes de final.
-         Una vez que termines la cursada de una materia y la marques
-         como
+       No tenés materias pendientes de final.
+       Una vez que termines la cursada de una materia y la marques
+       como
           {' '}
           <strong>firmada</strong>
           {' '}
-la misma aparecera en este área.
+        la misma aparecera en este área.
         </h3>
       </div>
     );
@@ -30,7 +30,7 @@ la misma aparecera en este área.
       <List
         itemLayout="horizontal"
         dataSource={pendientesDeFinal}
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item actions={[
             <span
               className="link-button"
@@ -44,7 +44,11 @@ la misma aparecera en este área.
           ]}
           >
             <List.Item.Meta
-              title={<a href="http://utnianos.com">{item.name}</a>}
+              title={(
+                <a href="http://utnianos.com">
+                  {item.name}
+                </a>
+)}
             />
           </List.Item>
         )}

@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
-const getMaterias = state => state.seguidor.materias
-const getEstados = state => state.seguidor.estados
-const getCorrelativas = state => state.seguidor.correlativas
+const getMaterias = (state) => state.seguidor.materias
+const getEstados = (state) => state.seguidor.estados
+const getCorrelativas = (state) => state.seguidor.correlativas
 
 /*
  *   Estados:
@@ -17,7 +17,7 @@ const ESTADO_FIRMA = 3;
 const ESTADO_APROBACION = 4;
 
 function reqSatisfy(estados, req, estado) {
-  const result = estados.filter(e => e.id === parseInt(req, 10) && e.status >= estado);
+  const result = estados.filter((e) => e.id === parseInt(req, 10) && e.status >= estado);
   return result.length !== 0;
 }
 
@@ -35,7 +35,7 @@ function validarReq(requerimientos, estados, estado) {
     return { valido: true, pendientes: [] };
   }
 
-  const reqPendientes = requerimientos.filter(req => !(reqSatisfy(estados, req, estado)));
+  const reqPendientes = requerimientos.filter((req) => !(reqSatisfy(estados, req, estado)));
 
   const valido = (reqPendientes.length === 0);
   return { valido, pendientes: reqPendientes };
@@ -101,14 +101,14 @@ function calcularEstado(materia, estados, correlativas) {
     pendientes: {}
   };
 
-  const materiaEstado = estados.filter(c => c.id === newMateria.id);
+  const materiaEstado = estados.filter((c) => c.id === newMateria.id);
   let estadoMateria = 1; // Por defecto, la materia esta pendiente.
 
   if (materiaEstado.length > 0) {
     estadoMateria = materiaEstado[0].status;
   }
 
-  let correlativasMateria = correlativas.filter(c => c.m === newMateria.id);
+  let correlativasMateria = correlativas.filter((c) => c.m === newMateria.id);
 
   if (correlativasMateria.length > 0) {
     correlativasMateria = correlativasMateria[0].d;
@@ -128,7 +128,7 @@ function calcularEstado(materia, estados, correlativas) {
 const getMateriasEstado = createSelector(
   [getMaterias, getEstados, getCorrelativas],
   (materias, estados, correlativas) => materias.map(
-    mat => calcularEstado(mat, estados, correlativas)
+    (mat) => calcularEstado(mat, estados, correlativas)
   )
 );
 

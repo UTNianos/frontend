@@ -1,5 +1,5 @@
 export function getNuevoEstadoArray(materia, estados) {
-  const indexMateria = estados.findIndex(estado => estado.id === materia.id);
+  const indexMateria = estados.findIndex((estado) => estado.id === materia.id);
 
   let estadosNuevos = [];
 

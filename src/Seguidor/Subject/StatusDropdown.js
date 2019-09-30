@@ -12,7 +12,7 @@ const categories = [
 
 function handleChange(value, updateFn, materiaId) {
 
-  const categoryId = categories.filter(c => c.name === value)[0].id;
+  const categoryId = categories.filter((c) => c.name === value)[0].id;
   const materiaStatus = {
     id: materiaId,
     status: categoryId + 1
@@ -22,7 +22,7 @@ function handleChange(value, updateFn, materiaId) {
 }
 
 function categroyFromStatus(status, subjectCategories) {
-  return subjectCategories.filter(c => (c.id + 1) === status)[0].name;
+  return subjectCategories.filter((c) => (c.id + 1) === status)[0].name;
 }
 
 const StatusDropdown = ({ updateFn, materiaId, status }) => (
@@ -30,10 +30,10 @@ const StatusDropdown = ({ updateFn, materiaId, status }) => (
     <Select
       style={{ width: '100%' }}
       optionFilterProp="children"
-      onChange={value => handleChange(value, updateFn, materiaId)}
+      onChange={(value) => handleChange(value, updateFn, materiaId)}
       defaultValue={categroyFromStatus(status, categories)}
     >
-      {categories.map(category => (
+      {categories.map((category) => (
         <Option value={category.name} key={category.id} title={category.name}>
           <Badge status={category.color} />
           {category.name}
