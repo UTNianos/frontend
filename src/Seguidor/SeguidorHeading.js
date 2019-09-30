@@ -23,7 +23,7 @@ const filterOption = (input, option) => option.props.children.toLowerCase()
 const getViews = (desktop) => {
   if (desktop) return subjectViews;
 
-  return subjectViews.filter(v => v.value !== 'tree');
+  return subjectViews.filter((v) => v.value !== 'tree');
 }
 
 const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
@@ -40,12 +40,12 @@ const SeguidorHeading = ({ changeViewType, currentView, desktop }) => (
         style={{ width: 200 }}
         placeholder="Elegir una vista"
         optionFilterProp="children"
-        onChange={value => changeViewType(value)}
+        onChange={(value) => changeViewType(value)}
         defaultValue={currentView}
         filterOption={(input, option) => filterOption(input, option)}
         className="ViewChooserSelect"
       >
-        {getViews(desktop).map(v => (
+        {getViews(desktop).map((v) => (
           <Option key={v.value} view={v.value}>
             {v.text}
           </Option>

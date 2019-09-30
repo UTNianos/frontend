@@ -18,7 +18,7 @@ const Utnianos = () => (
       <Router history={browserHistory}>
         <App>
           <Switch>
-            {Routes.map(route => (
+            {Routes.map((route) => (
               <AppRoute
                 key={route.id}
                 exact={route.exact}

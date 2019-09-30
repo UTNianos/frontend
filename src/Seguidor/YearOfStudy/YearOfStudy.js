@@ -9,7 +9,7 @@ Año
       {year}
     </p>
     <hr className="Separator" />
-    {subjects.map(subject => (
+    {subjects.map((subject) => (
       <div key={subject.id}>
         <Subject subject={subject} updateEstado={updateEstado} />
       </div>

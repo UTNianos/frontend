@@ -4,7 +4,7 @@ import './FinalesPendientes.css';
 
 const FinalesPendientes = ({ materias, updateEstado }) => {
 
-  const pendientesDeFinal = materias.filter(m => m.final === true && m.status === 3);
+  const pendientesDeFinal = materias.filter((m) => m.final === true && m.status === 3);
 
   if (pendientesDeFinal.length === 0) {
     return (
@@ -30,7 +30,7 @@ const FinalesPendientes = ({ materias, updateEstado }) => {
       <List
         itemLayout="horizontal"
         dataSource={pendientesDeFinal}
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item actions={[
             <span
               className="link-button"

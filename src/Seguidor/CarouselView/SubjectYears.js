@@ -4,7 +4,7 @@ import YearOfStudy from '../YearOfStudy/YearOfStudy';
 
 const SubjectYears = ({ years, updateFn }) => (
   <div className="YearsVisualizer">
-    {years.map(year => (
+    {years.map((year) => (
       <YearOfStudy
         key={year.year}
         year={year.year}

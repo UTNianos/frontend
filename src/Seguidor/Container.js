@@ -10,14 +10,14 @@ import {
 
 import getMateriasEstado from './Selector';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   materias: getMateriasEstado(state),
   isFetching: state.seguidor.isFetching,
   error: state.seguidor.error,
   estados: state.seguidor.estados
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onLoad: () => {
     dispatch({ type: REQUEST_MATERIAS });
     dispatch({ type: REQUEST_ESTADO });

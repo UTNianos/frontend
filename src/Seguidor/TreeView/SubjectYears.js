@@ -8,7 +8,7 @@ const SubjectYears = ({ years, updateFn }) => {
 
   return (
     <div className="YearsVisualizer">
-      {years.map(year => (
+      {years.map((year) => (
         <YearOfStudy
           key={year.year}
           year={year.year}
