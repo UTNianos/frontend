@@ -1,12 +1,14 @@
 import { takeEvery, call, put } from "redux-saga/effects";
-import authActions, { Types } from "store/Reducers/auth";
-import { authenticate, fetchUserData } from "api/auth";
+import authActions, { Types } from "store/Reducers/user";
+import { setToken } from "api";
+import { authenticate, fetchUserData } from "api/user";
 
-function* login({ username, password }) {
+export function* login({ username, password }) {
   const token = yield call(authenticate, username, password);
   yield localStorage.setItem("token", token);
+  yield call(setToken, token);
   const userData = yield call(fetchUserData);
-  yield put(authActions.loginSuccess({ username }));
+  yield put(authActions.loginSuccess({ username, userData }));
 }
 
 export default function* authSaga() {

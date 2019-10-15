@@ -1,6 +1,6 @@
-import { all, takeEvery } from 'redux-saga/effects';
+import { all, takeEvery } from "redux-saga/effects";
 
-import authSaga from 'sagas/auth/';
+import authSaga from "sagas/user/";
 import {
   REQUEST_MATERIAS,
   REQUEST_ESTADO,
@@ -8,8 +8,7 @@ import {
   loadEstado,
   loadMaterias,
   loadCorrelativas
-} from '../Seguidor/Actions';
-
+} from "../Seguidor/Actions";
 
 function* seguidorSaga() {
   yield takeEvery(REQUEST_MATERIAS, loadMaterias);
@@ -17,9 +16,5 @@ function* seguidorSaga() {
   yield takeEvery(REQUEST_CORRELATIVAS, loadCorrelativas);
 }
 export default function* rootSaga() {
-  yield all([
-    seguidorSaga(),
-    authSaga()
-  ])
-
+  yield all([seguidorSaga(), authSaga()]);
 }
