@@ -1,5 +1,17 @@
+import api, { dataOrNull } from "api";
 
-// eslint-disable-next-line
-export const authenticate = (username, password) => {
+export const authenticate = async (username, password) =>
+  api
+    .get(
+      "/auth/jwt/token",
+      {},
+      {
+        headers: {
+          Authorization: `basic ${btoa(`${username}:${password}`)}`
+        }
+      }
+    )
+    .then(dataOrNull(response => response.data));
 
-}
+export const fetchUserData = async () =>
+  api.get("/auth/me").then(dataOrNull(response => response.data));
