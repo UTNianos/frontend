@@ -1,10 +1,10 @@
 import { createActions, createReducer } from 'reduxsauce'
 
-const INITIAL_STATE = { user: false, token: null }
+const INITIAL_STATE = { user: null}
 
 const { Types, Creators } = createActions({
   loginRequest: ['username', 'password'],
-  loginSuccess: ['user', 'token'],
+  loginSuccess: ['user'],
   loginFailure: ['error'],
   logout: null
 })
@@ -12,7 +12,7 @@ const { Types, Creators } = createActions({
 export default Creators
 export { Types }
 
-const success = (state, { user, token }) => ({ ...state, user, token })
+const success = (state, { user }) => ({ ...state, user })
 
 const failure = (state) => ({ ...state, user: null })
 
